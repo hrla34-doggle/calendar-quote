@@ -1,0 +1,39 @@
+{
+  "name": "calendar-quote",
+  "version": "1.0.0",
+  "description": "> Project description: Creating a mock version of the Trafalgar trip website",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "react-dev": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Front-End-Capstone-hrla34/calendar-quote.git"
+  },
+  "author": "Andy Kuo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Front-End-Capstone-hrla34/calendar-quote/issues"
+  },
+  "homepage": "https://github.com/Front-End-Capstone-hrla34/calendar-quote#readme",
+  "dependencies": {
+    "express": "4.17.1",
+    "body-parser": "1.19.0",
+    "morgan": "1.9.1",
+    "cors": "2.8.5",
+    "mongoose": "5.8.9",
+    "axios": "0.19.2",
+    "nodemon": "2.0.2",
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
+  },
+  "devDependencies": {
+    "webpack": "4.41.5",
+    "webpack-cli": "3.3.10",
+    "@babel/core": "7.8.3",
+    "@babel/preset-env": "7.8.3",
+    "@babel/preset-react": "7.8.3",
+    "babel-loader": "8.0.6"
+  }
+}
