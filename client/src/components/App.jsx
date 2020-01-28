@@ -6,7 +6,7 @@ export default class App extends React.Component {
 
     this.state = {
 
-    }
+    };
   }
 
   render() {
@@ -14,6 +14,6 @@ export default class App extends React.Component {
       <div>
         HI
       </div>
-    )
+    );
   }
 }
