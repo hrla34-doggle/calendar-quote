@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const router = require('express').Router();
 const Trip = require('../database/model.js');
 const db = require('../database/index.js');

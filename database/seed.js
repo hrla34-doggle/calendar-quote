@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
+/* eslint-disable no-plusplus */
 const mongoose = require('mongoose');
 const db = require('./');
 const Trip = require('./model.js');
@@ -141,16 +144,14 @@ const cities = [
 
 const titles = [];
 
-const split = cities.map((city) => {
-  return city.split(', ');
-});
+const split = cities.map((city) => city.split(', '));
 
 for (let i = 0; i < 100; i++) {
   let title = '';
-  title += adjectives[Math.floor(Math.random() * 14)] + ' ' +
-    nouns[Math.floor(Math.random() * 9)] + ' ' +
-    prepositions[Math.floor(Math.random() * 2)] + ' ' +
-    split[i][0];
+  title += `${adjectives[Math.floor(Math.random() * 14)]} ${
+    nouns[Math.floor(Math.random() * 9)]} ${
+    prepositions[Math.floor(Math.random() * 2)]} ${
+    split[i][0]}`;
   titles.push(title);
 }
 
