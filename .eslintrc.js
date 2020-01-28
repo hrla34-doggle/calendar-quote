@@ -8,7 +8,7 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "./node_modules/eslint-config-hackreactor/index.js"
+        "./node_modules/eslint-config-airbnb/index.js"
     ],
     "globals": {
         "Atomics": "readonly",
