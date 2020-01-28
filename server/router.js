@@ -1,9 +1,19 @@
 const router = require('express').Router();
+const Trip = require('../database/model.js');
+const db = require('../database/index.js');
 
 router
   .route('/calendar/:_id')
   .get((req, res) => {
-    res.status(200).send('hello from router');
+    var _id = req.params._id;
+
+    Trip.findOne({_id})
+    .then((trip) => {
+      res.status(200).json(trip);
+    })
+    .catch((err) => {
+      res.status(404).send(err);
+    });
   });
 
 router
