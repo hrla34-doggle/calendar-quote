@@ -1,0 +1,38 @@
+.container {
+  height: 200px;
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  border: 1px solid rgb(219, 218, 218);
+}
+
+.upper-box {
+  display: flex;
+  height: 77%;
+}
+
+.lower-box {
+  display: flex;
+  height: 23%;
+  font-family: opensans, sans-serif;
+  font-size: 13px;
+  font-weight: 200;
+  justify-content: flex-start;
+  align-items: center;
+  color: #4c4c4c;
+  padding-left: 25px;
+  border-top: 1px solid rgb(219, 218, 218);
+}
+
+.trip-code {
+  color: #767676;
+  font-size: 12px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.widget-box {
+  display: flex;
+  flex-direction: column;
+
+}
