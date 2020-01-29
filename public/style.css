@@ -16,10 +16,10 @@
   height: 23%;
   font-family: opensans, sans-serif;
   font-size: 13px;
-  font-weight: 200;
+  font-weight: 400;
   justify-content: flex-start;
   align-items: center;
-  color: #4c4c4c;
+  color: rgb(76, 76, 76);
   padding-left: 25px;
   border-top: 1px solid rgb(219, 218, 218);
 }
