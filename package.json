@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
-    "seed": "node database/seed.js"
+    "seed": "node database/seed.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,15 +20,18 @@
   },
   "homepage": "https://github.com/Front-End-Capstone-hrla34/calendar-quote#readme",
   "dependencies": {
-    "express": "4.17.1",
-    "body-parser": "1.19.0",
-    "morgan": "1.9.1",
-    "cors": "2.8.5",
-    "mongoose": "5.8.9",
     "axios": "0.19.2",
+    "body-parser": "1.19.0",
+    "cors": "2.8.5",
+    "express": "4.17.1",
+    "jest": "^25.1.0",
+    "mongoose": "5.8.9",
+    "morgan": "1.9.1",
     "nodemon": "2.0.2",
+    "puppeteer": "^2.1.0",
     "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "react-dom": "16.12.0",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "7.8.3",
@@ -42,5 +46,11 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "webpack": "4.41.5",
     "webpack-cli": "3.3.10"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules"
+    ]
   }
 }
