@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const schema = new mongoose.Schema({
+const tripSchema = new mongoose.Schema({
   title: String,
   city: String,
   price: Number,
@@ -9,4 +9,17 @@ const schema = new mongoose.Schema({
   days: Number,
 });
 
-module.exports = schema;
+const userSchema = new mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  email: String,
+  phone: String,
+  comment: String,
+  hasAgent: Boolean,
+  isAgent: Boolean,
+  loyalty: Boolean,
+  subscribe: Boolean,
+});
+
+module.exports.tripSchema = tripSchema;
+module.exports.userSchema = userSchema;

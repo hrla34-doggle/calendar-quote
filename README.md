@@ -13,6 +13,7 @@
   - npm start (to start the server)
   - npm run react-dev (to start webpack)
   - npm run seed (to seed database)
+  - npm test (run tests)
 
 ### Installing Dependencies
 
