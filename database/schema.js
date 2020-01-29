@@ -6,7 +6,7 @@ const schema = new mongoose.Schema({
   price: Number,
   msrp: Number,
   dates: [Date],
-  days: Number
-})
+  days: Number,
+});
 
 module.exports = schema;

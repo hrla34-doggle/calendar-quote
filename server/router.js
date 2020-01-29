@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const router = require('express').Router();
 const Trip = require('../database/model.js');
 const db = require('../database/index.js');
@@ -5,15 +6,15 @@ const db = require('../database/index.js');
 router
   .route('/calendar/:_id')
   .get((req, res) => {
-    var _id = req.params._id;
+    const { _id } = req.params;
 
-    Trip.findOne({_id})
-    .then((trip) => {
-      res.status(200).json(trip);
-    })
-    .catch((err) => {
-      res.status(404).send(err);
-    });
+    Trip.findOne({ _id })
+      .then((trip) => {
+        res.status(200).json(trip);
+      })
+      .catch((err) => {
+        res.status(404).send(err);
+      });
   });
 
 router
@@ -23,4 +24,3 @@ router
   });
 
 module.exports = router;
-
