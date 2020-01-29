@@ -24,15 +24,106 @@
   border-top: 1px solid rgb(219, 218, 218);
 }
 
-.trip-code {
-  color: #767676;
-  font-size: 12px;
-  display: flex;
-  align-items: flex-end;
-}
-
 .widget-box {
   display: flex;
   flex-direction: column;
-
+  width: 100%;
 }
+
+.trip-code {
+  color: #a1a0a0;
+  font-size: 11px;
+  text-align: right;
+  margin-top: 7px;
+  margin-right: 8px;
+}
+
+.container-pricing {
+  display: flex;
+  flex-direction: row;
+  font-family: opensans, sans-serif;
+  margin-top: 5px;
+}
+
+.pricing-text {
+  font-size: 12px;
+  color: rgb(155, 154, 154)
+}
+
+.price {
+  margin-left: 25px;
+}
+
+.msrp {
+  margin-left: 25px;
+  color: rgb(141, 140, 140);
+}
+
+.savings-text {
+  font-size: 12px;
+}
+
+.savings {
+  margin-left: 25px;
+  color: rgb(196, 8, 47);
+  display: flex;
+  flex-direction: row;
+}
+
+.currency {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(99, 98, 98);
+}
+
+.currency2 {
+  font-weight: bold;
+}
+
+.price-tag {
+  height: 15px;
+}
+
+.container-img {
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
+.AK-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.AK-button1 {
+  border-radius: 20px;
+  height: 40px;
+  width: 42%;
+  color: white;
+  background-color: rgb(196, 8, 47);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.AK-button2 {
+  border-radius: 20px;
+  height: 40px;
+  width: 42%;
+  color: rgb(196, 8, 47);
+  border: 1.5px solid rgb(196, 8, 47);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.AK-reviews {
+  font-size: 11px;
+  width: 51px;
+  font-family: opensans, sans-serif;
+  margin: 8px 0px 15px 32px;
+  color: rgb(76, 76, 76);
+  font-weight: 100;
+  border-bottom-color: rgb(225, 13, 57);
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
+}
+
