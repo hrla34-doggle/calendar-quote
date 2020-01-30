@@ -1,3 +1,14 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.AK-page {
+  width: 100%;
+  position: absolute;
+  z-index: 20;
+}
+
 .container {
   height: 200px;
   display: flex;
@@ -9,6 +20,7 @@
 .upper-box {
   display: flex;
   height: 77%;
+  z-index: 1;
 }
 
 .lower-box {
@@ -22,6 +34,7 @@
   color: rgb(76, 76, 76);
   padding-left: 25px;
   border-top: 1px solid rgb(219, 218, 218);
+  z-index: 1;
 }
 
 .widget-box {
@@ -109,6 +122,7 @@
   background-color: rgb(196, 8, 47);
   font-weight: bold;
   font-size: 12px;
+  outline: none;
 }
 
 .AK-button2 {
@@ -119,6 +133,7 @@
   border: 1.5px solid rgb(196, 8, 47);
   font-weight: bold;
   font-size: 12px;
+  outline: none;
 }
 
 .AK-reviews {
@@ -131,6 +146,84 @@
   border-bottom-color: rgb(225, 13, 57);
   border-bottom-style: dotted;
   border-bottom-width: 1px;
+}
+
+.topbar {
+  width: 100%;
+  height: 55px;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  position: fixed;
+  z-index: 20;
+  background-color: rgb(251, 251, 251);
+  display: flex;
+  flex-direction: row;
+}
+
+.AK-logo {
+  margin: 11px 12px 9px 12px;
+  width: 130px;
+}
+
+.AK-phone {
+  margin-top: 20px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+.AK-help {
+  margin-left: 10px;
+  margin-top: 10px;
+  font-family: Futura-Heavy;
+  color: rgb(76, 76, 76);
+}
+
+.AK-help-text {
+  font-size: 10px;
+  margin-top: 3px;
+  margin-bottom: 2px;
+  letter-spacing: 1.5px;
+}
+
+.AK-help-phone {
+  font-size: 13px;
+}
+
+.AK-header {
+  font-family: Futura-Next;
+  color: rgb(76,76,76);
+  margin-left: 237px;
+  margin-top: 18px;
+  font-size: 19px;
+}
+
+.AK-return {
+  color: rgb(76, 76, 76);
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 83px;
+  height: 100%;
+  background-color: white;
+  align-items: center;
+  justify-content: space-evenly;
+  border-left: 1px solid #f2f2f2
+}
+
+.AK-back-text {
+  font-family: Futura-Heavy;
+  font-size: 12px;
+  margin-left: 2px;
+}
+
+.AK-X {
+  margin-top: 2px;
+  margin-right: 6px;
+  height: 15px;
+  width: 15px;
+  opacity: 0.8;
 }
 
 @font-face {
@@ -151,4 +244,9 @@
 @font-face {
   font-family: Futura-Med;
   src: url(futura\ medium\ bt.ttf);
+}
+
+@font-face {
+  font-family: Futura-Heavy;
+  src: url(Futura\ Heavy\ font.ttf);
 }

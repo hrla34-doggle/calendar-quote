@@ -26,8 +26,8 @@ const Widget = (props) => (
       0 reviews
     </div>
     <div className="AK-buttons">
-      <button className="AK-button1">AVAILABLE DATES</button>
-      <button className="AK-button2">EASY QUOTE</button>
+      <button type="button" onClick={props.clickHandler} className="AK-button1">AVAILABLE DATES</button>
+      <button type="button" className="AK-button2">EASY QUOTE</button>
     </div>
   </div>
 );

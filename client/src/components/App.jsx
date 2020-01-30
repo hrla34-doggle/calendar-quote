@@ -2,6 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import Widget from './Widget.jsx';
+import Calendar from './Calendar.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -9,7 +10,10 @@ export default class App extends React.Component {
 
     this.state = {
       trip: {},
+      calendar: false,
     };
+
+    this.calendarClickHandler = this.calendarClickHandler.bind(this);
   }
 
   componentDidMount() {
@@ -30,14 +34,30 @@ export default class App extends React.Component {
       });
   }
 
+  calendarClickHandler() {
+    this.setState({
+      calendar: true,
+    });
+  }
+
+  renderCalendar() {
+    if (this.state.calendar) {
+      return <Calendar />;
+    }
+  }
+
   render() {
     return (
-      <div className="container">
-        <div className="upper-box">
-          <Widget trip={this.state.trip} />
+      <div className="AK-page">
+        {this.renderCalendar()}
+        <div className="container">
+          <div className="upper-box">
+            <Widget clickHandler={() => this.calendarClickHandler()} trip={this.state.trip} />
+          </div>
+          <div className="lower-box">Don't miss out - save your place today</div>
         </div>
-        <div className="lower-box">Don't miss out - save your place today</div>
       </div>
+
     );
   }
 }
