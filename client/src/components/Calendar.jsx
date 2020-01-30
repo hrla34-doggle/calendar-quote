@@ -1,5 +1,6 @@
 import React from 'react';
 import TopBar from './TopBar.jsx';
+import Carousel from './Carousel.jsx';
 
 export default class Calendar extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export default class Calendar extends React.Component {
     return (
       <div>
         <TopBar />
+        <Carousel />
       </div>
     );
   }
