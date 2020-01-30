@@ -1,0 +1,487 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.AK-page {
+  width: 100%;
+  position: absolute;
+  z-index: 20;
+}
+
+.container {
+  height: 200px;
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  border: 1px solid rgb(219, 218, 218);
+}
+
+.upper-box {
+  display: flex;
+  height: 77%;
+  z-index: 1;
+}
+
+.lower-box {
+  display: flex;
+  height: 23%;
+  font-family: opensans, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  justify-content: flex-start;
+  align-items: center;
+  color: rgb(76, 76, 76);
+  padding-left: 25px;
+  border-top: 1px solid rgb(219, 218, 218);
+  z-index: 1;
+}
+
+.widget-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.trip-code {
+  color: rgb(118, 118, 118);
+  font-size: 9.5px;
+  text-align: right;
+  margin-top: 7px;
+  margin-right: 8px;
+  font-family: opensans, sans-serif;
+}
+
+.container-pricing {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+}
+
+.pricing-text {
+  font-size: 12px;
+  font-family: GeosansLight;
+  color: rgb(118, 118, 118);
+}
+
+.price {
+  margin-left: 25px;
+}
+
+.msrp {
+  margin-left: 25px;
+  color: rgb(141, 140, 140);
+}
+
+.savings-text {
+  font-size: 12px;
+  font-family: Futura-Med;
+  margin-bottom: 3px;
+}
+
+.savings {
+  margin-left: 25px;
+  color: rgb(196, 8, 47);
+  display: flex;
+  flex-direction: row;
+  font-family: Futura-Next;
+}
+
+.currency {
+  font-size: 16px;
+  font-family: Futura-Next;
+  color: rgb(99, 98, 98);
+  margin-top: 4px;
+}
+
+.currency2 {
+  font-family: Futura-Next;
+  font-size: 14px;
+}
+
+.price-tag {
+  height: 15px;
+}
+
+.container-img {
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
+.AK-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.AK-button1 {
+  border-radius: 20px;
+  height: 40px;
+  width: 42%;
+  color: white;
+  background-color: rgb(196, 8, 47);
+  font-weight: bold;
+  font-size: 12px;
+  outline: none;
+}
+
+.AK-button2 {
+  border-radius: 20px;
+  height: 40px;
+  width: 42%;
+  color: rgb(196, 8, 47);
+  border: 1.5px solid rgb(196, 8, 47);
+  font-weight: bold;
+  font-size: 12px;
+  outline: none;
+}
+
+.AK-reviews {
+  font-size: 11px;
+  width: 47px;
+  font-family: opensans, sans-serif;
+  margin: 8px 0px 15px 32px;
+  color: rgb(76, 76, 76);
+  font-weight: 100;
+  border-bottom-color: rgb(225, 13, 57);
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
+}
+
+.topbar {
+  width: 100%;
+  height: 55px;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background-color: rgb(251, 251, 251);
+  display: flex;
+  flex-direction: row;
+}
+
+.AK-logo {
+  margin: 11px 12px 9px 12px;
+  width: 130px;
+}
+
+.AK-phone {
+  margin-top: 20px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+.AK-help {
+  margin-left: 10px;
+  margin-top: 10px;
+  font-family: Futura-Heavy;
+  color: rgb(76, 76, 76);
+}
+
+.AK-help-text {
+  font-size: 10px;
+  margin-top: 3px;
+  margin-bottom: 2px;
+  letter-spacing: 1.5px;
+}
+
+.AK-help-phone {
+  font-size: 13px;
+}
+
+.AK-header {
+  font-family: Futura-Next;
+  color: rgb(76,76,76);
+  margin-left: 237px;
+  margin-top: 18px;
+  font-size: 19px;
+}
+
+.AK-return {
+  color: rgb(76, 76, 76);
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 83px;
+  height: 100%;
+  background-color: white;
+  align-items: center;
+  justify-content: space-evenly;
+  border-left: 1px solid #f2f2f2;
+}
+
+.AK-back-text {
+  font-family: Futura-Heavy;
+  font-size: 12px;
+  margin-left: 2px;
+}
+
+.AK-X {
+  margin-top: 2px;
+  margin-right: 6px;
+  height: 15px;
+  width: 15px;
+  opacity: 0.8;
+}
+
+.AK-container-carousel {
+  margin-top: 55px;
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 700px;
+  background-color: rgb(251, 251, 251);
+  display: flex;
+  flex-direction: column;
+}
+
+.AK-middle-section {
+  height: 94px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: rgb(76, 76, 76);
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.AK-step1 {
+  align-self: center;
+  font-family: Futura-Med;
+  font-size: 12px;
+  margin-top: 24px;
+  margin-right: 5px;
+}
+
+.AK-select-dates-header {
+  align-self: center;
+  font-family: Futura-Next;
+  font-size: 24px;
+  margin-top: 4px;
+  margin-right: 4px;
+}
+
+.AK-container-legend {
+  display: flex;
+  flex-direction: row;
+  height: 51px;
+  border-left: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(230, 230, 230);
+  border-right: 1px solid rgb(230, 230, 230);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin: 0 114px 0 105px;
+  align-items: center;
+}
+
+.AK-key {
+  font-family: Futura-Heavy;
+  font-size: 12px;
+  margin-left: 16px;
+  margin-top: 2px;
+  color: rgb(66, 66, 66);
+}
+
+.AK-tooltip1 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 148px;
+}
+
+.AK-tooltip1 .AK-tooltiptext1 {
+  font-family: opensans;
+  font-size: 10px;
+  visibility: hidden;
+  width: 155px;
+  background-color: white;
+  color: rgb(76, 76, 76);
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  top: 130%;
+  left: 50%;
+  margin-left: -147px;
+  position: absolute;
+  border: 1px solid rgb(230, 230, 230);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+}
+
+.AK-tooltip1 .AK-tooltiptext1::after {
+  content: " ";
+  position: absolute;
+  bottom: 102%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgb(230, 230, 230) transparent;
+}
+
+.AK-tooltip1:hover .AK-tooltiptext1 {
+  visibility: visible;
+}
+
+.AK-tooltip2 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 120px;
+}
+
+.AK-tooltip2 .AK-tooltiptext2 {
+  font-family: opensans;
+  font-size: 10px;
+  visibility: hidden;
+  width: 155px;
+  background-color: white;
+  color: rgb(76, 76, 76);
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  top: 130%;
+  left: 50%;
+  margin-left: -132px;
+  position: absolute;
+  border: 1px solid rgb(230, 230, 230);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+}
+
+.AK-tooltip2 .AK-tooltiptext2::after {
+  content: " ";
+  position: absolute;
+  bottom: 102%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgb(230, 230, 230) transparent;
+}
+
+.AK-tooltip2:hover .AK-tooltiptext2 {
+  visibility: visible;
+}
+
+.AK-tooltip3 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 156px;
+}
+
+.AK-tooltip3 .AK-tooltiptext3 {
+  font-family: opensans;
+  font-size: 10px;
+  visibility: hidden;
+  width: 155px;
+  background-color: white;
+  color: rgb(76, 76, 76);
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  top: 130%;
+  left: 50%;
+  margin-left: -150px;
+  position: absolute;
+  border: 1px solid rgb(230, 230, 230);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+}
+
+.AK-tooltip3 .AK-tooltiptext3::after {
+  content: " ";
+  position: absolute;
+  bottom: 102%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgb(230, 230, 230) transparent;
+}
+
+.AK-tooltip3:hover .AK-tooltiptext3 {
+  visibility: visible;
+}
+
+.AK-tooltip4 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 140px;
+}
+
+.AK-tooltip4 .AK-tooltiptext4 {
+  font-family: opensans;
+  font-size: 10px;
+  visibility: hidden;
+  width: 155px;
+  background-color: white;
+  color: rgb(76, 76, 76);
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  top: 130%;
+  left: 50%;
+  margin-left: -142px;
+  position: absolute;
+  border: 1px solid rgb(230, 230, 230);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+}
+
+.AK-tooltip4 .AK-tooltiptext4::after {
+  content: " ";
+  position: absolute;
+  bottom: 102%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgb(230, 230, 230) transparent;
+}
+
+.AK-tooltip4:hover .AK-tooltiptext4 {
+  visibility: visible;
+}
+
+.AK-legend-img {
+  height: 22px;
+  width: 22px;
+  margin-left: 10px;
+  align-self: center;
+}
+
+.AK-legend-txt {
+  font-family: opensans;
+  font-size: 12px;
+  margin-left: 2px;
+  margin-right: 10px;
+  align-self: center;
+  color: rgb(68, 68, 68);
+}
+
+@font-face {
+  font-family: opensans;
+  src: url(OpenSans-Light.ttf);
+}
+
+@font-face {
+  font-family: GeosansLight;
+  src: url(FontsFree-Net-GeosansLight-2.ttf);
+}
+
+@font-face {
+  font-family: Futura-Next;
+  src: url(unicode.futurab.ttf);
+}
+
+@font-face {
+  font-family: Futura-Med;
+  src: url(futura\ medium\ bt.ttf);
+}
+
+@font-face {
+  font-family: Futura-Heavy;
+  src: url(Futura\ Heavy\ font.ttf);
+}

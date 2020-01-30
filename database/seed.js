@@ -142,25 +142,32 @@ const cities = [
   'Bristol, United Kingdom',
 ];
 
+const codeOptions = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+const codes = [];
 const titles = [];
-
+const trips = [];
 const split = cities.map((city) => city.split(', '));
 
 for (let i = 0; i < 100; i++) {
+  // creates codes array
+  let code = '';
+  code += `${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}`;
+  codes.push(code);
+
+  // creates titles array
   let title = '';
   title += `${adjectives[Math.floor(Math.random() * 14)]} ${
     nouns[Math.floor(Math.random() * 9)]} ${
     prepositions[Math.floor(Math.random() * 2)]} ${
     split[i][0]}`;
   titles.push(title);
-}
 
-const trips = [];
-
-for (let j = 0; j < 100; j++) {
+  // creates trips array
   const obj = {};
-  obj.title = titles[j];
-  obj.city = cities[j];
+  obj.id = i + 1;
+  obj.code = codes[i];
+  obj.title = titles[i];
+  obj.city = cities[i];
   obj.msrp = ((Math.random() * (2500 - 1500)) + 1500).toFixed(2);
   obj.price = (obj.msrp * (Math.random() * (0.9 - 0.7) + 0.7)).toFixed(2);
   obj.days = Math.floor(Math.random() * (15 - 5)) + 5;
@@ -168,6 +175,7 @@ for (let j = 0; j < 100; j++) {
   trips.push(obj);
 }
 
+// insert trips into database
 Trip.create(trips)
   .then(() => {
     console.log('seeded data');
