@@ -1,6 +1,6 @@
 import React from 'react';
-import CalendarIcon from './CalendarIcon.jsx';
-import ListIcon from './ListIcon.jsx';
+import CalendarIcon from './CalendarIcon';
+import ListIcon from './ListIcon';
 
 export default class Legend extends React.Component {
   constructor(props) {
