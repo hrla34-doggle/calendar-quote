@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const mongoUri = 'mongodb://localhost/calendar-quote';
 
-const db = mongoose.connect(mongoUri, { useNewUrlParser: true });
+const db = mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
 // .then(() => {
 //   console.log('connected to DB');
 // })

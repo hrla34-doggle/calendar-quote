@@ -3,7 +3,7 @@
 /* eslint-disable no-plusplus */
 const mongoose = require('mongoose');
 const db = require('./');
-const Trip = require('./model.js');
+const model = require('./model.js');
 
 const adjectives = [
   'Ancient',
@@ -176,7 +176,7 @@ for (let i = 0; i < 100; i++) {
 }
 
 // insert trips into database
-Trip.create(trips)
+model.Trip.create(trips)
   .then(() => {
     console.log('seeded data');
     mongoose.connection.close();
