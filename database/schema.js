@@ -5,10 +5,13 @@ const tripSchema = new mongoose.Schema({
   code: String,
   title: String,
   city: String,
-  price: Number,
   msrp: Number,
-  dates: [Date],
+  price: Number,
+  discounted: Boolean,
   days: Number,
+  dates: [Date],
+  rating: Number,
+  reviews: Number,
 });
 
 const userSchema = new mongoose.Schema({

@@ -154,7 +154,7 @@ const createDates = (tripLength) => {
   const firstDate = Math.floor(Math.random() * (12 - 1)) + 1;
   let incrementer = 0;
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 15; i++) {
     let date = new Date(2020, 0, firstDate + incrementer);
     dates.push(date);
     incrementer += Math.floor(Math.random() * (15 - tripLength + 1)) + tripLength + 1;
@@ -183,10 +183,13 @@ for (let i = 0; i < 100; i++) {
   obj.code = codes[i];
   obj.title = titles[i];
   obj.city = cities[i];
-  obj.msrp = ((Math.random() * (2500 - 1500)) + 1500).toFixed(2);
-  obj.price = (obj.msrp * (Math.random() * (0.9 - 0.7) + 0.7)).toFixed(2);
+  obj.msrp = (Math.random() * (2500 - 1500) + 1500).toFixed(2);
+  obj.price = (obj.msrp * (Math.random() * (1.1 - 0.6) + 0.6).toFixed(1)).toFixed(2);
+  obj.discounted = obj.msrp !== obj.price;
   obj.days = days;
   obj.dates = createDates(days);
+  obj.rating = (Math.random() * (5.01 - 3.5) + 3.5).toFixed(2);
+  obj.reviews = Math.floor(Math.random() * 400);
   trips.push(obj);
 }
 
