@@ -85,23 +85,23 @@ html, body {
   font-family: Futura-Next;
 }
 
-.currency {
+.AK-currency1 {
   font-size: 16px;
   font-family: Futura-Next;
   color: rgb(99, 98, 98);
   margin-top: 4px;
 }
 
-.currency2 {
+.AK-currency2 {
   font-family: Futura-Next;
   font-size: 14px;
 }
 
-.price-tag {
+.AK-price-tag {
   height: 15px;
 }
 
-.container-img {
+.AK-container-img {
   margin-top: 3px;
   margin-right: 5px;
 }
@@ -146,7 +146,7 @@ html, body {
   border-bottom-width: 1px;
 }
 
-.topbar {
+.AK-top-bar {
   width: 100%;
   height: 55px;
   border-bottom: 1px solid rgb(211, 211, 211);
