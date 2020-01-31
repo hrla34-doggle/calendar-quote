@@ -41,7 +41,8 @@ export default class App extends React.Component {
   }
 
   renderCalendar() {
-    if (this.state.calendar) {
+    const { calendar } = this.state;
+    if (calendar) {
       return <Calendar />;
     }
   }
