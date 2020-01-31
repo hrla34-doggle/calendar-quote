@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import React from 'react';
 import axios from 'axios';
-import Widget from './Widget.jsx';
-import Calendar from './Calendar.jsx';
+import Widget from './Widget';
+import Calendar from './Calendar';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -41,23 +41,24 @@ export default class App extends React.Component {
   }
 
   renderCalendar() {
-    if (this.state.calendar) {
+    const { calendar } = this.state;
+    if (calendar) {
       return <Calendar />;
     }
   }
 
   render() {
+    const { trip } = this.state;
     return (
       <div className="AK-page">
         {this.renderCalendar()}
-        <div className="container">
-          <div className="upper-box">
-            <Widget clickHandler={() => this.calendarClickHandler()} trip={this.state.trip} />
+        <div className="AK-container-main">
+          <div className="AK-upper-box">
+            <Widget clickHandler={() => this.calendarClickHandler()} trip={trip} />
           </div>
-          <div className="lower-box">Don't miss out - save your place today</div>
+          <div className="AK-lower-box">Don't miss out - save your place today</div>
         </div>
       </div>
-
     );
   }
 }
