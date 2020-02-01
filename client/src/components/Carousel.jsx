@@ -88,15 +88,18 @@ export default class Carousel extends React.Component {
       if (index === dates.length - 1 && renderedSecondMonth === month - 1) {
         rightButtonHidden = true;
       }
+      if (index === dates.length - 1 && renderedSecondMonth === month) {
+        rightButtonHidden = true;
+      }
     });
 
     if (renderedFirstMonth && renderedSecondMonth) {
       this.setState({
         firstMonth: renderedFirstMonth,
         secondMonth: renderedSecondMonth,
-        rightButtonHidden: rightButtonHidden,
+        rightButtonHidden,
         leftButtonHidden: false,
-      });
+      }, () => console.log(this.state));
     }
   }
 
@@ -105,7 +108,8 @@ export default class Carousel extends React.Component {
     let renderedFirstMonth = null;
     let renderedSecondMonth = null;
     let leftButtonHidden = false;
-    const dates_reversed = dates.reverse();
+    let dates_reversed = dates.slice(0);
+    dates_reversed.reverse();
 
     dates_reversed.forEach((date, index) => {
       let month = parseInt(date.slice(5, 7));
@@ -119,14 +123,13 @@ export default class Carousel extends React.Component {
         leftButtonHidden = true;
       }
     });
-
     if (renderedFirstMonth && renderedSecondMonth) {
       this.setState({
         firstMonth: renderedFirstMonth,
         secondMonth: renderedSecondMonth,
-        leftButtonHidden: leftButtonHidden,
+        leftButtonHidden,
         rightButtonHidden: false,
-      });
+      }, () => console.log(this.state));
     }
   }
 

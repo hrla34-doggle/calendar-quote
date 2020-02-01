@@ -142,6 +142,11 @@ html, body {
   outline: none;
 }
 
+.AK-button2:hover {
+  background-color: rgb(196, 8, 47);
+  color: white;
+}
+
 .AK-reviews {
   font-size: 11px;
   width: 47px;
@@ -238,7 +243,7 @@ html, body {
   margin-top: 55px;
   position: absolute;
   width: 100%;
-  height: 701px;
+  height: 704px;
   background-color: rgb(251, 251, 251);
   display: flex;
   flex-direction: column;
