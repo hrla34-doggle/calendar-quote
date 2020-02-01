@@ -148,6 +148,20 @@ const titles = [];
 const trips = [];
 const split = cities.map((city) => city.split(', '));
 
+// creates an array of departure dates with random length of days in between > length of the trip
+const createDates = (tripLength) => {
+  const dates = [];
+  const firstDate = Math.floor(Math.random() * (12 - 1)) + 1;
+  let incrementer = 0;
+
+  for (let i = 0; i < 15; i++) {
+    let date = new Date(2020, 0, firstDate + incrementer);
+    dates.push(date);
+    incrementer += Math.floor(Math.random() * (15 - tripLength + 1)) + tripLength + 1;
+  }
+  return dates;
+};
+
 for (let i = 0; i < 100; i++) {
   // creates codes array
   let code = '';
@@ -163,15 +177,19 @@ for (let i = 0; i < 100; i++) {
   titles.push(title);
 
   // creates trips array
+  let days = Math.floor(Math.random() * (15 - 5)) + 5;
   const obj = {};
   obj.id = i + 1;
   obj.code = codes[i];
   obj.title = titles[i];
   obj.city = cities[i];
-  obj.msrp = ((Math.random() * (2500 - 1500)) + 1500).toFixed(2);
-  obj.price = (obj.msrp * (Math.random() * (0.9 - 0.7) + 0.7)).toFixed(2);
-  obj.days = Math.floor(Math.random() * (15 - 5)) + 5;
-  obj.dates = [new Date(2020, 1, Math.floor(Math.random() * (30 - 1)) + 1)];
+  obj.msrp = (Math.random() * (2500 - 1500) + 1500).toFixed(2);
+  obj.price = (obj.msrp * (Math.random() * (1.1 - 0.6) + 0.6).toFixed(1)).toFixed(2);
+  obj.discounted = obj.msrp !== obj.price;
+  obj.days = days;
+  obj.dates = createDates(days);
+  obj.rating = (Math.random() * (5.01 - 3.5) + 3.5).toFixed(2);
+  obj.reviews = Math.floor(Math.random() * 400);
   trips.push(obj);
 }
 

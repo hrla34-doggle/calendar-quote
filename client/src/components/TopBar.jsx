@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TopBar = (props) => (
-  <div className="topbar">
+  <div className="AK-top-bar">
     <img className="AK-logo" src="trafalgar-logo.webp" alt="trafalgar_logo" />
     <img className="AK-phone" src="phone_art.svg" alt="phone_art" />
     <div className="AK-help">

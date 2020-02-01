@@ -6,19 +6,21 @@ const Widget = (props) => (
     <div className="AK-container-pricing">
       <div className="AK-price">
         <div className="AK-pricing-text">FROM</div>
-        <div className="currency">${props.trip.price}</div>
+        <div className="AK-currency1">${props.trip.price}</div>
       </div>
       <div className="AK-msrp">
+      {/* <div className={props.trip.discounted ? "AK-msrp" : "AK-msrp AK-msrp-hidden"}> */}
         <div className="AK-pricing-text">WAS</div>
-        <strike className="currency2">${props.trip.msrp}</strike>
+        <strike className="AK-currency2">${props.trip.msrp}</strike>
       </div>
       <div className="AK-savings">
-        <div className="container-img">
-          <img src="red-tag.svg" alt="tag" className="price-tag" />
+      {/* <div className={props.trip.discounted ? "AK-savings" : "AK-savings AK-savings-hidden"}> */}
+        <div className="AK-container-img">
+          <img src="red-tag.svg" alt="tag" className="AK-price-tag" />
         </div>
         <div>
           <div className="AK-savings-text">Save</div>
-          <div className="currency2">${(props.trip.msrp - props.trip.price).toFixed(2)}</div>
+          <div className="AK-currency2">${(props.trip.msrp - props.trip.price).toFixed(2)}</div>
         </div>
       </div>
     </div>

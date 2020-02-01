@@ -71,6 +71,10 @@ html, body {
   color: rgb(141, 140, 140);
 }
 
+.AK-msrp-hidden {
+  visibility: hidden;
+}
+
 .AK-savings-text {
   font-size: 12px;
   font-family: Futura-Med;
@@ -85,23 +89,27 @@ html, body {
   font-family: Futura-Next;
 }
 
-.currency {
+.AK-savings-hidden {
+  visibility: hidden;
+}
+
+.AK-currency1 {
   font-size: 16px;
   font-family: Futura-Next;
   color: rgb(99, 98, 98);
   margin-top: 4px;
 }
 
-.currency2 {
+.AK-currency2 {
   font-family: Futura-Next;
   font-size: 14px;
 }
 
-.price-tag {
+.AK-price-tag {
   height: 15px;
 }
 
-.container-img {
+.AK-container-img {
   margin-top: 3px;
   margin-right: 5px;
 }
@@ -134,6 +142,11 @@ html, body {
   outline: none;
 }
 
+.AK-button2:hover {
+  background-color: rgb(196, 8, 47);
+  color: white;
+}
+
 .AK-reviews {
   font-size: 11px;
   width: 47px;
@@ -146,7 +159,7 @@ html, body {
   border-bottom-width: 1px;
 }
 
-.topbar {
+.AK-top-bar {
   width: 100%;
   height: 55px;
   border-bottom: 1px solid rgb(211, 211, 211);
@@ -230,7 +243,7 @@ html, body {
   margin-top: 55px;
   position: absolute;
   width: 100%;
-  height: 701px;
+  height: 704px;
   background-color: rgb(251, 251, 251);
   display: flex;
   flex-direction: column;
@@ -572,35 +585,51 @@ html, body {
   flex-direction: row;
   position: relative;
   margin-top: 17px;
+  height: 500px;
 }
 
 .AK-container-left-button {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
   align-self: center;
-  margin: auto 30px 234px 56px;
+  margin: auto 29px 256px 54px;
   position: relative;
-  /* visibility: hidden; */
+}
+
+.AK-container-left-button-hidden {
+  visibility: hidden;
 }
 
 .AK-left-button {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
+  opacity: 0.4;
+}
+
+.AK-left-button:hover {
+  opacity: 1;
 }
 
 .AK-container-right-button {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
   align-self: center;
   position: relative;
-  margin-left: 14px;
-  margin-bottom: 8px;
-  /* visibility: hidden; */
+  margin: auto 0 256px 14px;
+}
+
+.AK-container-right-button-hidden {
+  visibility: hidden;
 }
 
 .AK-right-button {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
+  opacity: 0.4;
+}
+
+.AK-right-button:hover {
+  opacity: 1;
 }
 
 .AK-container-month {
