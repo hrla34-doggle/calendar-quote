@@ -114,7 +114,7 @@ html, body {
   margin-right: 5px;
 }
 
-.AK-buttons {
+.AK-container-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -131,6 +131,10 @@ html, body {
   outline: none;
 }
 
+.AK-button1:hover {
+  cursor: pointer;
+}
+
 .AK-button2 {
   border-radius: 20px;
   height: 40px;
@@ -145,15 +149,20 @@ html, body {
 .AK-button2:hover {
   background-color: rgb(196, 8, 47);
   color: white;
+  cursor: pointer;
 }
 
-.AK-reviews {
+.AK-container-reviews {
   font-size: 11px;
-  width: 47px;
   font-family: opensans, sans-serif;
   margin: 8px 0px 15px 32px;
   color: rgb(76, 76, 76);
   font-weight: 100;
+  width: auto;
+}
+
+.AK-reviews {
+  width: auto;
   border-bottom-color: rgb(225, 13, 57);
   border-bottom-style: dotted;
   border-bottom-width: 1px;
@@ -223,6 +232,10 @@ html, body {
   align-items: center;
   justify-content: space-evenly;
   border-left: 1px solid #f2f2f2;
+}
+
+.AK-return:hover {
+  cursor: pointer;
 }
 
 .AK-back-text {
@@ -302,6 +315,10 @@ html, body {
   width: 148px;
 }
 
+.AK-tooltip1:hover{
+  cursor: pointer;
+}
+
 .AK-tooltip1 .AK-tooltiptext1 {
   font-family: opensans;
   font-size: 10px;
@@ -352,6 +369,10 @@ html, body {
   flex-direction: row;
   position: relative;
   width: 120px;
+}
+
+.AK-tooltip2:hover{
+  cursor: pointer;
 }
 
 .AK-tooltip2 .AK-tooltiptext2 {
@@ -406,6 +427,10 @@ html, body {
   width: 156px;
 }
 
+.AK-tooltip3:hover{
+  cursor: pointer;
+}
+
 .AK-tooltip3 .AK-tooltiptext3 {
   font-family: opensans;
   font-size: 10px;
@@ -456,6 +481,10 @@ html, body {
   flex-direction: row;
   position: relative;
   width: 140px;
+}
+
+.AK-tooltip4:hover{
+  cursor: pointer;
 }
 
 .AK-tooltip4 .AK-tooltiptext4 {
@@ -549,6 +578,10 @@ html, body {
   border-bottom-left-radius: 3px;
 }
 
+.AK-container-calendar-icon:hover {
+  cursor: pointer;
+}
+
 .AK-calendar-selected {
   border-bottom: 1.5px solid rgb(196, 1, 1);
   border-bottom-left-radius: 0px;
@@ -566,6 +599,10 @@ html, body {
   margin-top: 1px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+}
+
+.AK-container-list-icon:hover {
+  cursor: pointer;
 }
 
 .AK-list-selected {
@@ -592,8 +629,12 @@ html, body {
   width: 21px;
   height: 21px;
   align-self: center;
-  margin: auto 29px 256px 54px;
+  margin: auto 30px 256px 54px;
   position: relative;
+}
+
+.AK-container-left-button:hover {
+  cursor: pointer;
 }
 
 .AK-container-left-button-hidden {
@@ -615,7 +656,11 @@ html, body {
   height: 21px;
   align-self: center;
   position: relative;
-  margin: auto 0 256px 14px;
+  margin: auto 0 256px 13px;
+}
+
+.AK-container-right-button:hover {
+  cursor: pointer;
 }
 
 .AK-container-right-button-hidden {
@@ -701,7 +746,7 @@ html, body {
   justify-content: space-evenly;
 }
 
-.AK-date {
+.AK-container-date {
   width: 57px;
   height: 58px;
   background-color: rgb(251, 251, 251);
@@ -709,6 +754,21 @@ html, body {
   font-family: Futura-Heavy;
   font-size: 13px;
   color: rgb(76, 76, 76);
+}
+
+.AK-container-date-departure {
+  width: 57px;
+  height: 58px;
+  background-color: rgb(251, 251, 251);
+  margin-bottom: 3px;
+  font-family: Futura-Heavy;
+  font-size: 13px;
+  color: rgb(76, 76, 76);
+  border: 1px solid rgb(230, 230, 230);
+}
+
+.AK-container-date-departure:hover {
+  cursor: pointer;
 }
 
 .AK-date-blank {
@@ -721,6 +781,14 @@ html, body {
 .AK-text-date {
   margin-top: 8px;
   margin-left: 5px;
+}
+
+.AK-date-pricing {
+  font-family: opensans;
+  font-size: 10px;
+  color: rgb(173, 2, 36);
+  margin-top: 10%;
+  margin-left: 10%;
 }
 
 @font-face {

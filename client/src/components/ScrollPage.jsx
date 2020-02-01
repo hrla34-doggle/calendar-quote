@@ -3,7 +3,8 @@ import Legend from './Legend';
 import Carousel from './Carousel';
 
 const ScrollPage = (props) => {
-  const { trip } = props;
+  const { trip, stringifyPrice } = props;
+
   return (
     <div className="AK-container-scroll">
       <div className="AK-middle-section">
@@ -11,7 +12,7 @@ const ScrollPage = (props) => {
         <div className="AK-select-dates-header">Select your dates</div>
       </div>
       <Legend />
-      <Carousel trip={trip} />
+      <Carousel stringifyPrice={stringifyPrice} trip={trip} />
     </div>
   );
 };
