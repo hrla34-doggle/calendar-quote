@@ -11,7 +11,7 @@ const Month = (props) => (
       </div>
       <div className="AK-container-dates">
         {props.renderLeadingBlanks()}
-        {props.dates().map((date) => <div className="AK-date"><div className="AK-text-date">{date}</div></div>)}
+        {props.dates().map((date, index) => <div className="AK-date" key={index}><div className="AK-text-date">{date}</div></div>)}
         {props.renderTrailingBlanks()}
       </div>
       {/* <div className="AK-week1">

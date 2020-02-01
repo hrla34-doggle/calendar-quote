@@ -9,10 +9,12 @@ const Widget = (props) => (
         <div className="AK-currency1">${props.trip.price}</div>
       </div>
       <div className="AK-msrp">
+      {/* <div className={props.trip.discounted ? "AK-msrp" : "AK-msrp AK-msrp-hidden"}> */}
         <div className="AK-pricing-text">WAS</div>
         <strike className="AK-currency2">${props.trip.msrp}</strike>
       </div>
       <div className="AK-savings">
+      {/* <div className={props.trip.discounted ? "AK-savings" : "AK-savings AK-savings-hidden"}> */}
         <div className="AK-container-img">
           <img src="red-tag.svg" alt="tag" className="AK-price-tag" />
         </div>

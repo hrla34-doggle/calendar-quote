@@ -71,6 +71,10 @@ html, body {
   color: rgb(141, 140, 140);
 }
 
+.AK-msrp-hidden {
+  visibility: hidden;
+}
+
 .AK-savings-text {
   font-size: 12px;
   font-family: Futura-Med;
@@ -83,6 +87,10 @@ html, body {
   display: flex;
   flex-direction: row;
   font-family: Futura-Next;
+}
+
+.AK-savings-hidden {
+  visibility: hidden;
 }
 
 .AK-currency1 {
@@ -572,35 +580,51 @@ html, body {
   flex-direction: row;
   position: relative;
   margin-top: 17px;
+  height: 500px;
 }
 
 .AK-container-left-button {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
   align-self: center;
-  margin: auto 30px 234px 56px;
+  margin: auto 29px 256px 54px;
   position: relative;
-  /* visibility: hidden; */
+}
+
+.AK-container-left-button-hidden {
+  visibility: hidden;
 }
 
 .AK-left-button {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
+  opacity: 0.4;
+}
+
+.AK-left-button:hover {
+  opacity: 1;
 }
 
 .AK-container-right-button {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
   align-self: center;
   position: relative;
-  margin-left: 14px;
-  margin-bottom: 8px;
-  /* visibility: hidden; */
+  margin: auto 0 256px 14px;
+}
+
+.AK-container-right-button-hidden {
+  visibility: hidden;
 }
 
 .AK-right-button {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
+  opacity: 0.4;
+}
+
+.AK-right-button:hover {
+  opacity: 1;
 }
 
 .AK-container-month {
