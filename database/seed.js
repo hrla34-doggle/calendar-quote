@@ -154,7 +154,7 @@ const createDates = (tripLength) => {
   const firstDate = Math.floor(Math.random() * (12 - 1)) + 1;
   let incrementer = 0;
 
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 22; i++) {
     let date = new Date(2020, 0, firstDate + incrementer);
     dates.push(date);
     incrementer += Math.floor(Math.random() * (15 - tripLength + 1)) + tripLength + 1;

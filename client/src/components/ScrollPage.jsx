@@ -1,6 +1,7 @@
 import React from 'react';
 import Legend from './Legend';
 import Carousel from './Carousel';
+import Summary from './Summary';
 
 const ScrollPage = (props) => {
   const { trip, stringifyPrice } = props;
@@ -13,6 +14,7 @@ const ScrollPage = (props) => {
       </div>
       <Legend />
       <Carousel stringifyPrice={stringifyPrice} trip={trip} />
+      <Summary trip={trip} />
     </div>
   );
 };

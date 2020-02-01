@@ -131,6 +131,8 @@ export default class Carousel extends React.Component {
     let renderedSecondMonth = null;
     let leftButtonHidden = false;
     let dates_reversed = dates.slice(0);
+    let newDate = new Date();
+    let currMonth = newDate.getMonth() + 1;
     dates_reversed.reverse();
 
     dates_reversed.forEach((date, index) => {
@@ -142,6 +144,9 @@ export default class Carousel extends React.Component {
         renderedFirstMonth = month;
       }
       if (index === dates_reversed.length - 1 && renderedFirstMonth === month) {
+        leftButtonHidden = true;
+      }
+      if (renderedFirstMonth === currMonth) {
         leftButtonHidden = true;
       }
     });
@@ -192,6 +197,7 @@ export default class Carousel extends React.Component {
           dates={this.getDatesForMonth(months[firstMonth])}
           trip={trip}
           stringifyPrice={stringifyPrice}
+          leadingBlanks={first[firstMonth]}
         />
         <Month month={months[secondMonth]}
           renderLeadingBlanks={() => this.returnLeadingEmptyDates(first[secondMonth])}
@@ -201,6 +207,7 @@ export default class Carousel extends React.Component {
           dates={this.getDatesForMonth(months[secondMonth])}
           trip={trip}
           stringifyPrice={stringifyPrice}
+          leadingBlanks={first[firstMonth]}
         />
         <RightButton hidden={rightButtonHidden} clickHandler={() => this.getNextMonths()} />
       </div>
