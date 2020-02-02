@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Legend from './Legend';
 import Carousel from './Carousel';
 import Summary from './Summary';
+import List from './List';
 
 export default class ScrollPage extends React.Component {
   constructor(props) {
@@ -13,17 +14,44 @@ export default class ScrollPage extends React.Component {
       clicked: false,
       day: null,
       monthNum: null,
-      date: null
+      date: null,
+      carousel: true,
+      list: false,
     };
 
     this.renderSummary = this.renderSummary.bind(this);
     this.summaryRef = React.createRef();
+    this.switchToCarousel = this.switchToCarousel.bind(this);
+    this.switchToList = this.switchToList.bind(this);
   }
 
   componentDidUpdate() {
     const { summaryVisible, clicked } = this.state;
     if (summaryVisible && !clicked) {
       ReactDOM.findDOMNode(this.summaryRef.current).scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+
+  switchToList() {
+    const { carousel } = this.state;
+
+    if (carousel) {
+      this.setState({
+        carousel: false,
+        list: true,
+      });
+    }
+  }
+
+  switchToCarousel() {
+    const { list } = this.state;
+
+    if (list) {
+      this.setState({
+        carousel: true,
+        list: false,
+      });
     }
   }
 
@@ -47,7 +75,7 @@ export default class ScrollPage extends React.Component {
 
   render() {
     const { trip, stringifyPrice } = this.props;
-    const { summaryVisible, day, monthNum, date } = this.state;
+    const { summaryVisible, day, monthNum, date, carousel, list } = this.state;
 
     return (
       <div className="AK-container-scroll">
@@ -55,9 +83,19 @@ export default class ScrollPage extends React.Component {
           <div className="AK-step1">STEP 1</div>
           <div className="AK-select-dates-header">Select your dates</div>
         </div>
-        <Legend />
-        <Carousel renderSummary={() => this.renderSummary(event)} stringifyPrice={stringifyPrice} trip={trip} />
-        {summaryVisible ? <Summary ref={this.summaryRef} trip={trip} day={day} monthNum={monthNum} date={date} days={trip.days} /> : null}
+        <Legend switchToCarousel={() => this.switchToCarousel()} 
+                switchToList={() => this.switchToList()} />
+        {carousel ? <Carousel renderSummary={() => this.renderSummary(event)} 
+                              stringifyPrice={stringifyPrice} 
+                              trip={trip} /> : 
+                    <List /> }
+        {summaryVisible ? <Summary ref={this.summaryRef} 
+                                   trip={trip} 
+                                   day={day} 
+                                   monthNum={monthNum} 
+                                   date={date} 
+                                   days={trip.days} /> : 
+                          null}
       </div>
     );
   }
