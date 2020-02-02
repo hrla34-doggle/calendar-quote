@@ -1036,6 +1036,7 @@ html, body {
 
 .AK-large-widget-button1:hover {
   cursor: pointer;
+  background-color: rgb(173, 2, 36);
 }
 
 .AK-large-widget-button2 {
@@ -1052,7 +1053,7 @@ html, body {
 }
 
 .AK-large-widget-button2:hover {
-  background-color: rgb(196, 8, 47);
+  background-color: rgb(173, 2, 36);
   color: white;
   cursor: pointer;
 }

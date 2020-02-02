@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Legend from './Legend';
 import Carousel from './Carousel';
 import Summary from './Summary';
@@ -9,14 +10,27 @@ export default class ScrollPage extends React.Component {
 
     this.state = {
       summaryVisible: false,
+      clicked: false,
     };
 
     this.renderSummary = this.renderSummary.bind(this);
+    this.summaryRef = React.createRef();
+  }
+
+  componentDidUpdate() {
+    const { summaryVisible, clicked } = this.state;
+    if (summaryVisible && !clicked) {
+      ReactDOM.findDOMNode(this.summaryRef.current).scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   renderSummary() {
     this.setState({
       summaryVisible: true,
+    }, () => {
+      this.setState({
+        clicked: true,
+      });
     });
   }
 
@@ -32,7 +46,7 @@ export default class ScrollPage extends React.Component {
         </div>
         <Legend />
         <Carousel renderSummary={() => this.renderSummary()} stringifyPrice={stringifyPrice} trip={trip} />
-        {summaryVisible ? <Summary trip={trip} /> : null}
+        {summaryVisible ? <Summary ref={this.summaryRef} trip={trip} /> : null}
       </div>
     );
   }
