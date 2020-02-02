@@ -2,7 +2,7 @@ import React from 'react';
 
 const Widget = (props) => {
   const { clickHandler, trip, stringifyPrice } = props;
-  const { code, price, msrp, reviews } = trip;
+  const { code, price, msrp, reviews, discounted } = trip;
 
   if (price) {
     var priceString = stringifyPrice(price);
@@ -14,24 +14,26 @@ const Widget = (props) => {
       <div className="AK-trip-code">Trip code {code}</div>
       <div className="AK-container-pricing">
         <div className="AK-price">
-          <div className="AK-pricing-text">FROM</div>
-          <div className="AK-currency1">{priceString}</div>
+          {discounted ? <div className="AK-pricing-text">FROM</div> : null}
+          {discounted ? <div className="AK-currency1">{priceString}</div> : <div className="AK-currency1">{priceString} pp</div>}
         </div>
+        {discounted ?
         <div className="AK-msrp">
-          {/* <div className={props.trip.discounted ? "AK-msrp" : "AK-msrp AK-msrp-hidden"}> */}
           <div className="AK-pricing-text">WAS</div>
           <strike className="AK-currency2">{msrpString}</strike>
-        </div>
+        </div> : null
+        }
+        {discounted ?
         <div className="AK-savings">
-          {/* <div className={props.trip.discounted ? "AK-savings" : "AK-savings AK-savings-hidden"}> */}
           <div className="AK-container-img">
-            <img src="red-tag.svg" alt="tag" className="AK-price-tag" />
+            <img src="red-tag.png" alt="tag" className="AK-price-tag" />
           </div>
           <div>
             <div className="AK-savings-text">Save</div>
             <div className="AK-currency2">${(msrp - price).toFixed(2)}</div>
           </div>
-        </div>
+        </div> : null
+        }
       </div>
       <div className="AK-container-reviews">
         {reviews === 1 ? <span className="AK-reviews">{reviews + " review"}</span> : <span className="AK-reviews">{reviews + " reviews"}</span>}

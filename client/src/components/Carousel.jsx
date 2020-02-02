@@ -184,7 +184,7 @@ export default class Carousel extends React.Component {
 
   render() {
     const { trip, dayHeaders, firstMonth, secondMonth, months, first, leftButtonHidden, rightButtonHidden } = this.state;
-    const { stringifyPrice } = this.props;
+    const { stringifyPrice, renderSummary } = this.props;
 
     return (
       <div className="AK-container-carousel">
@@ -198,6 +198,7 @@ export default class Carousel extends React.Component {
           trip={trip}
           stringifyPrice={stringifyPrice}
           leadingBlanks={first[firstMonth]}
+          renderSummary={renderSummary}
         />
         <Month month={months[secondMonth]}
           renderLeadingBlanks={() => this.returnLeadingEmptyDates(first[secondMonth])}
@@ -208,6 +209,7 @@ export default class Carousel extends React.Component {
           trip={trip}
           stringifyPrice={stringifyPrice}
           leadingBlanks={first[firstMonth]}
+          renderSummary={renderSummary}
         />
         <RightButton hidden={rightButtonHidden} clickHandler={() => this.getNextMonths()} />
       </div>

@@ -1,8 +1,9 @@
 import React from 'react';
+import LargeWidget from './LargeWidget';
 
 const Summary = (props) => {
   const { trip } = props;
-  const { title } = trip;
+  const { title, city } = trip;
   return (
     <div className="AK-container-summary">
       <div className="AK-container-header-summary">
@@ -18,13 +19,15 @@ const Summary = (props) => {
             <img className="AK-icon-start-end" src="start-end-icon.png" alt="start-end-icon" />
             <div className="AK-container-text-start-end">
               <div className="AK-text1-start-end">START</div>
-              <div className="AK-text2-start-end"></div>
+              <div className="AK-text2-start-end">Wednesday 4th March 2020, {city}</div>
               <div className="AK-text1-start-end">END</div>
-              <div className="AK-text2-start-end"></div>
+              <div className="AK-text2-start-end">Wednesday 11th March 2020, {city}</div>
             </div>
           </div>
         </div>
-        <div className="AK-container-payment"></div>
+        <div className="AK-container-payment">
+          <LargeWidget trip={trip} />
+        </div>
       </div>
     </div>
   )

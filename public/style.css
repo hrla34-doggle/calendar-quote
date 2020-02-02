@@ -10,21 +10,21 @@ html, body {
 }
 
 .AK-container-main {
-  height: 200px;
+  height: 195px;
   display: flex;
-  width: 30%;
+  width: 29.5%;
   flex-direction: column;
   border: 1px solid rgb(219, 218, 218);
 }
 
 .AK-upper-box {
   display: flex;
-  height: 77%;
+  height: 79%;
 }
 
 .AK-lower-box {
   display: flex;
-  height: 23%;
+  height: 21%;
   font-family: opensans, sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -106,18 +106,19 @@ html, body {
 }
 
 .AK-price-tag {
-  height: 15px;
+  height: 18px;
 }
 
 .AK-container-img {
   margin-top: 3px;
-  margin-right: 5px;
+  margin-right: 2px;
 }
 
 .AK-container-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding: 0 2%;
 }
 
 .AK-button1 {
@@ -129,6 +130,7 @@ html, body {
   font-weight: bold;
   font-size: 12px;
   outline: none;
+  font-family: Futura-Heavy;
 }
 
 .AK-button1:hover {
@@ -144,6 +146,7 @@ html, body {
   font-weight: bold;
   font-size: 12px;
   outline: none;
+  font-family: Futura-Heavy;
 }
 
 .AK-button2:hover {
@@ -188,13 +191,13 @@ html, body {
 
 .AK-phone {
   margin-top: 20px;
-  width: 20px;
-  height: 20px;
-  opacity: 0.7;
+  margin-left: 3px;
+  width: 16px;
+  height: 16px;
 }
 
 .AK-help {
-  margin-left: 10px;
+  margin-left: 11px;
   margin-top: 10px;
   font-family: Futura-Heavy;
   color: rgb(76, 76, 76);
@@ -256,7 +259,8 @@ html, body {
   margin-top: 55px;
   position: absolute;
   width: 100%;
-  height: 1095px;
+  /* height: 1095px; */
+  height: auto;
   background-color: rgb(251, 251, 251);
   display: flex;
   flex-direction: column;
@@ -622,7 +626,8 @@ html, body {
   flex-direction: row;
   position: relative;
   margin-top: 17px;
-  height: 500px;
+  height: 521px;
+  padding-bottom: 15px;
 }
 
 .AK-container-left-button {
@@ -710,7 +715,6 @@ html, body {
   background-color: white;
   border: 1px solid rgb(230, 230, 230);
   box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
-  /* box-shadow: 0 1px rgba(0, 0, 0, 0.20), 0 2px rgba(0, 0, 0, 0.19); */
   padding-bottom: 14px;
 }
 
@@ -786,10 +790,18 @@ html, body {
   margin-left: 5px;
 }
 
-.AK-date-pricing {
+.AK-date-pricing-discounted {
   font-family: opensans;
   font-size: 10px;
   color: rgb(173, 2, 36);
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+.AK-date-pricing {
+  font-family: opensans;
+  font-size: 10px;
+  color: rgb(66, 66, 66);
   margin-top: 10%;
   margin-left: 10%;
 }
@@ -815,11 +827,10 @@ html, body {
   display: flex;
   flex-direction: column;
   position: relative;
-  justify-self: flex-end;
-  height: 38.2%;
+  /* height: 420px; */
   border-top: 1px solid rgb(230, 230, 230);
   width: 100%;
-  margin-top: auto;
+  padding-bottom: 63px;
 }
 
 .AK-container-header-summary {
@@ -828,7 +839,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 22%;
+  height: 93px;
   justify-self: flex-start;
 }
 
@@ -860,13 +871,15 @@ html, body {
 }
 
 .AK-container-content-summary {
-  width: 80.7%;
+  width: 80.9%;
   align-self: center;
-  height: 62.3%;
+  /* height: 62.3%; */
+  /* height: 262px; */
+  height: auto;
   position: relative;
   border: 1px solid rgb(230, 230, 230);
   margin-bottom: auto;
-  margin-right: 0.6%;
+  margin-right: 0.7%;
   background-color: white;
   display: flex;
   flex-direction: row;
@@ -876,18 +889,20 @@ html, body {
   position: relative;
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
   width: 40%;
-  margin-bottom: auto;
   height: 100%;
 }
 
 .AK-header-start-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   font-family: Futura-Next;
   font-size: 19px;
   color: rgb(66, 66, 66);
-  margin-top: 7%;
-  margin-left: 5%;
+  height: 19%;
+  margin-left: 6%;
+  height: 44px;
 }
 
 .AK-container-inner-start-end {
@@ -895,41 +910,198 @@ html, body {
   display: flex;
   flex-direction: row;
   height: 93%;
-  border: 1px solid red;
 }
 
 .AK-icon-start-end {
   width: 6%;
-  height: 30%;
+  height: 31.7%;
   position: relative;
   margin: auto;
-  margin-left: 3%;
-  margin-top: 6%;
-  border: 1px solid red;
+  margin-left: 5.2%;
+  margin-top: 4.5%;
 }
 
 .AK-container-text-start-end {
   position: relative;
   width: 100%;
   height: auto;
-  justify-self: flex-start;
-  border: 1px solid red;
+  padding: 0.8%;
 }
 
 .AK-text1-start-end {
   font-family: Futura-Heavy;
-  font-size: 12px;
+  font-size: 11.5px;
   color: rgb(66, 66, 66);
   position: relative;
-  /* width: auto;
-  justify-self: flex-start;
-  border: 1px solid red; */
+  margin-top: 3.8%;
+}
+
+.AK-text2-start-end {
+  font-family: opensans;
+  font-size: 13px;
+  color: rgb(66, 66, 66);
+  position: relative;
+  margin-top: 1.2%;
+  margin-bottom: 5%;
 }
 
 .AK-container-payment {
   position: relative;
-  width: 60%;
-  border: 1px solid red;
+  width: 50%;
+  height: 359px;
+  justify-self: flex-end;
+  margin-left: auto;
+}
+
+.AK-large-widget-container-pricing {
+  display: flex;
+  flex-direction: row;
+  margin-top: 26px;
+}
+
+.AK-large-widget-pricing-text1 {
+  font-size: 13px;
+  font-family: Futura-Med;
+  color: rgb(160, 160, 160);
+}
+
+.AK-large-widget-pricing-text2 {
+  font-size: 12px;
+  font-family: Futura-Heavy;
+  color: rgb(160, 160, 160);
+}
+
+.AK-large-widget-price {
+  margin-left: 25px;
+}
+
+.AK-large-widget-msrp {
+  margin-left: 8.5%;
+  color: rgb(160, 160, 160);
+  align-self: flex-end;
+  position: relative;
+  margin-top: auto;
+}
+
+.AK-large-widget-savings-text {
+  font-size: 12px;
+  font-family: Futura-Heavy;
+  margin-bottom: 3px;
+}
+
+.AK-large-widget-savings {
+  position: relative;
+  align-self: flex-end;
+  margin-top: auto;
+  margin-left: 6.5%;
+  color: rgb(196, 8, 47);
+  display: flex;
+  flex-direction: row;
+  font-family: Futura-Next;
+}
+
+.AK-large-widget-currency1 {
+  font-size: 19px;
+  font-family: Futura-Next;
+  color: rgb(66, 66, 66);
+  margin-top: 4px;
+}
+
+.AK-large-widget-currency2 {
+  font-family: Futura-Next;
+  font-size: 14px;
+}
+
+.AK-large-widget-price-tag {
+  height: 24px;
+}
+
+.AK-large-widget-container-img {
+  margin-top: 3px;
+  margin-right: 3%;
+}
+
+.AK-large-widget-button1 {
+  border-radius: 20px;
+  height: 39px;
+  width: 47%;
+  color: white;
+  background-color: rgb(196, 8, 47);
+  font-weight: bold;
+  font-size: 12px;
+  outline: none;
+  margin-top: 4%;
+  font-family: Futura-Heavy;
+}
+
+.AK-large-widget-button1:hover {
+  cursor: pointer;
+}
+
+.AK-large-widget-button2 {
+  border-radius: 20px;
+  height: 39px;
+  width: 43%;
+  color: rgb(196, 8, 47);
+  border: 1.5px solid rgb(196, 8, 47);
+  font-weight: bold;
+  font-size: 12px;
+  outline: none;
+  margin-top: 4%;
+  font-family: Futura-Heavy;
+}
+
+.AK-large-widget-button2:hover {
+  background-color: rgb(196, 8, 47);
+  color: white;
+  cursor: pointer;
+}
+
+.AK-container-pitch {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5%;
+  padding-top: 3%;
+  padding-right: 3%;
+  font-family: opensans;
+}
+
+.AK-container-pitch-text {
+  display: flex;
+  flex-direction: column;
+  color: rgb(196, 1, 1);
+  font-size: 13px;
+  margin-bottom: 3.2%;
+}
+
+.AK-container-pitch-options {
+  color: rgb(66, 66, 66);
+  font-size: 13px;
+  margin-bottom: 3.2%;
+}
+
+.AK-container-pitch-notes {
+  font-size: 12px;
+}
+
+.AK-container-call-us {
+  display: flex;
+  flex-direction: row;
+}
+
+.AK-phone-art {
+  height: 15px;
+  margin-right: 2%;
+  margin-left: 0.5%;
+}
+
+.AK-phone-number {
+  font-family: Futura-Next;
+  opacity: 0.72;
+}
+
+.AK-pitch-text-notes {
+  margin-bottom: 3.2%;
 }
 
 @font-face {
