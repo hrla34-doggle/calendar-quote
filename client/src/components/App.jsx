@@ -15,6 +15,7 @@ export default class App extends React.Component {
     };
 
     this.calendarClickHandler = this.calendarClickHandler.bind(this);
+    this.homeClickHandler = this.homeClickHandler.bind(this);
     this.stringifyPrice = this.stringifyPrice.bind(this);
   }
 
@@ -42,6 +43,12 @@ export default class App extends React.Component {
     });
   }
 
+  homeClickHandler() {
+    this.setState({
+      calendar: false,
+    });
+  }
+
   stringifyPrice(number) {
     let priceString = '$';
     let numString = number.toString();
@@ -60,7 +67,10 @@ export default class App extends React.Component {
   renderCalendar() {
     const { calendar, trip } = this.state;
     if (calendar) {
-      return <Calendar stringifyPrice={this.stringifyPrice} trip={trip} />;
+      return <Calendar className="AK-component-calendar-hidden" 
+                       stringifyPrice={this.stringifyPrice} 
+                       trip={trip}
+                       homeClickHandler={() => this.homeClickHandler()} />;
     }
   }
 

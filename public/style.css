@@ -1072,12 +1072,15 @@ html, body {
   color: rgb(196, 1, 1);
   font-size: 13px;
   margin-bottom: 3.2%;
+  font-family: Futura-Med;
 }
 
 .AK-container-pitch-options {
-  color: rgb(66, 66, 66);
+  color: rgb(99, 98, 98);
   font-size: 13px;
   margin-bottom: 3.2%;
+  font-family: Futura-Med;
+  opacity: 0.95;
 }
 
 .AK-container-pitch-notes {

@@ -9,7 +9,7 @@ const TopBar = (props) => (
       <div className="AK-help-phone">866 513 1995</div>
     </div>
     <div className="AK-header">Dates & Prices</div>
-    <div className="AK-return">
+    <div onClick={props.homeClickHandler} className="AK-return">
       <div className="AK-back-text">BACK</div>
       <img className="AK-X" src="button-X.png" alt="button-X" />
     </div>
