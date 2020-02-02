@@ -47,7 +47,7 @@ export default class Month extends React.Component {
   }
 
   render() {
-    const { trip, renderTrailingBlanks, renderLeadingBlanks, dates, days, stringifyPrice, month, dayHeaders, renderSummary } = this.props;
+    const { trip, renderTrailingBlanks, renderLeadingBlanks, dates, days, stringifyPrice, month, dayHeaders, renderSummary, numMonth } = this.props;
     const { price, discounted } = trip;
     const { highlightedBottomTop, highlightedLeft, highlightedRight } = this.state;
 
@@ -64,10 +64,11 @@ export default class Month extends React.Component {
             {renderLeadingBlanks()}
             {days().map((day, index) => {
               if (dates.indexOf(index + 1) !== -1) {
-                return (<div className={"AK-container-date-departure"}
-                  data-index={index}
-                  onClick={this.clickHandler}
-                  onClick={renderSummary}>
+                return (<div className={"AK-container-date-departure"} 
+                data-index={index} 
+                data-nummonth={numMonth} 
+                onClick={this.clickHandler} 
+                onClick={renderSummary}>
                   <div className="AK-text-date">{day}</div>
                   <div className={discounted ? "AK-date-pricing-discounted" : "AK-date-pricing"}>{stringifyPrice(price)}</div>
                 </div>

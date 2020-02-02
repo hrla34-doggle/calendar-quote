@@ -11,6 +11,9 @@ export default class ScrollPage extends React.Component {
     this.state = {
       summaryVisible: false,
       clicked: false,
+      day: null,
+      monthNum: null,
+      date: null
     };
 
     this.renderSummary = this.renderSummary.bind(this);
@@ -24,9 +27,17 @@ export default class ScrollPage extends React.Component {
     }
   }
 
-  renderSummary() {
+  renderSummary(event) {
+    let date = parseInt(event.target.dataset.index) + 1;
+    let monthNum = parseInt(event.target.dataset.nummonth);
+    let dateClass = new Date(2020, monthNum - 1, date);
+    let day = dateClass.getDay();
+
     this.setState({
       summaryVisible: true,
+      day,
+      monthNum,
+      date,
     }, () => {
       this.setState({
         clicked: true,
@@ -36,7 +47,7 @@ export default class ScrollPage extends React.Component {
 
   render() {
     const { trip, stringifyPrice } = this.props;
-    const { summaryVisible } = this.state;
+    const { summaryVisible, day, monthNum, date } = this.state;
 
     return (
       <div className="AK-container-scroll">
@@ -45,8 +56,8 @@ export default class ScrollPage extends React.Component {
           <div className="AK-select-dates-header">Select your dates</div>
         </div>
         <Legend />
-        <Carousel renderSummary={() => this.renderSummary()} stringifyPrice={stringifyPrice} trip={trip} />
-        {summaryVisible ? <Summary ref={this.summaryRef} trip={trip} /> : null}
+        <Carousel renderSummary={() => this.renderSummary(event)} stringifyPrice={stringifyPrice} trip={trip} />
+        {summaryVisible ? <Summary ref={this.summaryRef} trip={trip} day={day} monthNum={monthNum} date={date} days={trip.days} /> : null}
       </div>
     );
   }

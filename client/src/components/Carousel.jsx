@@ -190,6 +190,7 @@ export default class Carousel extends React.Component {
       <div className="AK-container-carousel">
         <LeftButton hidden={leftButtonHidden} clickHandler={() => this.getPreviousMonths()} />
         <Month month={months[firstMonth]}
+          numMonth={firstMonth}
           renderLeadingBlanks={() => this.returnLeadingEmptyDates(first[firstMonth])}
           renderTrailingBlanks={() => this.returnTrailingEmptyDates(first[firstMonth], this.getDates(firstMonth).length)}
           days={() => this.getDates(firstMonth)}
@@ -201,6 +202,7 @@ export default class Carousel extends React.Component {
           renderSummary={renderSummary}
         />
         <Month month={months[secondMonth]}
+          numMonth={secondMonth}
           renderLeadingBlanks={() => this.returnLeadingEmptyDates(first[secondMonth])}
           renderTrailingBlanks={() => this.returnTrailingEmptyDates(first[secondMonth], this.getDates(secondMonth).length)}
           days={() => this.getDates(secondMonth)}

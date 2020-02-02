@@ -788,6 +788,7 @@ html, body {
 .AK-text-date {
   margin-top: 8px;
   margin-left: 5px;
+  pointer-events: none;
 }
 
 .AK-date-pricing-discounted {
@@ -796,6 +797,7 @@ html, body {
   color: rgb(173, 2, 36);
   margin-top: 10%;
   margin-left: 10%;
+  pointer-events: none;
 }
 
 .AK-date-pricing {
@@ -804,6 +806,7 @@ html, body {
   color: rgb(66, 66, 66);
   margin-top: 10%;
   margin-left: 10%;
+  pointer-events: none;
 }
 
 /* .AK-container-date-travel-bottom-top {
