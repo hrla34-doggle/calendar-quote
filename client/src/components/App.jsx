@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable no-console */
 import React from 'react';
 import axios from 'axios';
@@ -14,6 +15,8 @@ export default class App extends React.Component {
     };
 
     this.calendarClickHandler = this.calendarClickHandler.bind(this);
+    this.homeClickHandler = this.homeClickHandler.bind(this);
+    this.stringifyPrice = this.stringifyPrice.bind(this);
   }
 
   componentDidMount() {
@@ -40,10 +43,34 @@ export default class App extends React.Component {
     });
   }
 
+  homeClickHandler() {
+    this.setState({
+      calendar: false,
+    });
+  }
+
+  stringifyPrice(number) {
+    let priceString = '$';
+    let numString = number.toString();
+
+    if (number > 1000) {
+      let thousands = numString.slice(0, 1);
+      priceString += thousands + ',';
+    }
+
+    let rest = numString.slice(1);
+    priceString += rest;
+
+    return priceString;
+  }
+
   renderCalendar() {
     const { calendar, trip } = this.state;
     if (calendar) {
-      return <Calendar trip={trip} />;
+      return <Calendar className="AK-component-calendar-hidden" 
+                       stringifyPrice={this.stringifyPrice} 
+                       trip={trip}
+                       homeClickHandler={() => this.homeClickHandler()} />;
     }
   }
 
@@ -54,7 +81,11 @@ export default class App extends React.Component {
         {this.renderCalendar()}
         <div className="AK-container-main">
           <div className="AK-upper-box">
-            <Widget clickHandler={() => this.calendarClickHandler()} trip={trip} />
+            {/* <Widget clickHandler={() => this.calendarClickHandler()} trip={trip} priceString={this.stringifyPrice(price)} /> */}
+            <Widget clickHandler={() => this.calendarClickHandler()} 
+                    trip={trip} 
+                    stringifyPrice={this.stringifyPrice} 
+            />
           </div>
           <div className="AK-lower-box">Don't miss out - save your place today</div>
         </div>

@@ -3,11 +3,11 @@ import TopBar from './TopBar';
 import ScrollPage from './ScrollPage';
 
 const Calendar = (props) => {
-  const { trip } = props;
+  const { trip, stringifyPrice, homeClickHandler } = props;
   return (
     <div>
-      <TopBar />
-      <ScrollPage trip={trip} />
+      <TopBar homeClickHandler={homeClickHandler} />
+      <ScrollPage stringifyPrice={stringifyPrice} trip={trip} />
     </div>
   );
 };
