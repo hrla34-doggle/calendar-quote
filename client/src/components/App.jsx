@@ -4,6 +4,7 @@ import React from 'react';
 import axios from 'axios';
 import Widget from './Widget';
 import Calendar from './Calendar';
+import Quote from './Quote';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -12,9 +13,11 @@ export default class App extends React.Component {
     this.state = {
       trip: {},
       calendar: false,
+      quote: false,
     };
 
     this.calendarClickHandler = this.calendarClickHandler.bind(this);
+    this.quoteClickHandler = this.quoteClickHandler.bind(this);
     this.homeClickHandler = this.homeClickHandler.bind(this);
     this.stringifyPrice = this.stringifyPrice.bind(this);
   }
@@ -43,10 +46,20 @@ export default class App extends React.Component {
     });
   }
 
+  quoteClickHandler() {
+    this.setState({
+      quote: true,
+    });
+    document.body.style.overflow = 'hidden';
+  }
+
   homeClickHandler() {
     this.setState({
       calendar: false,
     });
+  }
+
+  exitQuoteHandler() {
   }
 
   stringifyPrice(number) {
@@ -65,12 +78,20 @@ export default class App extends React.Component {
   }
 
   renderCalendar() {
-    const { calendar, trip } = this.state;
+    const { calendar, trip, quote } = this.state;
     if (calendar) {
       return <Calendar className="AK-component-calendar-hidden" 
                        stringifyPrice={this.stringifyPrice} 
                        trip={trip}
-                       homeClickHandler={() => this.homeClickHandler()} />;
+                       homeClickHandler={() => this.homeClickHandler()}
+                       quoteClickHandler={() => this.quoteClickHandler()} />;
+    }
+  }
+
+  renderQuote() {
+    const { quote } = this.state;
+    if (quote) {
+      return <Quote />;
     }
   }
 
@@ -79,12 +100,13 @@ export default class App extends React.Component {
     return (
       <div className="AK-page">
         {this.renderCalendar()}
+        {this.renderQuote()}
         <div className="AK-container-main">
           <div className="AK-upper-box">
-            {/* <Widget clickHandler={() => this.calendarClickHandler()} trip={trip} priceString={this.stringifyPrice(price)} /> */}
             <Widget clickHandler={() => this.calendarClickHandler()} 
                     trip={trip} 
                     stringifyPrice={this.stringifyPrice} 
+                    quoteClickHandler={() => this.quoteClickHandler()}
             />
           </div>
           <div className="AK-lower-box">Don't miss out - save your place today</div>

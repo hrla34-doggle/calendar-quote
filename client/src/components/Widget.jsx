@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Widget = (props) => {
-  const { clickHandler, trip, stringifyPrice } = props;
+  const { clickHandler, trip, stringifyPrice, quoteClickHandler } = props;
   const { code, price, msrp, reviews, discounted } = trip;
 
   if (price) {
@@ -40,7 +40,7 @@ const Widget = (props) => {
       </div>
       <div className="AK-container-buttons">
         <button type="button" onClick={clickHandler} className="AK-button1">AVAILABLE DATES</button>
-        <button type="button" className="AK-button2">EASY QUOTE</button>
+        <button type="button" onClick={quoteClickHandler} className="AK-button2">EASY QUOTE</button>
       </div>
     </div>
   );

@@ -9,35 +9,8 @@ export default class Summary extends React.Component {
     };
   }
 
-  // appendToDate(number) {
-  //   let st = [1, 21, 31];
-  //   let nd = [2, 22];
-  //   let rd = [3, 23];
-
-  //   if (st.indexOf(number) !== -1) {
-  //     return number.toString() + 'st';
-  //   }
-  //   if (nd.indexOf(number) !== -1) {
-  //     return number.toString() + 'nd';
-  //   }
-  //   if (rd.indexOf(number) !== -1) {
-  //     return number.toString() + 'rd';
-  //   }
-  //   return number.toString() + 'th';
-  // }
-
-  // getEndingDate(monthNum, date) {
-  //   const { days } = this.props;
-
-  //   let dateClass = new Date(2020, monthNum - 1, date + days - 2);
-  //   let day = this.state.days[dateClass.getDay()];
-  //   date = dateClass.getDate() + 1;
-  //   let month = this.state.months[dateClass.getMonth() + 1];
-  //   return `${day} ${this.appendToDate(date)} ${month}`;
-  // }
-
   render() {
-    const { trip, monthNum, date, getEndingDate, formatStartDate, stringifyPrice } = this.props;
+    const { trip, monthNum, date, getEndingDate, formatStartDate, stringifyPrice, quoteClickHandler } = this.props;
     const { title, city } = trip;
 
     return (
@@ -65,7 +38,7 @@ export default class Summary extends React.Component {
             </div>
           </div>
           <div className="AK-container-payment">
-            <LargeWidget trip={trip} stringifyPrice={stringifyPrice} />
+            <LargeWidget trip={trip} stringifyPrice={stringifyPrice} quoteClickHandler={quoteClickHandler} />
           </div>
         </div>
       </div>

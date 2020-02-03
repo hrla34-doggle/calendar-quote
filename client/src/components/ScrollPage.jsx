@@ -136,7 +136,7 @@ export default class ScrollPage extends React.Component {
   }
 
   render() {
-    const { trip, stringifyPrice } = this.props;
+    const { trip, stringifyPrice, quoteClickHandler } = this.props;
     const { summaryVisible, day, monthNum, date, carousel, checkedDate, checkedMonth } = this.state;
     const { dates } = trip;
 
@@ -168,7 +168,8 @@ export default class ScrollPage extends React.Component {
           getEndingDate={this.getEndingDate}
           appendToDate={this.appendToDate}
           formatStartDate={this.formatStartDate}
-          stringifyPrice={stringifyPrice} /> :
+          stringifyPrice={stringifyPrice}
+          quoteClickHandler={quoteClickHandler} /> :
           null}
       </div>
     );
