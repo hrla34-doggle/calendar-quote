@@ -8,16 +8,19 @@ export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
 
+    const { trip } = props;
+    const { dates } = trip;
+
     this.state = {
       leftButtonHidden: true,
       rightButtonHidden: false,
-      trip: props.trip,
-      dates: props.trip.dates,
+      trip,
+      dates,
       firstMonth: 1,
       secondMonth: 2,
       months: [null, 'JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'],
-      days: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
-      first: [null, 3, 6, 0, 3, 5, 1, 3, 6, 2, 4, 0, 2],
+      dayHeaders: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
+      first: [null, 3, 6, 0, 3, 5, 1, 3, 6, 2, 4, 0, 2], // needs to be manually put in. maybe i'll refactor it later to be automatically generated
       JANUARY: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
       FEBRUARY: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
       MARCH: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
@@ -37,6 +40,7 @@ export default class Carousel extends React.Component {
     this.returnTrailingEmptyDates = this.returnTrailingEmptyDates.bind(this);
     this.getNextMonths = this.getNextMonths.bind(this);
     this.getPreviousMonths = this.getPreviousMonths.bind(this);
+    this.getDatesForMonth = this.getDatesForMonth.bind(this);
   }
 
   componentDidMount() {
@@ -44,7 +48,8 @@ export default class Carousel extends React.Component {
   }
 
   getDates(numMonth) {
-    let month = this.state.months[numMonth];
+    const { months } = this.state;
+    let month = months[numMonth];
     return this.state[month];
   }
 
@@ -69,6 +74,23 @@ export default class Carousel extends React.Component {
       firstMonth: renderedFirstMonth,
       secondMonth: renderedSecondMonth,
     });
+  }
+
+  getDatesForMonth(month) {
+    const { months, dates } = this.state;
+    let numMonth = months.indexOf(month);
+    let days = [];
+
+    dates.forEach((date) => {
+      let day = parseInt(date.slice(8, 10));
+      let month = parseInt(date.slice(5, 7));
+
+      if (month === numMonth) {
+        days.push(day);
+      }
+    });
+
+    return days;
   }
 
   getNextMonths() {
@@ -109,6 +131,8 @@ export default class Carousel extends React.Component {
     let renderedSecondMonth = null;
     let leftButtonHidden = false;
     let dates_reversed = dates.slice(0);
+    let newDate = new Date();
+    let currMonth = newDate.getMonth() + 1;
     dates_reversed.reverse();
 
     dates_reversed.forEach((date, index) => {
@@ -120,6 +144,9 @@ export default class Carousel extends React.Component {
         renderedFirstMonth = month;
       }
       if (index === dates_reversed.length - 1 && renderedFirstMonth === month) {
+        leftButtonHidden = true;
+      }
+      if (renderedFirstMonth === currMonth) {
         leftButtonHidden = true;
       }
     });
@@ -156,21 +183,35 @@ export default class Carousel extends React.Component {
   }
 
   render() {
-    const { days, firstMonth, secondMonth, months, first, leftButtonHidden, rightButtonHidden } = this.state;
+    const { trip, dayHeaders, firstMonth, secondMonth, months, first, leftButtonHidden, rightButtonHidden } = this.state;
+    const { stringifyPrice, renderSummary } = this.props;
+
     return (
       <div className="AK-container-carousel">
         <LeftButton hidden={leftButtonHidden} clickHandler={() => this.getPreviousMonths()} />
         <Month month={months[firstMonth]}
+          numMonth={firstMonth}
           renderLeadingBlanks={() => this.returnLeadingEmptyDates(first[firstMonth])}
           renderTrailingBlanks={() => this.returnTrailingEmptyDates(first[firstMonth], this.getDates(firstMonth).length)}
-          dates={() => this.getDates(firstMonth)}
-          days={days}
+          days={() => this.getDates(firstMonth)}
+          dayHeaders={dayHeaders}
+          dates={this.getDatesForMonth(months[firstMonth])}
+          trip={trip}
+          stringifyPrice={stringifyPrice}
+          leadingBlanks={first[firstMonth]}
+          renderSummary={renderSummary}
         />
         <Month month={months[secondMonth]}
+          numMonth={secondMonth}
           renderLeadingBlanks={() => this.returnLeadingEmptyDates(first[secondMonth])}
           renderTrailingBlanks={() => this.returnTrailingEmptyDates(first[secondMonth], this.getDates(secondMonth).length)}
-          dates={() => this.getDates(secondMonth)}
-          days={days}
+          days={() => this.getDates(secondMonth)}
+          dayHeaders={dayHeaders}
+          dates={this.getDatesForMonth(months[secondMonth])}
+          trip={trip}
+          stringifyPrice={stringifyPrice}
+          leadingBlanks={first[firstMonth]}
+          renderSummary={renderSummary}
         />
         <RightButton hidden={rightButtonHidden} clickHandler={() => this.getNextMonths()} />
       </div>
