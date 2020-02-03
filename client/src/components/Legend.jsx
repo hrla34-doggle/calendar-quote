@@ -17,26 +17,29 @@ export default class Legend extends React.Component {
 
   switchList() {
     const { calendar } = this.state;
+    const { switchToList } = this.props;
     if (calendar) {
       this.setState({
         calendar: false,
         list: true,
-      });
+      }, () => switchToList());
     }
   }
 
   switchCalendar() {
     const { list } = this.state;
+    const { switchToCarousel } = this.props;
     if (list) {
       this.setState({
         calendar: true,
         list: false,
-      });
+      }, () => switchToCarousel());
     }
   }
 
   render() {
     const { calendar, list } = this.state;
+    const { switchToList, switchToCarousel } = this.props;
     return (
       <div className="AK-container-legend">
         <div className="AK-key">KEY</div>
