@@ -1196,6 +1196,7 @@ html, body {
 .AK-list-checkbox {
   height: 14px;
   width: 14px;
+  pointer-events: none;
 }
 
 .AK-checked {
@@ -1207,6 +1208,7 @@ html, body {
   font-size: 13px;
   color: rgb(76, 76, 76);
   margin-left: 0.7%;
+  pointer-events: none;
 }
 
 .AK-price-list {
@@ -1216,6 +1218,7 @@ html, body {
   color: rgb(196, 1, 1);
   justify-self: flex-end;
   margin-left: auto;
+  pointer-events: none;
 }
 
 @font-face {
