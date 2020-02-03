@@ -171,6 +171,10 @@ html, body {
   border-bottom-width: 1px;
 }
 
+.AK-reviews:hover {
+  cursor: pointer;
+}
+
 .AK-top-bar {
   width: 100%;
   height: 55px;
@@ -1178,6 +1182,10 @@ html, body {
   border-radius: 3px;
 }
 
+.AK-component-container-list-entry:hover {
+  cursor: pointer;
+}
+
 .AK-header-list-for-month {
   font-family: Futura-Heavy;
   font-size: 12px;
@@ -1190,8 +1198,8 @@ html, body {
   width: 14px;
 }
 
-.AK-list-checkbox:hover {
-  cursor: pointer;
+.AK-checked {
+  box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
 }
 
 .AK-text-list {

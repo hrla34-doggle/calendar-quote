@@ -62,7 +62,7 @@ export default class List extends React.Component {
   }
 
   render() {
-    const { trip, stringifyPrice, checkHandler } = this.props;
+    const { trip, stringifyPrice, checkHandler, checkedDate, checkedMonth } = this.props;
     let dateClass = new Date();
     let currentMonth = dateClass.getMonth() + 1;
     return (
@@ -79,7 +79,9 @@ export default class List extends React.Component {
                                    formatDate={this.formatDate}
                                    trip={trip}
                                    stringifyPrice={stringifyPrice}
-                                   checkHandler={checkHandler} />;
+                                   checkHandler={checkHandler}
+                                   checkedDate={checkedDate}
+                                   checkedMonth={checkedMonth} />;
             }
           })}
         </div>

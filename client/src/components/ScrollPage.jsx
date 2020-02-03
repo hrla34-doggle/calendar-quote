@@ -137,7 +137,7 @@ export default class ScrollPage extends React.Component {
 
   render() {
     const { trip, stringifyPrice } = this.props;
-    const { summaryVisible, day, monthNum, date, carousel, list } = this.state;
+    const { summaryVisible, day, monthNum, date, carousel, checkedDate, checkedMonth } = this.state;
     const { dates } = trip;
 
     return (
@@ -156,7 +156,9 @@ export default class ScrollPage extends React.Component {
                 getEndingDate={this.getEndingDate}
                 trip={trip}
                 stringifyPrice={stringifyPrice}
-                checkHandler={() => this.checkHandler(event)} />}
+                checkHandler={() => this.checkHandler(event)}
+                checkedDate={checkedDate}
+                checkedMonth={checkedMonth} />}
         {summaryVisible ? <Summary ref={this.summaryRef}
           trip={trip}
           day={day}
