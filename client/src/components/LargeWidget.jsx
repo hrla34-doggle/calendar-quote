@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LargeWidget = (props) => {
-  const { trip } = props;
+  const { trip, stringifyPrice } = props;
   const { discounted, price, msrp } = trip;
 
   return (
@@ -9,12 +9,12 @@ const LargeWidget = (props) => {
       <div className="AK-large-widget-container-pricing">
         <div className="AK-large-widget-price">
           {discounted ? <div className="AK-large-widget-pricing-text1">Early Payment Discount</div> : null}
-          <div className="AK-large-widget-currency1">${price} pp</div>
+          <div className="AK-large-widget-currency1">{stringifyPrice(price)} pp</div>
         </div>
         {discounted ?
           <div className="AK-large-widget-msrp">
             <div className="AK-large-widget-pricing-text2">WAS</div>
-            <strike className="AK-large-widget-currency2">${msrp}</strike>
+            <strike className="AK-large-widget-currency2">{stringifyPrice(msrp)}</strike>
           </div> : null
         }
         {discounted ?
