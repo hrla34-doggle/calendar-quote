@@ -11,7 +11,7 @@ export default class ScrollPage extends React.Component {
 
     this.state = {
       days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      months: [null, 'January', 'February', 'March', 'April', 'May', 'June', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      months: [null, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       summaryVisible: false,
       clicked: false,
       day: null,
@@ -19,6 +19,8 @@ export default class ScrollPage extends React.Component {
       date: null,
       carousel: true,
       list: false,
+      checkedDate: null,
+      checkedMonth: null,
     };
 
     this.renderSummary = this.renderSummary.bind(this);
@@ -28,6 +30,7 @@ export default class ScrollPage extends React.Component {
     this.appendToDate = this.appendToDate.bind(this);
     this.getEndingDate = this.getEndingDate.bind(this);
     this.formatStartDate = this.formatStartDate.bind(this);
+    this.checkHandler = this.checkHandler.bind(this);
   }
 
   componentDidUpdate() {
@@ -48,9 +51,9 @@ export default class ScrollPage extends React.Component {
     const { trip } = this.props;
     const { days } = trip;
 
-    let dateClass = new Date(2020, monthNum - 1, date + days - 2);
-    let day = this.state.days[dateClass.getDay() + 1];
-    date = dateClass.getDate() + 1;
+    let dateClass = new Date(2020, monthNum - 1, date + days - 1);
+    let day = this.state.days[dateClass.getDay()];
+    date = dateClass.getDate();
     let month = this.state.months[dateClass.getMonth() + 1];
     return `${day} ${this.appendToDate(date)} ${month}`;
   }
@@ -70,6 +73,26 @@ export default class ScrollPage extends React.Component {
       return number.toString() + 'rd';
     }
     return number.toString() + 'th';
+  }
+
+  checkHandler(event) {
+    let date = parseInt(event.target.dataset.date);
+    let monthNum = parseInt(event.target.dataset.nummonth);
+    let dateClass = new Date(2020, monthNum - 1, date);
+    let day = dateClass.getDay();
+
+    this.setState({
+      summaryVisible: true,
+      day,
+      monthNum,
+      date,
+      checkedDate: date,
+      checkedMonth: monthNum,
+    }, () => {
+      this.setState({
+        clicked: true,
+      });
+    });
   }
 
   switchToList() {
@@ -128,7 +151,12 @@ export default class ScrollPage extends React.Component {
         {carousel ? <Carousel renderSummary={() => this.renderSummary(event)}
           stringifyPrice={stringifyPrice}
           trip={trip} /> :
-          <List dates={dates} />}
+          <List dates={dates}
+                formatStartDate={this.formatStartDate}
+                getEndingDate={this.getEndingDate}
+                trip={trip}
+                stringifyPrice={stringifyPrice}
+                checkHandler={() => this.checkHandler(event)} />}
         {summaryVisible ? <Summary ref={this.summaryRef}
           trip={trip}
           day={day}
@@ -137,7 +165,8 @@ export default class ScrollPage extends React.Component {
           days={trip.days}
           getEndingDate={this.getEndingDate}
           appendToDate={this.appendToDate}
-          formatStartDate={this.formatStartDate} /> :
+          formatStartDate={this.formatStartDate}
+          stringifyPrice={stringifyPrice} /> :
           null}
       </div>
     );

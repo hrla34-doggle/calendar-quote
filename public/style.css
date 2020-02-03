@@ -1113,7 +1113,7 @@ html, body {
 .AK-component-container-list {
   border: 1px solid rgb(230, 230, 230);
   height: 428px;
-  margin-top: 18px;
+  margin-top: 17px;
   margin-bottom: 63px;
   width: 80.8%;
   margin-left: auto;
@@ -1150,6 +1150,64 @@ html, body {
   background-color: white;
   height: 89%;
   overflow: auto;
+  padding-top: 0.8%;
+}
+
+.AK-component-container-list-for-month {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1.6%;
+  padding-top: 1.8%;
+  padding-right: 2.75%;
+  /* padding-right: 1.6%; */
+}
+
+.AK-component-container-list-entry {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 45px;
+  width: auto;
+  border: 1px solid rgb(230, 230, 230);
+  margin-bottom: 1%;
+  padding-left: 1.85%;
+  padding-right: 2.8%;
+  background-color: rgb(251, 251, 251);
+  border-radius: 3px;
+}
+
+.AK-header-list-for-month {
+  font-family: Futura-Heavy;
+  font-size: 12px;
+  color: rgb(76, 76, 76);
+  margin-bottom: 1.1%;
+}
+
+.AK-list-checkbox {
+  height: 14px;
+  width: 14px;
+}
+
+.AK-list-checkbox:hover {
+  cursor: pointer;
+}
+
+.AK-text-list {
+  font-family: opensans;
+  font-size: 13px;
+  color: rgb(76, 76, 76);
+  margin-left: 0.7%;
+}
+
+.AK-price-list {
+  position: relative;
+  font-family: Futura-Next;
+  font-size: 14px;
+  color: rgb(196, 1, 1);
+  justify-self: flex-end;
+  margin-left: auto;
 }
 
 @font-face {

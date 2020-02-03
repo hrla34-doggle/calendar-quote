@@ -6,8 +6,6 @@ export default class Summary extends React.Component {
     super(props);
 
     this.state = {
-      // days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      // months: [null, 'January', 'February', 'March', 'April', 'May', 'June', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     };
   }
 
@@ -27,7 +25,7 @@ export default class Summary extends React.Component {
   //   }
   //   return number.toString() + 'th';
   // }
-  
+
   // getEndingDate(monthNum, date) {
   //   const { days } = this.props;
 
@@ -39,9 +37,8 @@ export default class Summary extends React.Component {
   // }
 
   render() {
-    const { trip, day, monthNum, date, appendToDate, getEndingDate, formatStartDate } = this.props;
+    const { trip, monthNum, date, getEndingDate, formatStartDate, stringifyPrice } = this.props;
     const { title, city } = trip;
-    const { months, days } = this.state;
 
     return (
       <div className="AK-container-summary">
@@ -59,9 +56,6 @@ export default class Summary extends React.Component {
               <div className="AK-container-text-start-end">
                 <div className="AK-text1-start-end">START</div>
                 <div className="AK-text2-start-end">
-                  {/* {`${days[day]} `}
-                  {`${appendToDate(date)} `}
-                  {`${months[monthNum]} `} */}
                   {formatStartDate(monthNum, date)}
                   {'2020, '} 
                   {city}</div>
@@ -71,7 +65,7 @@ export default class Summary extends React.Component {
             </div>
           </div>
           <div className="AK-container-payment">
-            <LargeWidget trip={trip} />
+            <LargeWidget trip={trip} stringifyPrice={stringifyPrice} />
           </div>
         </div>
       </div>
