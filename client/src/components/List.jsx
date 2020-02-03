@@ -10,13 +10,14 @@ export default class List extends React.Component {
   }
 
   render() {
+    const { dates } = this.props;
     return (
       <div className="AK-component-container-list">
         <div className="AK-header-list">
           <div className="AK-text-header-list">DEPARTURES</div>
         </div>
         <div className="AK-scrollable-list">
-          {props.dates.map((date) => (
+          {dates.map((date) => (
             <div>{date}</div>
           ))}
         </div>
