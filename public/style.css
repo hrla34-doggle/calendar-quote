@@ -1299,7 +1299,6 @@ html, body {
 
 .AK-container-image-quote {
   position: relative;
-  border: 1px solid rgb(230, 230, 230);
   width: 90%;
   height: 118px;
   margin-top: 3.32%;
@@ -1322,6 +1321,9 @@ html, body {
 .AK-container-text-image-quote {
   padding-top: 3.3%;
   padding-left: 2.4%;
+  border-top: 1px solid rgb(230, 230, 230);
+  border-right: 1px solid rgb(230, 230, 230);
+  border-bottom:1px solid rgb(230, 230, 230);
 }
 
 .AK-header-image-quote {
@@ -1332,18 +1334,55 @@ html, body {
 
 .AK-text-image-quote {
   font-family: opensans;
-  font-size: 12px;
+  font-size: 11px;
   margin-top: 2%;
   color: rgb(66, 66, 66);
   line-height: 21px;
+  width: 90%;
 }
 
 .AK-container-select-date {
   position: relative;
-  border: 1px solid rgb(230, 230, 230);
-  height: 150px;
+  height: 80px;
   width: 90%;
   margin-top: 20px;
+}
+
+.AK-header-select-date {
+  font-family: Futura-Next;
+  font-size: 14px;
+  color: rgb(76, 76, 76);
+}
+
+
+.AK-container-dropdown-select-date {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  margin-top: 2.58%;
+}
+
+.AK-selector-dropdown-select-date {
+  width: 100%;
+  position: relative;
+  border-left: 1px solid rgb(230, 230, 230);
+  border-top: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(230, 230, 230);
+  border-bottom-left-radius: 3.5px;
+  border-top-left-radius: 3.5px;
+  font-family: opensans;
+  font-size: 11px;
+  color: rgb(66, 66, 66);
+  padding-left: 5%;
+  padding-top: 1.7%;
+}
+
+.AK-button-dropdown-select-date {
+  height: 100%;
+  position: relative;
+  justify-self: flex-end;
+  margin-left: auto;
 }
 
 .AK-container-quote-form {
