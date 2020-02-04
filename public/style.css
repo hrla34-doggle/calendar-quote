@@ -221,7 +221,7 @@ html, body {
 .AK-header {
   font-family: Futura-Next;
   color: rgb(76,76,76);
-  margin-left: 237px;
+  margin-left: 232px;
   margin-top: 18px;
   font-size: 19px;
 }
@@ -638,6 +638,7 @@ html, body {
   height: 21px;
   align-self: center;
   margin: auto 30px 256px 54px;
+  /* margin: auto 30px 256px 4.23%; */
   position: relative;
 }
 
@@ -1162,7 +1163,6 @@ html, body {
   padding-left: 1.6%;
   padding-top: 1.8%;
   padding-right: 2.75%;
-  /* padding-right: 1.6%; */
 }
 
 .AK-component-container-list-entry {
@@ -1235,17 +1235,21 @@ html, body {
   width: 62.7%;
   left: 18.65%;
   background-color: white;
+  overflow: auto;
 }
 
 .AK-container-header-quote {
-  position: relative;
+  position: fixed;
+  width: 62.5%;
+  z-index: 60;
   display: flex;
   flex-direction: row;
   height: 7.5%;
   background-color: rgb(251, 251, 251);
-  border: 1px solid rgb(211, 211, 211);
+  border-bottom: 1px solid rgb(211, 211, 211);
   align-items: center;
   justify-content: center;
+  /* overflow: hidden; */
 }
 
 .AK-text-header-quote {
@@ -1255,7 +1259,6 @@ html, body {
   color: rgb(76, 76, 76);
   position: relative;
   margin-left: 42.5%;
-  
 }
 
 .AK-container-exit-quote {
@@ -1264,17 +1267,91 @@ html, body {
   background-color: white;
   justify-self: flex-end;
   margin-left: auto;
-  width: 6.5%;
+  width: 6.6%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-left: 1px solid rgb(230, 230, 230);
+  border-left: 1px solid rgb(240, 240, 240);
+}
+
+.AK-container-exit-quote:hover {
+  cursor: pointer;
 }
 
 .AK-button-img-exit-quote {
   height: 15px;
   width: 15px;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.AK-container-scrollable-quote {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  height: auto;
+  margin-top: 6.6%;
+  padding-right: 0.9%;
+}
+
+.AK-container-image-quote {
+  position: relative;
+  border: 1px solid rgb(230, 230, 230);
+  width: 90%;
+  height: 118px;
+  margin-top: 3.32%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
+}
+
+.AK-image-quote {
+  position: relative;
+  height: 100%;
+  margin-right: auto;
+  justify-self: flex-end;
+  width: auto;
+  align-self: center;
+}
+
+.AK-container-text-image-quote {
+  padding-top: 3.3%;
+  padding-left: 2.4%;
+}
+
+.AK-header-image-quote {
+  font-family: Futura-Next;
+  font-size: 14px;
+  color: rgb(76, 76, 76);
+}
+
+.AK-text-image-quote {
+  font-family: opensans;
+  font-size: 12px;
+  margin-top: 2%;
+  color: rgb(66, 66, 66);
+  line-height: 21px;
+}
+
+.AK-container-select-date {
+  position: relative;
+  border: 1px solid rgb(230, 230, 230);
+  height: 150px;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.AK-container-quote-form {
+  position: relative;
+  border: 1px solid rgb(230, 230, 230);
+  height: 1000px;
+  width: 90%;
+  margin-top: 20px;
 }
 
 @font-face {

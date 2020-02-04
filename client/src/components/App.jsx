@@ -20,6 +20,7 @@ export default class App extends React.Component {
     this.quoteClickHandler = this.quoteClickHandler.bind(this);
     this.homeClickHandler = this.homeClickHandler.bind(this);
     this.stringifyPrice = this.stringifyPrice.bind(this);
+    this.exitQuoteHandler = this.exitQuoteHandler.bind(this);
   }
 
   componentDidMount() {
@@ -60,6 +61,10 @@ export default class App extends React.Component {
   }
 
   exitQuoteHandler() {
+    this.setState({
+      quote: false,
+    });
+    document.body.style.overflow = 'auto';
   }
 
   stringifyPrice(number) {
@@ -78,7 +83,7 @@ export default class App extends React.Component {
   }
 
   renderCalendar() {
-    const { calendar, trip, quote } = this.state;
+    const { calendar, trip } = this.state;
     if (calendar) {
       return <Calendar className="AK-component-calendar-hidden" 
                        stringifyPrice={this.stringifyPrice} 
@@ -89,9 +94,9 @@ export default class App extends React.Component {
   }
 
   renderQuote() {
-    const { quote } = this.state;
+    const { quote, trip } = this.state;
     if (quote) {
-      return <Quote />;
+      return <Quote exitQuoteHandler={() => this.exitQuoteHandler()} trip={trip} />;
     }
   }
 
