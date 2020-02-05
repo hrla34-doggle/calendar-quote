@@ -27,9 +27,7 @@ export default class ScrollPage extends React.Component {
     this.summaryRef = React.createRef();
     this.switchToCarousel = this.switchToCarousel.bind(this);
     this.switchToList = this.switchToList.bind(this);
-    this.appendToDate = this.appendToDate.bind(this);
     this.getEndingDate = this.getEndingDate.bind(this);
-    this.formatStartDate = this.formatStartDate.bind(this);
     this.checkHandler = this.checkHandler.bind(this);
   }
 
@@ -40,39 +38,15 @@ export default class ScrollPage extends React.Component {
     }
   }
 
-  formatStartDate(monthNum, date) {
-    let dateClass = new Date(2020, monthNum - 1, date);
-    let day = this.state.days[dateClass.getDay()];
-    let month = this.state.months[monthNum];
-    return `${day} ${this.appendToDate(date)} ${month} `;
-  }
-
   getEndingDate(monthNum, date) {
-    const { trip } = this.props;
+    const { trip, appendToDate } = this.props;
     const { days } = trip;
 
     let dateClass = new Date(2020, monthNum - 1, date + days - 1);
     let day = this.state.days[dateClass.getDay()];
     date = dateClass.getDate();
     let month = this.state.months[dateClass.getMonth() + 1];
-    return `${day} ${this.appendToDate(date)} ${month}`;
-  }
-
-  appendToDate(number) {
-    let st = [1, 21, 31];
-    let nd = [2, 22];
-    let rd = [3, 23];
-
-    if (st.indexOf(number) !== -1) {
-      return number.toString() + 'st';
-    }
-    if (nd.indexOf(number) !== -1) {
-      return number.toString() + 'nd';
-    }
-    if (rd.indexOf(number) !== -1) {
-      return number.toString() + 'rd';
-    }
-    return number.toString() + 'th';
+    return `${day} ${appendToDate(date)} ${month}`;
   }
 
   checkHandler(event) {
@@ -136,7 +110,7 @@ export default class ScrollPage extends React.Component {
   }
 
   render() {
-    const { trip, stringifyPrice, quoteClickHandler } = this.props;
+    const { trip, stringifyPrice, quoteClickHandler, formatStartDate, appendToDate } = this.props;
     const { summaryVisible, day, monthNum, date, carousel, checkedDate, checkedMonth } = this.state;
     const { dates } = trip;
 
@@ -152,7 +126,7 @@ export default class ScrollPage extends React.Component {
           stringifyPrice={stringifyPrice}
           trip={trip} /> :
           <List dates={dates}
-                formatStartDate={this.formatStartDate}
+                formatStartDate={formatStartDate}
                 getEndingDate={this.getEndingDate}
                 trip={trip}
                 stringifyPrice={stringifyPrice}
@@ -166,8 +140,8 @@ export default class ScrollPage extends React.Component {
           date={date}
           days={trip.days}
           getEndingDate={this.getEndingDate}
-          appendToDate={this.appendToDate}
-          formatStartDate={this.formatStartDate}
+          appendToDate={appendToDate}
+          formatStartDate={formatStartDate}
           stringifyPrice={stringifyPrice}
           quoteClickHandler={quoteClickHandler} /> :
           null}

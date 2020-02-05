@@ -11,6 +11,20 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
+      days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      months: [null, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      // JANUARY: [],
+      // FEBRUARY: [],
+      // MARCH: [],
+      // APRIL: [],
+      // MAY: [],
+      // JUNE: [],
+      // JULY: [],
+      // AUGUST: [],
+      // SEPTEMBER: [],
+      // OCTOBER: [],
+      // NOVEMBER: [],
+      // DECEMBER: [],
       trip: {},
       calendar: false,
       quote: false,
@@ -21,6 +35,9 @@ export default class App extends React.Component {
     this.homeClickHandler = this.homeClickHandler.bind(this);
     this.stringifyPrice = this.stringifyPrice.bind(this);
     this.exitQuoteHandler = this.exitQuoteHandler.bind(this);
+    this.formatStartDate = this.formatStartDate.bind(this);
+    this.appendToDate = this.appendToDate.bind(this);
+    // this.sortDates = this.sortDates.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +56,61 @@ export default class App extends React.Component {
       .catch((err) => {
         console.error(err);
       });
+  }
+
+  // sortDates() {
+  //   const { trip } = this.state;
+  //   const { dates } = trip;
+
+  //   let sorted = [null, [], [], [], [], [], [], [], [], [], [], [], []];
+
+  //   dates.forEach((dateString) => {
+  //     let numMonth = parseInt(dateString.slice(5, 7));
+  //     let date = parseInt(dateString.slice(8, 10));
+
+  //     sorted[numMonth].push(this.formatStartDate(numMonth, date));
+  //   });
+
+  //   this.setState({
+  //     JANUARY: sorted[1],
+  //     FEBRUARY: sorted[2],
+  //     MARCH: sorted[3],
+  //     APRIL: sorted[4],
+  //     MAY: sorted[5],
+  //     JUNE: sorted[6],
+  //     JULY: sorted[7],
+  //     AUGUST: sorted[8],
+  //     SEPTEMBER: sorted[9],
+  //     OCTOBER: sorted[10],
+  //     NOVEMBER: sorted[11],
+  //     DECEMBER: sorted[12],
+  //   });
+  // }
+
+  formatStartDate(monthNum, date) {
+    const { days, months } = this.state;
+
+    let dateClass = new Date(2020, monthNum - 1, date);
+    let day = days[dateClass.getDay()];
+    let month = months[monthNum];
+    return `${day} ${this.appendToDate(date)} ${month} `;
+  }
+
+  appendToDate(number) {
+    let st = [1, 21, 31];
+    let nd = [2, 22];
+    let rd = [3, 23];
+
+    if (st.indexOf(number) !== -1) {
+      return number.toString() + 'st';
+    }
+    if (nd.indexOf(number) !== -1) {
+      return number.toString() + 'nd';
+    }
+    if (rd.indexOf(number) !== -1) {
+      return number.toString() + 'rd';
+    }
+    return number.toString() + 'th';
   }
 
   calendarClickHandler() {
@@ -89,14 +161,19 @@ export default class App extends React.Component {
                        stringifyPrice={this.stringifyPrice} 
                        trip={trip}
                        homeClickHandler={() => this.homeClickHandler()}
-                       quoteClickHandler={() => this.quoteClickHandler()} />;
+                       quoteClickHandler={() => this.quoteClickHandler()}
+                       formatStartDate={this.formatStartDate}
+                       appendToDate={this.appendToDate} />;
     }
   }
 
   renderQuote() {
     const { quote, trip } = this.state;
     if (quote) {
-      return <Quote exitQuoteHandler={() => this.exitQuoteHandler()} trip={trip} />;
+      return <Quote exitQuoteHandler={() => this.exitQuoteHandler()} 
+                    trip={trip}
+                    formatStartDate={this.formatStartDate}
+                    appendToDate={this.appendToDate} />;
     }
   }
 

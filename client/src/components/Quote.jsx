@@ -2,7 +2,7 @@ import React from 'react';
 import SelectDate from './SelectDate';
 
 const Quote = (props) => {
-  const { exitQuoteHandler, trip } = props;
+  const { exitQuoteHandler, trip, sortDates, formatStartDate, appendToDate } = props;
   return (
     <div>
       <div className="AK-opaque-bg-quote"></div>
@@ -25,7 +25,10 @@ const Quote = (props) => {
           </div>
           <div className="AK-container-select-date">
             <div className="AK-header-select-date">Select your preferred travel date</div>
-            <SelectDate />
+            <SelectDate trip={trip}
+                        sortDates={sortDates}
+                        formatStartDate={formatStartDate}
+                        appendToDate={appendToDate} />
           </div>
           <div className="AK-container-quote-form">
 

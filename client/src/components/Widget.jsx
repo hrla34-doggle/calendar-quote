@@ -17,6 +17,7 @@ const Widget = (props) => {
           {discounted ? <div className="AK-pricing-text">FROM</div> : null}
           {discounted ? <div className="AK-currency1">{priceString}</div> : <div className="AK-currency1">{priceString} pp</div>}
         </div>
+        <div className="AK-price-wrapper">
         {discounted ?
         <div className="AK-msrp">
           <div className="AK-pricing-text">WAS</div>
@@ -34,6 +35,7 @@ const Widget = (props) => {
           </div>
         </div> : null
         }
+        </div>
       </div>
       <div className="AK-container-reviews">
         {reviews === 1 ? <span className="AK-reviews">{reviews + " review"}</span> : <span className="AK-reviews">{reviews + " reviews"}</span>}

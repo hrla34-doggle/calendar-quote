@@ -35,7 +35,6 @@ export default class List extends React.Component {
     dates.forEach((dateString) => {
       let numMonth = parseInt(dateString.slice(5, 7));
       let date = parseInt(dateString.slice(8, 10));
-      // let dateRange = formatStartDate(numMonth, date) + "- " + getEndingDate(numMonth, date);
       sorted[numMonth].push(date);
     });
 
