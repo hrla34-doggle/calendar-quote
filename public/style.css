@@ -3,6 +3,10 @@ html, body {
   padding: 0;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 .AK-page {
   width: 100%;
   position: absolute;
@@ -61,7 +65,7 @@ html, body {
 }
 
 .AK-pricing-text {
-  font-size: 14px;
+  font-size: 15px;
   font-family: Futura-Med;
   color: rgb(118, 118, 118);
   margin-bottom: 3%;
@@ -79,7 +83,7 @@ html, body {
 }
 
 .AK-msrp {
-  margin-left: 7.7%;
+  margin-left: 11%;
   color: rgb(141, 140, 140);
 }
 
@@ -94,7 +98,7 @@ html, body {
 }
 
 .AK-savings {
-  margin-left: 3.7%;
+  margin-left: 5.5%;
   color: rgb(196, 8, 47);
   display: flex;
   flex-direction: row;
@@ -234,7 +238,7 @@ html, body {
 
 .AK-header {
   position: relative;
-  margin-left: 21%;
+  margin-left: 20.5%;
   font-family: Futura-Next;
   color: rgb(76,76,76);
   margin-top: 23px;
@@ -312,22 +316,21 @@ html, body {
 .AK-container-legend {
   display: flex;
   flex-direction: row;
-  height: 51px;
+  height: 65px;
   border-left: 1px solid rgb(230, 230, 230);
   border-bottom: 1px solid rgb(230, 230, 230);
   border-right: 1px solid rgb(230, 230, 230);
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  /* margin: 0 114px 0 105px; */
-  margin: 0 9.85% 0 9.1%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 0 8.92% 0 9.25%;
   align-items: center;
 }
 
 .AK-key {
   font-family: Futura-Heavy;
-  font-size: 12px;
-  margin-left: 16px;
-  margin-top: 2px;
+  font-size: 15px;
+  margin-left: 1.72%;
+  margin-top: 0.4%;
   color: rgb(66, 66, 66);
 }
 
@@ -335,7 +338,7 @@ html, body {
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 148px;
+  width: 16.2%;
 }
 
 .AK-tooltip1:hover{
@@ -391,7 +394,8 @@ html, body {
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 120px;
+  /* width: 150px; */
+  width: 12.6%;
 }
 
 .AK-tooltip2:hover{
@@ -447,7 +451,7 @@ html, body {
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 156px;
+  width: 16.2%;
 }
 
 .AK-tooltip3:hover{
@@ -556,19 +560,19 @@ html, body {
 }
 
 .AK-legend-img {
-  height: 22px;
-  width: 22px;
-  margin-left: 10px;
+  height: 24px;
+  margin-left: 7%;
   align-self: center;
 }
 
 .AK-legend-txt {
+  position: relative;
   font-family: opensans;
-  font-size: 12px;
-  margin-left: 2px;
-  margin-right: 10px;
+  font-size: 14px;
   align-self: center;
   color: rgb(68, 68, 68);
+  margin-left: 3.5%;
+  letter-spacing: 0.3px;
 }
 
 .AK-container-view {
@@ -591,8 +595,8 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 30px;
-  width: 30px;
+  height: 38px;
+  width: 38px;
   background-color: white;
   border: 1px solid rgb(230, 230, 230);
   margin-left: 9%;
@@ -615,8 +619,8 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 30px;
-  width: 30px;
+  height: 38px;
+  width: 38px;
   background-color: white;
   border: 1px solid rgb(230, 230, 230);
   margin-top: 1px;
@@ -633,9 +637,13 @@ html, body {
   border-bottom-right-radius: 0px;
 }
 
+.AK-view-text {
+  font-size: 14px;
+}
+
 .AK-view-icon {
-  height: 22px;
-  width: 22px;
+  height: 27px;
+  width: 27px;
   margin-bottom: 2px;
   margin-left: 1px;
 }
