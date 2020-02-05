@@ -11,6 +11,7 @@ const LargeWidget = (props) => {
           {discounted ? <div className="AK-large-widget-pricing-text1">Early Payment Discount</div> : null}
           <div className="AK-large-widget-currency1">{stringifyPrice(price)} pp</div>
         </div>
+        <div className="AK-large-widget-price-wrapper">
         {discounted ?
           <div className="AK-large-widget-msrp">
             <div className="AK-large-widget-pricing-text2">WAS</div>
@@ -28,6 +29,7 @@ const LargeWidget = (props) => {
             </div>
           </div> : null
         }
+        </div>
       </div>
       <div className="AK-container-buttons">
         <button type="button" className="AK-large-widget-button1">BOOK NOW</button>

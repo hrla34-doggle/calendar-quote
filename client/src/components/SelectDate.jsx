@@ -69,6 +69,10 @@ export default class SelectDate extends React.Component {
         <div className="AK-selector-dropdown-select-date">Select a date</div>
         <img className="AK-button-dropdown-select-date" src="down-arrow.png" alt="down-arrow" />
         {list ? <div className="AK-list-dropdown-select-date">
+          <div className="AK-container-dropdown-date-entry">
+            <img className="AK-button-dropdown-date-entry" src="checkbox_red_unselected.png" alt="checkbox_unselected" />
+            <div className="AK-text-dropdown-date-entry">I don't know when I want to travel</div>
+          </div>
           {Object.keys(this.state).map((key) => {
             if (key !== 'list') {
               return (
