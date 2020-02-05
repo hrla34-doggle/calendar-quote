@@ -5,7 +5,7 @@ const Quote = (props) => {
   const { exitQuoteHandler, trip, sortDates, formatStartDate, appendToDate } = props;
   return (
     <div>
-      <div className="AK-opaque-bg-quote"></div>
+      <div onClick={exitQuoteHandler} className="AK-opaque-bg-quote"></div>
       <div className="AK-component-container-quote">
         <div className="AK-container-header-quote">
           <div className="AK-text-header-quote">
