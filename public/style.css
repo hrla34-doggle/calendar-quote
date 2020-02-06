@@ -1526,7 +1526,7 @@ html, body {
   border: 1px solid rgb(230, 230, 230);
   height: 590px;
   width: 91.8%;
-  margin-top: 40px;
+  margin-top: 44px;
   margin-bottom: 20px;
   border-radius: 5px;
 }
@@ -1551,15 +1551,12 @@ html, body {
 
 }
 
-.AK-container-submit-form {
-  height: 71px;
-  width: 100%;
-  margin-bottom: 4px;
-  border: 1px solid rgb(230, 230, 230);
+.AK-form-inputs-row {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: space-around;
+  margin-top: 0;
+  margin-bottom: 30px;
 }
 
 .AK-container-form-inputs {
@@ -1570,28 +1567,197 @@ html, body {
   padding: 0 25px;
 }
 
-.AK-form-inputs-row {
+.AK-container-label-input {
+  position: relative;
+  height: 60px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 10px;
+  flex-direction: column;
 }
 
-.AK-form-labels.AK-shrink {
-  
+.AK-container-label-input-2 {
+  width: 347px;
+  position: relative;
+  height: 59px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #3670a9
+}
+
+.AK-form-labels {
+  transition: all 300ms;
+  position: absolute;
+  justify-self: flex-end;
+  margin-top: auto;
+  top: 12px;
+}
+
+.AK-form-labels-phone {
+  position: absolute;
+  pointer-events: none;
+  font-size: 10px;
+  top: 4px;
 }
 
 .AK-input-form {
   width: 347px;
-  height: 30px;
+  height: 40px;
   font-size: 16px;
   font-family: opensans;
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 1px solid rgb(1, 1, 196);
+  border-bottom: 1px solid #3670a9;
   outline: none;
+  justify-self: flex-end;
+  margin-top: auto;
+  
 }
+
+.AK-input-form-2 {
+  width: 260px;
+  height: 40px;
+  font-size: 16px;
+  font-family: opensans;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  justify-self: flex-end;
+  position: relative;
+  margin-left: auto;
+  margin-top: auto;
+  border-bottom: none;
+}
+
+.AK-input-form-selected {
+  border-bottom: 2px solid #3670a9
+}
+
+.AK-input-form-selected2 {
+  border-bottom: 1px solid #3670a9
+}
+
+.AK-phone-number-wrapper-row {
+  display: flex;
+  flex-direction: row;
+  justify-self: flex-end;
+  margin-top: auto;
+  width: 100%;
+  position: relative;
+}
+
+.AK-container-area-code-selector {
+  position: relative;
+}
+
+.AK-area-code-dropdown-selector {
+  width: 22%;
+  align-self: flex-end;
+  margin-top: auto;
+  position: relative;
+}
+
+
+.AK-area-code-dropdown-selector {
+  width: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  position: relative;
+  height: 96%;
+}
+
+.AK-area-code-dropdown-selector:hover {
+  cursor: pointer;
+}
+
+.AK-image-country {
+  width: 16px;
+  height: 11px;
+}
+
+.AK-number-country {
+  width: auto;
+  margin-left: 8px;
+  font-family: opensans;
+}
+
+.AK-button-down {
+  width: 10px;
+  margin-left: 5px;
+}
+
+.AK-container-dropdown-country {
+  display: flex;
+  position: absolute;
+  margin-top: 2px;
+  width: 345px;
+  border: 1px solid rgb(230, 230, 230);
+  border-top: 1px solid #3670a9;
+  flex-direction: column;
+  /* z-index: 70; */
+  background-color: white;
+  box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
+}
+
+.AK-container-option-country {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 331px;
+  align-items: center;
+  padding: 7px 5px;
+}
+
+.AK-container-option-country:hover {
+  cursor: pointer;
+}
+
+.AK-text-country {
+  font-family: opensans;
+  width: 250px;
+  justify-self: flex-end;
+  margin-left: auto;
+}
+
+.AK-container-text-box {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.AK-header-text-box {
+  margin-left: 21px;
+}
+
+.AK-textarea-text-box {
+  width: 96%;
+  align-self: center;
+  margin: auto;
+  height: 70px;
+  font-family: opensans;
+  font-size: 16px;
+  outline: none;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid #3670a9;
+  line-height: 30px;
+  margin-top: 4px;
+}
+
+.AK-container-submit-form {
+  height: 71px;
+  width: 100%;
+  margin-bottom: 19px;
+  border: 1px solid rgb(230, 230, 230);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 
 .AK-button-submit {
   height: 51px;

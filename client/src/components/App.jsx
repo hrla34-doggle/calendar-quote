@@ -6,10 +6,6 @@ import Widget from './Widget';
 import Calendar from './Calendar';
 import Quote from './Quote';
 
-import cx from 'classnames';
-import {CSSTransition} from 'react-transition-group';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +16,10 @@ export default class App extends React.Component {
       trip: {},
       calendar: false,
       quote: false,
-      shrink: null,
+      selected: null,
+      areaCode: false,
+      selectedCountry: 866,
+      textArea: '',
     };
 
     this.calendarClickHandler = this.calendarClickHandler.bind(this);
@@ -30,7 +29,11 @@ export default class App extends React.Component {
     this.exitQuoteHandler = this.exitQuoteHandler.bind(this);
     this.formatStartDate = this.formatStartDate.bind(this);
     this.appendToDate = this.appendToDate.bind(this);
-    this.shrinkLabel = this.shrinkLabel.bind(this);
+    this.shrinkHandler = this.shrinkHandler.bind(this);
+    this.selectPhone = this.selectPhone.bind(this);
+    this.clickAreaCode = this.clickAreaCode.bind(this);
+    this.selectCountry = this.selectCountry.bind(this);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
   }
 
   componentDidMount() {
@@ -90,6 +93,14 @@ export default class App extends React.Component {
     document.body.style.overflow = 'hidden';
   }
 
+  onChangeHandler(event) {
+    let textArea = event.target.value;
+
+    this.setState({
+      textArea,
+    });
+  }
+
   homeClickHandler() {
     this.setState({
       calendar: false,
@@ -118,15 +129,52 @@ export default class App extends React.Component {
     return priceString;
   }
 
-  shrinkLabel(event) {
-    let shrink = event.target.dataset.label;
+  shrinkHandler(event) {
+    let id = event.target.dataset.id;
+
+    document.getElementById(id).style.top = 0;
+    if (id === 'AK-input3') {
+      document.getElementById(id).style.marginLeft = '-4.9%';
+    } else {
+      document.getElementById(id).style.marginLeft = '-3.5%';
+    }
+    document.getElementById(id).style.transform = 'scale(0.7, 0.7)';
+
     this.setState({
-      shrink,
+      selected: id,
+    });
+  }
+
+  selectPhone(event) {
+    console.log(event.target.dataset.id);
+    let id = event.target.dataset.id;
+
+    this.setState({
+      selected: id,
+    });
+  }
+
+  clickAreaCode() {
+    this.setState({
+      areaCode: true,
+    }, () => this.renderQuote());
+  }
+
+  selectCountry(event) {
+    console.log(event.target.dataset.country);
+    let selectedCountry = parseInt(event.target.dataset.country);
+
+    this.setState({
+      selectedCountry,
+    }, () => {
+      this.setState({
+        areaCode: false,
+      });
     });
   }
 
   renderCalendar() {
-    const { calendar, trip, shrink } = this.state;
+    const { calendar, trip } = this.state;
 
     if (calendar) {
       return <Calendar className={!calendar ? "AK-component-calendar" : "AK-component-calendar AK-show"}
@@ -136,25 +184,32 @@ export default class App extends React.Component {
                        quoteClickHandler={() => this.quoteClickHandler()}
                        formatStartDate={this.formatStartDate}
                        appendToDate={this.appendToDate}
-                       shrinkLabel={() => this.shrinkLabel(event)}
-                       shrink={shrink}
              />;
     }
   }
 
   renderQuote() {
-    const { quote, trip } = this.state;
+    const { quote, trip, selected, areaCode, selectedCountry, textArea } = this.state;
     if (quote) {
       return <Quote exitQuoteHandler={() => this.exitQuoteHandler()} 
                     trip={trip}
                     formatStartDate={this.formatStartDate}
-                    appendToDate={this.appendToDate} 
+                    appendToDate={this.appendToDate}
+                    shrinkHandler={() => this.shrinkHandler(event)}
+                    selected={selected}
+                    selectPhone={() => this.selectPhone(event)}
+                    clickAreaCode={() => this.clickAreaCode()}
+                    areaCode={areaCode}
+                    selectedCountry={selectedCountry}
+                    selectCountry={() => this.selectCountry(event)}
+                    onChangeHandler={() => this.onChangeHandler(event)}
+                    textArea={textArea}
              />;
     }
   }
 
   render() {
-    const { trip, calendar } = this.state;
+    const { trip } = this.state;
     return (
       <div className="AK-page">
         {this.renderCalendar()}
