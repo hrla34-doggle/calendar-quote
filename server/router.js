@@ -5,11 +5,11 @@ const model = require('../database/model.js');
 const db = require('../database/index.js');
 
 router
-  .route('/calendar/:_id')
+  .route('/calendar/:id')
   .get((req, res) => {
-    const { _id } = req.params;
+    const { id } = req.params;
 
-    model.Trip.findOne({ _id })
+    model.Trip.findOne({ id })
       .then((trip) => {
         res.status(200).json(trip);
       })
