@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  transition: all 0.3s ease;
 }
 
 .AK-page {
@@ -10,23 +11,27 @@ html, body {
 }
 
 .AK-container-main {
-  height: 195px;
+  /* position: absolute;
+  top: 379px;
+  left: 966px; */
+
+  height: 246px;
   display: flex;
-  width: 29.5%;
+  width: 29.505%;
   flex-direction: column;
   border: 1px solid rgb(219, 218, 218);
 }
 
 .AK-upper-box {
   display: flex;
-  height: 79%;
+  height: 78.7%;
 }
 
 .AK-lower-box {
   display: flex;
-  height: 21%;
+  height: 21.3%;
   font-family: opensans, sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
   justify-content: flex-start;
   align-items: center;
@@ -43,10 +48,10 @@ html, body {
 
 .AK-trip-code {
   color: rgb(118, 118, 118);
-  font-size: 9.5px;
+  font-size: 12px;
   text-align: right;
-  margin-top: 7px;
-  margin-right: 8px;
+  margin-top: 2%;
+  margin-right: 2.4%;
   font-family: opensans, sans-serif;
 }
 
@@ -57,17 +62,29 @@ html, body {
 }
 
 .AK-pricing-text {
-  font-size: 12px;
-  font-family: GeosansLight;
+  font-size: 15px;
+  font-family: Futura-Med;
   color: rgb(118, 118, 118);
+  margin-bottom: 3%;
 }
 
 .AK-price {
-  margin-left: 25px;
+  margin-left: 7%;
+}
+
+.AK-price-no-wrap {
+  width: 300px;
+}
+
+.AK-price-wrapper {
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  display: flex;
 }
 
 .AK-msrp {
-  margin-left: 25px;
+  margin-left: 11%;
   color: rgb(141, 140, 140);
 }
 
@@ -76,13 +93,13 @@ html, body {
 }
 
 .AK-savings-text {
-  font-size: 12px;
+  font-size: 14px;
   font-family: Futura-Med;
   margin-bottom: 3px;
 }
 
 .AK-savings {
-  margin-left: 25px;
+  margin-left: 5.5%;
   color: rgb(196, 8, 47);
   display: flex;
   flex-direction: row;
@@ -94,19 +111,19 @@ html, body {
 }
 
 .AK-currency1 {
-  font-size: 16px;
+  font-size: 21px;
   font-family: Futura-Next;
-  color: rgb(99, 98, 98);
+  color: rgb(76, 76, 76);
   margin-top: 4px;
 }
 
 .AK-currency2 {
   font-family: Futura-Next;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .AK-price-tag {
-  height: 18px;
+  height: 23px;
 }
 
 .AK-container-img {
@@ -119,16 +136,17 @@ html, body {
   flex-direction: row;
   justify-content: space-evenly;
   padding: 0 2%;
+  align-items: center;
 }
 
 .AK-button1 {
-  border-radius: 20px;
-  height: 40px;
+  border-radius: 25px;
+  height: 50px;
   width: 42%;
   color: white;
   background-color: rgb(196, 8, 47);
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
   outline: none;
   font-family: Futura-Heavy;
 }
@@ -138,13 +156,13 @@ html, body {
 }
 
 .AK-button2 {
-  border-radius: 20px;
-  height: 40px;
+  border-radius: 24px;
+  height: 48px;
   width: 42%;
   color: rgb(196, 8, 47);
   border: 1.5px solid rgb(196, 8, 47);
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
   outline: none;
   font-family: Futura-Heavy;
 }
@@ -156,9 +174,9 @@ html, body {
 }
 
 .AK-container-reviews {
-  font-size: 11px;
+  font-size: 14px;
   font-family: opensans, sans-serif;
-  margin: 8px 0px 15px 32px;
+  margin: 3% 0px 4.2% 8%;
   color: rgb(76, 76, 76);
   font-weight: 100;
   width: auto;
@@ -175,9 +193,20 @@ html, body {
   cursor: pointer;
 }
 
+.AK-component-calendar {
+  visibility: hidden;
+  transition: visibility 1s;
+}
+
+.AK-component-calendar.AK-show {
+  visibility: visible;
+  /* transition: visibility 0.3s; */
+  transition: visibility 1s;
+}
+
 .AK-top-bar {
   width: 100%;
-  height: 55px;
+  height: 69px;
   border-bottom: 1px solid rgb(211, 211, 211);
   position: fixed;
   top: 0;
@@ -189,41 +218,43 @@ html, body {
 }
 
 .AK-logo {
-  margin: 11px 12px 9px 12px;
-  width: 130px;
+  margin: 13px 12px 9px 15px;
+  width: 162px;
+  height: 44px;
 }
 
 .AK-phone {
-  margin-top: 20px;
-  margin-left: 3px;
-  width: 16px;
-  height: 16px;
+  margin-top: 25.4px;
+  margin-left: 6.5px;
+  width: 20px;
+  height: 20px;
 }
 
 .AK-help {
-  margin-left: 11px;
-  margin-top: 10px;
+  margin-left: 1.1%;
+  margin-top: 13px;
   font-family: Futura-Heavy;
   color: rgb(76, 76, 76);
 }
 
 .AK-help-text {
-  font-size: 10px;
-  margin-top: 3px;
-  margin-bottom: 2px;
-  letter-spacing: 1.5px;
+  font-size: 12px;
+  margin-top: 3.1%;
+  margin-bottom: 3%;
+  letter-spacing: 2.1px;
 }
 
 .AK-help-phone {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .AK-header {
+  position: relative;
+  margin-left: 20.5%;
   font-family: Futura-Next;
   color: rgb(76,76,76);
-  margin-left: 237px;
-  margin-top: 18px;
-  font-size: 19px;
+  margin-top: 23px;
+  font-size: 23px;
 }
 
 .AK-return {
@@ -233,7 +264,7 @@ html, body {
   position: absolute;
   right: 0px;
   top: 0px;
-  width: 83px;
+  width: 110px;
   height: 100%;
   background-color: white;
   align-items: center;
@@ -247,15 +278,15 @@ html, body {
 
 .AK-back-text {
   font-family: Futura-Heavy;
-  font-size: 12px;
+  font-size: 16px;
   margin-left: 2px;
 }
 
 .AK-X {
-  margin-top: 2px;
+  margin-top: 0px;
   margin-right: 6px;
-  height: 15px;
-  width: 15px;
+  height: 19px;
+  width: 19px;
   opacity: 0.8;
 }
 
@@ -270,7 +301,7 @@ html, body {
 }
 
 .AK-middle-section {
-  height: 94px;
+  height: 130.5px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -281,37 +312,37 @@ html, body {
 .AK-step1 {
   align-self: center;
   font-family: Futura-Med;
-  font-size: 12px;
-  margin-top: 24px;
-  margin-right: 5px;
+  font-size: 15px;
+  margin-top: 45px;
+  margin-left: 5px;
 }
 
 .AK-select-dates-header {
   align-self: center;
   font-family: Futura-Next;
-  font-size: 24px;
+  font-size: 30px;
   margin-top: 4px;
-  margin-right: 4px;
+  margin-left: 5px;
 }
 
 .AK-container-legend {
   display: flex;
   flex-direction: row;
-  height: 51px;
+  height: 65px;
   border-left: 1px solid rgb(230, 230, 230);
   border-bottom: 1px solid rgb(230, 230, 230);
   border-right: 1px solid rgb(230, 230, 230);
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  margin: 0 114px 0 105px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 0 8.92% 0 9.25%;
   align-items: center;
 }
 
 .AK-key {
   font-family: Futura-Heavy;
-  font-size: 12px;
-  margin-left: 16px;
-  margin-top: 2px;
+  font-size: 15px;
+  margin-left: 1.72%;
+  margin-top: 0.4%;
   color: rgb(66, 66, 66);
 }
 
@@ -319,7 +350,7 @@ html, body {
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 148px;
+  width: 16.2%;
 }
 
 .AK-tooltip1:hover{
@@ -328,17 +359,17 @@ html, body {
 
 .AK-tooltip1 .AK-tooltiptext1 {
   font-family: opensans;
-  font-size: 10px;
+  font-size: 12px;
   visibility: hidden;
-  width: 155px;
+  width: 180px;
   background-color: white;
   color: rgb(76, 76, 76);
   text-align: center;
-  padding: 10px 15px;
+  padding: 10px 24px;
   border-radius: 8px;
   top: 130%;
   left: 50%;
-  margin-left: -147px;
+  margin-left: -185px;
   position: absolute;
   border: 1px solid rgb(230, 230, 230);
   box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
@@ -375,7 +406,8 @@ html, body {
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 120px;
+  /* width: 150px; */
+  width: 12.6%;
 }
 
 .AK-tooltip2:hover{
@@ -384,17 +416,17 @@ html, body {
 
 .AK-tooltip2 .AK-tooltiptext2 {
   font-family: opensans;
-  font-size: 10px;
+  font-size: 12px;
   visibility: hidden;
-  width: 155px;
+  width: 180px;
   background-color: white;
   color: rgb(76, 76, 76);
   text-align: center;
-  padding: 10px 15px;
+  padding: 10px 24px;
   border-radius: 8px;
   top: 130%;
   left: 50%;
-  margin-left: -132px;
+  margin-left: -166px;
   position: absolute;
   border: 1px solid rgb(230, 230, 230);
   box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
@@ -431,7 +463,7 @@ html, body {
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 156px;
+  width: 16.2%;
 }
 
 .AK-tooltip3:hover{
@@ -440,17 +472,17 @@ html, body {
 
 .AK-tooltip3 .AK-tooltiptext3 {
   font-family: opensans;
-  font-size: 10px;
+  font-size: 12px;
   visibility: hidden;
-  width: 155px;
+  width: 185px;
   background-color: white;
   color: rgb(76, 76, 76);
   text-align: center;
-  padding: 10px 15px;
+  padding: 10px 24px;
   border-radius: 8px;
   top: 130%;
   left: 50%;
-  margin-left: -150px;
+  margin-left: -187px;
   position: absolute;
   border: 1px solid rgb(230, 230, 230);
   box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
@@ -460,7 +492,7 @@ html, body {
 .AK-tooltip3 .AK-tooltiptext3::before {
   content: " ";
   position: absolute;
-  bottom: 102%;
+  bottom: 101%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
@@ -496,17 +528,17 @@ html, body {
 
 .AK-tooltip4 .AK-tooltiptext4 {
   font-family: opensans;
-  font-size: 10px;
+  font-size: 12px;
   visibility: hidden;
-  width: 155px;
+  width: 185px;
   background-color: white;
   color: rgb(76, 76, 76);
   text-align: center;
-  padding: 10px 15px;
+  padding: 10px 24px;
   border-radius: 8px;
   top: 130%;
   left: 50%;
-  margin-left: -142px;
+  margin-left: -165px;
   position: absolute;
   border: 1px solid rgb(230, 230, 230);
   box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
@@ -540,19 +572,19 @@ html, body {
 }
 
 .AK-legend-img {
-  height: 22px;
-  width: 22px;
-  margin-left: 10px;
+  height: 24px;
+  margin-left: 7%;
   align-self: center;
 }
 
 .AK-legend-txt {
+  position: relative;
   font-family: opensans;
-  font-size: 12px;
-  margin-left: 2px;
-  margin-right: 10px;
+  font-size: 14px;
   align-self: center;
   color: rgb(68, 68, 68);
+  margin-left: 3.5%;
+  letter-spacing: 0.3px;
 }
 
 .AK-container-view {
@@ -562,7 +594,7 @@ html, body {
   font-family: opensans;
   color: rgb(68, 68, 68);
   font-size: 12px;
-  width: 152px;
+  width: 16.35%;
   height: 100%;
   justify-self: flex-end;
   margin-left: auto;
@@ -575,11 +607,11 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 30px;
-  width: 30px;
+  height: 38px;
+  width: 38px;
   background-color: white;
   border: 1px solid rgb(230, 230, 230);
-  margin-left: 11px;
+  margin-left: 9%;
   margin-top: 1px;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -599,8 +631,8 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 30px;
-  width: 30px;
+  height: 38px;
+  width: 38px;
   background-color: white;
   border: 1px solid rgb(230, 230, 230);
   margin-top: 1px;
@@ -617,9 +649,13 @@ html, body {
   border-bottom-right-radius: 0px;
 }
 
+.AK-view-text {
+  font-size: 14px;
+}
+
 .AK-view-icon {
-  height: 22px;
-  width: 22px;
+  height: 27px;
+  width: 27px;
   margin-bottom: 2px;
   margin-left: 1px;
 }
@@ -629,15 +665,15 @@ html, body {
   flex-direction: row;
   position: relative;
   margin-top: 17px;
-  height: 521px;
+  height: 620px;
   padding-bottom: 15px;
 }
 
 .AK-container-left-button {
-  width: 21px;
-  height: 21px;
+  width: 26px;
+  height: 26px;
   align-self: center;
-  margin: auto 30px 256px 54px;
+  margin: auto 2.58% 24.35% 4.82%;
   position: relative;
 }
 
@@ -650,8 +686,8 @@ html, body {
 }
 
 .AK-left-button {
-  width: 21px;
-  height: 21px;
+  width: 26px;
+  height: 26px;
   opacity: 0.4;
 }
 
@@ -660,11 +696,11 @@ html, body {
 }
 
 .AK-container-right-button {
-  width: 21px;
-  height: 21px;
+  width: 26px;
+  height: 26px;
   align-self: center;
   position: relative;
-  margin: auto 0 256px 13px;
+  margin: auto 0 24.35% 0.2%;
 }
 
 .AK-container-right-button:hover {
@@ -676,8 +712,8 @@ html, body {
 }
 
 .AK-right-button {
-  width: 21px;
-  height: 21px;
+  width: 26px;
+  height: 26px;
   opacity: 0.4;
 }
 
@@ -688,17 +724,18 @@ html, body {
 .AK-container-month {
   display: flex;
   flex-direction: column;
-  width: 457px;
-  margin-right: 17px;
+  width: 39.7%;
+  margin-right: 2.4%;
+  margin-top: 0.27%;
 }
 
 .AK-container-header-month {
-  height: 46px;
+  height: 60px;
   width: 100%;
   display: flex;
   background-color: rgb(251, 251, 251);
   font-family: Futura-Heavy;
-  font-size: 13px;
+  font-size: 16px;
   color: rgb(76, 76, 76);
   border: 1px solid rgb(230, 230, 230);
   border-bottom: none;
@@ -718,16 +755,16 @@ html, body {
   background-color: white;
   border: 1px solid rgb(230, 230, 230);
   box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
-  padding-bottom: 14px;
+  padding-bottom: 16px;
 }
 
 .AK-header-days {
   display: flex;
   flex-direction: row;
-  height: 50px;
+  height: 60px;
   font-family: Futura-Med;
-  font-size: 12px;
-  padding: 0 14px;
+  font-size: 15px;
+  padding: 0 13px;
   justify-content: space-evenly;
   color: rgb(110, 109, 109);
 }
@@ -749,27 +786,27 @@ html, body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 0 14px;
+  padding: 0 3%;
   justify-content: space-evenly;
 }
 
 .AK-container-date {
-  width: 57px;
-  height: 58px;
+  height: 72px;
+  width: 13.5%;
   background-color: rgb(251, 251, 251);
-  margin-bottom: 3px;
+  margin-bottom: 0.78%;
   font-family: Futura-Heavy;
-  font-size: 13px;
+  font-size: 16px;
   color: rgb(76, 76, 76);
 }
 
 .AK-container-date-departure {
-  width: 57px;
-  height: 58px;
+  height: 70px;
+  width: 13.1%;
   background-color: rgb(251, 251, 251);
-  margin-bottom: 3px;
+  margin-bottom: 0.78%;
   font-family: Futura-Heavy;
-  font-size: 13px;
+  font-size: 16px;
   color: rgb(76, 76, 76);
   border: 1px solid rgb(230, 230, 230);
 }
@@ -782,21 +819,21 @@ html, body {
 }
 
 .AK-date-blank {
-  width: 57px;
-  height: 58px;
+  height: 72px;
+  width: 13.5%;
   background-color: white;
-  margin-bottom: 3px;
+  margin-bottom: 0.78%;
 }
 
 .AK-text-date {
-  margin-top: 8px;
-  margin-left: 5px;
+  margin-top: 10px;
+  margin-left: 6.5px;
   pointer-events: none;
 }
 
 .AK-date-pricing-discounted {
   font-family: opensans;
-  font-size: 10px;
+  font-size: 12px;
   color: rgb(173, 2, 36);
   margin-top: 10%;
   margin-left: 10%;
@@ -805,7 +842,7 @@ html, body {
 
 .AK-date-pricing {
   font-family: opensans;
-  font-size: 10px;
+  font-size: 12px;
   color: rgb(66, 66, 66);
   margin-top: 10%;
   margin-left: 10%;
@@ -833,10 +870,9 @@ html, body {
   display: flex;
   flex-direction: column;
   position: relative;
-  /* height: 420px; */
   border-top: 1px solid rgb(230, 230, 230);
   width: 100%;
-  padding-bottom: 63px;
+  padding-bottom: 80px;
 }
 
 .AK-container-header-summary {
@@ -845,7 +881,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 93px;
+  height: 116px;
   justify-self: flex-start;
 }
 
@@ -855,7 +891,7 @@ html, body {
   align-items: center;
   position: relative;
   height: 100%;
-  margin-right: 1%;
+  margin-right: 0.5%;
 }
 
 .AK-text1-summary {
@@ -863,7 +899,7 @@ html, body {
   height: auto;
   margin-top: 10%;
   font-family: Futura-Heavy;
-  font-size: 12px;
+  font-size: 15px;
   color: rgb(76, 76, 76)
 }
 
@@ -871,24 +907,23 @@ html, body {
   position: relative;
   height: auto;
   font-family: Futura-Next;
-  font-size: 24px;
+  font-size: 30px;
   margin-top: 2%;
   color: rgb(66, 66, 66);
 }
 
 .AK-container-content-summary {
-  width: 80.9%;
+  width: 81.7%;
   align-self: center;
-  /* height: 62.3%; */
-  /* height: 262px; */
   height: auto;
   position: relative;
   border: 1px solid rgb(230, 230, 230);
   margin-bottom: auto;
-  margin-right: 0.7%;
+  margin-right: 0.1%;
   background-color: white;
   display: flex;
   flex-direction: row;
+  margin-left: 0.4%
 }
 
 .AK-container-start-end {
@@ -904,11 +939,11 @@ html, body {
   flex-direction: column;
   justify-content: flex-end;
   font-family: Futura-Next;
-  font-size: 19px;
+  font-size: 22px;
   color: rgb(66, 66, 66);
   height: 19%;
   margin-left: 6%;
-  height: 44px;
+  height: 55px;
 }
 
 .AK-container-inner-start-end {
@@ -936,7 +971,7 @@ html, body {
 
 .AK-text1-start-end {
   font-family: Futura-Heavy;
-  font-size: 11.5px;
+  font-size: 14.5px;
   color: rgb(66, 66, 66);
   position: relative;
   margin-top: 3.8%;
@@ -944,7 +979,7 @@ html, body {
 
 .AK-text2-start-end {
   font-family: opensans;
-  font-size: 13px;
+  font-size: 16px;
   color: rgb(66, 66, 66);
   position: relative;
   margin-top: 1.2%;
@@ -954,7 +989,7 @@ html, body {
 .AK-container-payment {
   position: relative;
   width: 50%;
-  height: 359px;
+  height: 450px;
   justify-self: flex-end;
   margin-left: auto;
 }
@@ -962,27 +997,37 @@ html, body {
 .AK-large-widget-container-pricing {
   display: flex;
   flex-direction: row;
-  margin-top: 26px;
+  margin-top: 33px;
 }
 
 .AK-large-widget-pricing-text1 {
-  font-size: 13px;
+  font-size: 16.5px;
   font-family: Futura-Med;
   color: rgb(160, 160, 160);
 }
 
 .AK-large-widget-pricing-text2 {
-  font-size: 12px;
+  font-size: 15px;
   font-family: Futura-Heavy;
   color: rgb(160, 160, 160);
+  margin-bottom: 3px;
+  
 }
 
 .AK-large-widget-price {
-  margin-left: 25px;
+  margin-left: 31px;
+}
+
+.AK-large-widget-price-wrapper {
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 50%;
+  position: relative;
+  display: flex;
 }
 
 .AK-large-widget-msrp {
-  margin-left: 8.5%;
+  margin-left: 14%;
   color: rgb(160, 160, 160);
   align-self: flex-end;
   position: relative;
@@ -990,7 +1035,7 @@ html, body {
 }
 
 .AK-large-widget-savings-text {
-  font-size: 12px;
+  font-size: 15px;
   font-family: Futura-Heavy;
   margin-bottom: 3px;
 }
@@ -999,7 +1044,7 @@ html, body {
   position: relative;
   align-self: flex-end;
   margin-top: auto;
-  margin-left: 6.5%;
+  margin-left: 10%;
   color: rgb(196, 8, 47);
   display: flex;
   flex-direction: row;
@@ -1007,7 +1052,7 @@ html, body {
 }
 
 .AK-large-widget-currency1 {
-  font-size: 19px;
+  font-size: 23px;
   font-family: Futura-Next;
   color: rgb(66, 66, 66);
   margin-top: 4px;
@@ -1015,11 +1060,11 @@ html, body {
 
 .AK-large-widget-currency2 {
   font-family: Futura-Next;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .AK-large-widget-price-tag {
-  height: 24px;
+  height: 30px;
 }
 
 .AK-large-widget-container-img {
@@ -1028,13 +1073,13 @@ html, body {
 }
 
 .AK-large-widget-button1 {
-  border-radius: 20px;
-  height: 39px;
+  border-radius: 25px;
+  height: 50px;
   width: 47%;
   color: white;
   background-color: rgb(196, 8, 47);
   font-weight: bold;
-  font-size: 12px;
+  font-size: 15px;
   outline: none;
   margin-top: 4%;
   font-family: Futura-Heavy;
@@ -1046,13 +1091,13 @@ html, body {
 }
 
 .AK-large-widget-button2 {
-  border-radius: 20px;
-  height: 39px;
+  border-radius: 24px;
+  height: 48px;
   width: 43%;
   color: rgb(196, 8, 47);
   border: 1.5px solid rgb(196, 8, 47);
   font-weight: bold;
-  font-size: 12px;
+  font-size: 15px;
   outline: none;
   margin-top: 4%;
   font-family: Futura-Heavy;
@@ -1077,21 +1122,22 @@ html, body {
   display: flex;
   flex-direction: column;
   color: rgb(196, 1, 1);
-  font-size: 13px;
-  margin-bottom: 3.2%;
+  font-size: 16px;
+  margin-bottom: 4%;
   font-family: Futura-Med;
 }
 
 .AK-container-pitch-options {
   color: rgb(99, 98, 98);
-  font-size: 13px;
-  margin-bottom: 3.2%;
+  font-size: 16px;
+  margin-bottom: 4%;
   font-family: Futura-Med;
   opacity: 0.95;
 }
 
 .AK-container-pitch-notes {
-  font-size: 12px;
+  font-size: 14.5px;
+  color: rgb(76, 76, 76);
 }
 
 .AK-container-call-us {
@@ -1100,14 +1146,14 @@ html, body {
 }
 
 .AK-phone-art {
-  height: 15px;
+  height: 19px;
   margin-right: 2%;
   margin-left: 0.5%;
 }
 
 .AK-phone-number {
   font-family: Futura-Next;
-  opacity: 0.72;
+  opacity: 0.95;
 }
 
 .AK-pitch-text-notes {
@@ -1116,12 +1162,12 @@ html, body {
 
 .AK-component-container-list {
   border: 1px solid rgb(230, 230, 230);
-  height: 428px;
-  margin-top: 17px;
-  margin-bottom: 63px;
-  width: 80.8%;
+  height: 535px;
+  margin-top: 21.03px;
+  margin-bottom: 5.55%;
+  width: 81.75%;
   margin-left: auto;
-  margin-right: 9.85%;
+  margin-right: 8.9%;
   box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
   display: flex;
   flex-direction: column;
@@ -1130,7 +1176,7 @@ html, body {
 
 .AK-header-list {
   width: 100%;
-  height: 11%;
+  height: 12.8%;
   border-bottom: 1px solid rgb(230, 230, 230);
   position: relative;
   display: flex;
@@ -1144,7 +1190,7 @@ html, body {
   height: auto;
   text-align: center;
   font-family: Futura-Heavy;
-  font-size: 13px;
+  font-size: 16px;
   color: rgb(76, 76, 76);
 }
 
@@ -1152,7 +1198,7 @@ html, body {
   position: relative;
   width: 100%;
   background-color: white;
-  height: 89%;
+  height: 100%;
   overflow: auto;
   padding-top: 0.8%;
 }
@@ -1161,10 +1207,9 @@ html, body {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-left: 1.6%;
-  padding-top: 1.8%;
-  padding-right: 2.75%;
-  /* padding-right: 1.6%; */
+  padding-left: 1.75%;
+  padding-top: 1.71%;
+  padding-right: 2.7%;
 }
 
 .AK-component-container-list-entry {
@@ -1172,7 +1217,7 @@ html, body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 45px;
+  height: 56px;
   width: auto;
   border: 1px solid rgb(230, 230, 230);
   margin-bottom: 1%;
@@ -1188,14 +1233,14 @@ html, body {
 
 .AK-header-list-for-month {
   font-family: Futura-Heavy;
-  font-size: 12px;
+  font-size: 15px;
   color: rgb(76, 76, 76);
   margin-bottom: 1.1%;
 }
 
 .AK-list-checkbox {
-  height: 14px;
-  width: 14px;
+  height: 18px;
+  width: 18px;
   pointer-events: none;
 }
 
@@ -1205,7 +1250,7 @@ html, body {
 
 .AK-text-list {
   font-family: opensans;
-  font-size: 13px;
+  font-size: 16px;
   color: rgb(76, 76, 76);
   margin-left: 0.7%;
   pointer-events: none;
@@ -1214,11 +1259,348 @@ html, body {
 .AK-price-list {
   position: relative;
   font-family: Futura-Next;
-  font-size: 14px;
+  font-size: 18px;
   color: rgb(196, 1, 1);
   justify-self: flex-end;
   margin-left: auto;
   pointer-events: none;
+}
+
+.AK-opaque-bg-quote {
+  position: fixed;
+  z-index: 40;
+  background-color: black;
+  opacity: 80%;
+  height: 100%;
+  width: 100%;
+}
+
+.AK-component-container-quote {
+  position: fixed;
+  z-index: 50;
+  height: 100%;
+  width: 62.5%;
+  left: 18.75%;
+  background-color: white;
+  overflow: auto;
+}
+
+.AK-container-header-quote {
+  position: fixed;
+  width: 62.5%;
+  z-index: 80;
+  display: flex;
+  flex-direction: row;
+  height: 7.5%;
+  background-color: rgb(251, 251, 251);
+  border-bottom: 1px solid rgb(211, 211, 211);
+  align-items: center;
+  justify-content: center;
+}
+
+.AK-text-header-quote {
+  font-family: Futura-Next;
+  letter-spacing: 0.84px;
+  font-size: 22.4px;
+  color: rgb(76, 76, 76);
+  position: relative;
+  margin-left: 42.5%;
+}
+
+.AK-container-exit-quote {
+  position: relative;
+  height: 100%;
+  background-color: white;
+  justify-self: flex-end;
+  margin-left: auto;
+  margin-right: 15px;
+  width: 6.6%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid rgb(240, 240, 240);
+}
+
+.AK-container-exit-quote:hover {
+  cursor: pointer;
+}
+
+.AK-button-img-exit-quote {
+  height: 19px;
+  width: 19px;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.AK-container-scrollable-quote {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  height: auto;
+  margin-top: 6.7%;
+  /* padding-left: 0.6%; */
+}
+
+.AK-inner-container-scrollable-quote {
+  padding-left: 0.6%;
+}
+
+.AK-container-image-quote {
+  position: relative;
+  width: 92%;
+  height: 150px;
+  margin-top: 3.32%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
+
+}
+
+.AK-image-quote {
+  position: relative;
+  height: 100%;
+  margin-right: auto;
+  justify-self: flex-end;
+  width: auto;
+  align-self: center;
+}
+
+.AK-container-text-image-quote {
+  padding-top: 3.3%;
+  padding-left: 2.4%;
+  border-top: 1px solid rgb(230, 230, 230);
+  border-right: 1px solid rgb(230, 230, 230);
+  border-bottom:1px solid rgb(230, 230, 230);
+}
+
+.AK-header-image-quote {
+  font-family: Futura-Next;
+  font-size: 18px;
+  color: rgb(76, 76, 76);
+}
+
+.AK-text-image-quote {
+  font-family: opensans;
+  font-size: 14px;
+  margin-top: 2%;
+  color: rgb(66, 66, 66);
+  line-height: 26px;
+  width: 91%;
+  overflow: auto;
+}
+
+.AK-container-select-date {
+  position: relative;
+  height: 80px;
+  width: 92%;
+  margin-top: 26px;
+}
+
+.AK-header-select-date {
+  font-family: Futura-Next;
+  font-size: 17px;
+  color: rgb(76, 76, 76);
+  margin-bottom: 17px;
+}
+
+
+.AK-container-dropdown-select-date {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+}
+
+.AK-container-selector-wrapper {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  display: flex;
+}
+
+.AK-selector-dropdown-select-date {
+  width: 100%;
+  position: relative;
+  border-left: 1px solid rgb(230, 230, 230);
+  border-top: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(230, 230, 230);
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  font-family: opensans;
+  font-size: 14px;
+  letter-spacing: 0.4;
+  color: rgb(66, 66, 66);
+  padding-left: 5%;
+  padding-top: 1.7%;
+}
+
+.AK-selector-dropdown-select-date:hover {
+  cursor: pointer;
+}
+
+.AK-button-dropdown-select-date {
+  height: 100%;
+  position: relative;
+  justify-self: flex-end;
+  margin-left: auto;
+}
+
+.AK-button-dropdown-select-date:hover {
+  cursor: pointer;
+}
+
+.AK-list-dropdown-select-date {
+  position: absolute;
+  top: 50px;
+  height: 300px;
+  background-color: white;
+  overflow-y: scroll;
+  width: 93.8%;
+  z-index: 60;
+  border-left: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(230, 230, 230);
+  border-right: 1px solid rgb(230, 230, 230);
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
+}
+
+.AK-container-header-month-dropdown {
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+.AK-header-month-dropdown {
+  font-family: Futura-Heavy;
+  font-size: 16px;
+  color: rgb(99, 98, 98);
+  margin-left: 20px;
+}
+
+.AK-container-dropdown-date-entry {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 99%;
+  height: 48px;
+  padding-left: 5px;
+}
+
+.AK-container-dropdown-date-entry:hover {
+  background-color: rgb(251, 251, 251);
+  border-left: 5px solid rgb(196, 1, 1);
+  padding-left: 0px;
+}
+
+.AK-button-dropdown-date-entry {
+  position: relative;
+  align-self: center;
+  height: 18px;
+  width: 18px;
+  margin-left: 18px;
+}
+
+.AK-text-dropdown-date-entry {
+  position: relative;
+  width: auto;
+  margin-right: auto;
+  margin-left: 13px;
+  font-family: opensans;
+  font-size: 14px;
+  letter-spacing: 1;
+  align-self: center;
+}
+
+.AK-dropdown-border {
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.AK-container-quote-form {
+  position: relative;
+  border: 1px solid rgb(230, 230, 230);
+  height: 590px;
+  width: 91.8%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.AK-header-required {
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-items: flex-end;
+}
+
+.AK-text-required {
+  width: 60px;
+  background-color: rgb(242, 242, 242);
+  margin-left: auto;
+  font-family: opensans;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.AK-container-submit-form {
+  height: 71px;
+  width: 100%;
+  margin-bottom: 4px;
+  border: 1px solid rgb(230, 230, 230);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.AK-container-form-inputs {
+  display: flex;
+  flex-direction: column;
+  font-family: opensans;
+  font-size: 16px;
+  padding: 0 25px;
+}
+
+.AK-form-inputs-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.AK-form-labels.AK-shrink {
+  
+}
+
+.AK-input-form {
+  width: 347px;
+  height: 30px;
+  font-size: 16px;
+  font-family: opensans;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid rgb(1, 1, 196);
+  outline: none;
+}
+
+.AK-button-submit {
+  height: 51px;
+  margin-left: auto;
+  margin-right: 4%;
+}
+
+.AK-button-submit:hover {
+  cursor: pointer;
 }
 
 @font-face {

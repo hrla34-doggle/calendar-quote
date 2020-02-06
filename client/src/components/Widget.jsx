@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Widget = (props) => {
-  const { clickHandler, trip, stringifyPrice } = props;
+  const { clickHandler, trip, stringifyPrice, quoteClickHandler } = props;
   const { code, price, msrp, reviews, discounted } = trip;
 
   if (price) {
@@ -13,10 +13,11 @@ const Widget = (props) => {
     <div className="AK-widget-box">
       <div className="AK-trip-code">Trip code {code}</div>
       <div className="AK-container-pricing">
-        <div className="AK-price">
+        <div className={discounted ? "AK-price" : "AK-price AK-price-no-wrap"}>
           {discounted ? <div className="AK-pricing-text">FROM</div> : null}
           {discounted ? <div className="AK-currency1">{priceString}</div> : <div className="AK-currency1">{priceString} pp</div>}
         </div>
+        <div className="AK-price-wrapper">
         {discounted ?
         <div className="AK-msrp">
           <div className="AK-pricing-text">WAS</div>
@@ -34,13 +35,14 @@ const Widget = (props) => {
           </div>
         </div> : null
         }
+        </div>
       </div>
       <div className="AK-container-reviews">
         {reviews === 1 ? <span className="AK-reviews">{reviews + " review"}</span> : <span className="AK-reviews">{reviews + " reviews"}</span>}
       </div>
       <div className="AK-container-buttons">
         <button type="button" onClick={clickHandler} className="AK-button1">AVAILABLE DATES</button>
-        <button type="button" className="AK-button2">EASY QUOTE</button>
+        <button type="button" onClick={quoteClickHandler} className="AK-button2">EASY QUOTE</button>
       </div>
     </div>
   );

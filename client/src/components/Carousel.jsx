@@ -121,7 +121,7 @@ export default class Carousel extends React.Component {
         secondMonth: renderedSecondMonth,
         rightButtonHidden,
         leftButtonHidden: false,
-      }, () => console.log(this.state));
+      });
     }
   }
 

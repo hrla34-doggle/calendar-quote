@@ -55,7 +55,7 @@ export default class Legend extends React.Component {
         </div>
         <div className="AK-tooltip3">
           <img className="AK-legend-img" src="definitive_departure.png" alt="definitive_departure" />
-          <div className="AK-legend-txt">Definitive Departure</div>
+          <div className="AK-legend-txt">Definite Departure</div>
           <span className="AK-tooltiptext3">We guarantee our trips will depart (weather and other conditions dependent, of course) as soon as enough guests are booked</span>
         </div>
         <div className="AK-tooltip4">
