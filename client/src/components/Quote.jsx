@@ -2,7 +2,7 @@ import React from 'react';
 import SelectDate from './SelectDate';
 
 const Quote = (props) => {
-  const { exitQuoteHandler, trip, sortDates, formatStartDate, appendToDate } = props;
+  const { exitQuoteHandler, trip, sortDates, formatStartDate, appendToDate, shrinkLabel, shrink } = props;
   return (
     <div>
       <div onClick={exitQuoteHandler} className="AK-opaque-bg-quote"></div>
@@ -26,12 +26,41 @@ const Quote = (props) => {
           <div className="AK-container-select-date">
             <div className="AK-header-select-date">Select your preferred travel date</div>
             <SelectDate trip={trip}
-                        sortDates={sortDates}
-                        formatStartDate={formatStartDate}
-                        appendToDate={appendToDate} />
+              sortDates={sortDates}
+              formatStartDate={formatStartDate}
+              appendToDate={appendToDate} />
           </div>
           <div className="AK-container-quote-form">
-
+            <div className="AK-header-required">
+              <div className="AK-text-required">
+                <span>* Required</span>
+              </div>
+            </div>
+            <div className="AK-container-form-inputs">
+              <div className="AK-form-inputs-row">
+                <div className="AK-container-label-input">
+                  <div onClick={shrinkLabel} data-label="firstName" className={shrink === "firstName" ? "AK-form-labels AK-shrink" : "AK-form-labels"}>First name *</div>
+                  <input className="AK-input-form" type="text"></input>
+                </div>
+                <div className="AK-container-label-input">
+                  <div className="AK-form-labels">Last name *</div>
+                  <input className="AK-input-form" type="text"></input>
+                </div>
+              </div>
+              <div className="AK-form-inputs-row">
+                <div className="AK-container-label-input">
+                  <div className="AK-form-labels">Email address *</div>
+                  <input className="AK-input-form" type="email"></input>
+                </div>
+                <div className="AK-container-label-input">
+                  <div className="AK-form-labels">Phone Number</div>
+                  <input className="AK-input-form" type="tel"></input>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="AK-container-submit-form">
+            <img className="AK-button-submit" src="button_red_submit.png" alt="button_submit"></img>
           </div>
         </div>
       </div>

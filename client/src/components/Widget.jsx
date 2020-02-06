@@ -13,7 +13,7 @@ const Widget = (props) => {
     <div className="AK-widget-box">
       <div className="AK-trip-code">Trip code {code}</div>
       <div className="AK-container-pricing">
-        <div className="AK-price">
+        <div className={discounted ? "AK-price" : "AK-price AK-price-no-wrap"}>
           {discounted ? <div className="AK-pricing-text">FROM</div> : null}
           {discounted ? <div className="AK-currency1">{priceString}</div> : <div className="AK-currency1">{priceString} pp</div>}
         </div>

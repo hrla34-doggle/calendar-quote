@@ -6,6 +6,10 @@ import Widget from './Widget';
 import Calendar from './Calendar';
 import Quote from './Quote';
 
+import cx from 'classnames';
+import {CSSTransition} from 'react-transition-group';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,21 +17,10 @@ export default class App extends React.Component {
     this.state = {
       days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       months: [null, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-      // JANUARY: [],
-      // FEBRUARY: [],
-      // MARCH: [],
-      // APRIL: [],
-      // MAY: [],
-      // JUNE: [],
-      // JULY: [],
-      // AUGUST: [],
-      // SEPTEMBER: [],
-      // OCTOBER: [],
-      // NOVEMBER: [],
-      // DECEMBER: [],
       trip: {},
       calendar: false,
       quote: false,
+      shrink: null,
     };
 
     this.calendarClickHandler = this.calendarClickHandler.bind(this);
@@ -37,7 +30,7 @@ export default class App extends React.Component {
     this.exitQuoteHandler = this.exitQuoteHandler.bind(this);
     this.formatStartDate = this.formatStartDate.bind(this);
     this.appendToDate = this.appendToDate.bind(this);
-    // this.sortDates = this.sortDates.bind(this);
+    this.shrinkLabel = this.shrinkLabel.bind(this);
   }
 
   componentDidMount() {
@@ -57,35 +50,6 @@ export default class App extends React.Component {
         console.error(err);
       });
   }
-
-  // sortDates() {
-  //   const { trip } = this.state;
-  //   const { dates } = trip;
-
-  //   let sorted = [null, [], [], [], [], [], [], [], [], [], [], [], []];
-
-  //   dates.forEach((dateString) => {
-  //     let numMonth = parseInt(dateString.slice(5, 7));
-  //     let date = parseInt(dateString.slice(8, 10));
-
-  //     sorted[numMonth].push(this.formatStartDate(numMonth, date));
-  //   });
-
-  //   this.setState({
-  //     JANUARY: sorted[1],
-  //     FEBRUARY: sorted[2],
-  //     MARCH: sorted[3],
-  //     APRIL: sorted[4],
-  //     MAY: sorted[5],
-  //     JUNE: sorted[6],
-  //     JULY: sorted[7],
-  //     AUGUST: sorted[8],
-  //     SEPTEMBER: sorted[9],
-  //     OCTOBER: sorted[10],
-  //     NOVEMBER: sorted[11],
-  //     DECEMBER: sorted[12],
-  //   });
-  // }
 
   formatStartDate(monthNum, date) {
     const { days, months } = this.state;
@@ -154,16 +118,27 @@ export default class App extends React.Component {
     return priceString;
   }
 
+  shrinkLabel(event) {
+    let shrink = event.target.dataset.label;
+    this.setState({
+      shrink,
+    });
+  }
+
   renderCalendar() {
-    const { calendar, trip } = this.state;
+    const { calendar, trip, shrink } = this.state;
+
     if (calendar) {
-      return <Calendar className="AK-component-calendar-hidden" 
+      return <Calendar className={!calendar ? "AK-component-calendar" : "AK-component-calendar AK-show"}
                        stringifyPrice={this.stringifyPrice} 
                        trip={trip}
                        homeClickHandler={() => this.homeClickHandler()}
                        quoteClickHandler={() => this.quoteClickHandler()}
                        formatStartDate={this.formatStartDate}
-                       appendToDate={this.appendToDate} />;
+                       appendToDate={this.appendToDate}
+                       shrinkLabel={() => this.shrinkLabel(event)}
+                       shrink={shrink}
+             />;
     }
   }
 
@@ -173,12 +148,13 @@ export default class App extends React.Component {
       return <Quote exitQuoteHandler={() => this.exitQuoteHandler()} 
                     trip={trip}
                     formatStartDate={this.formatStartDate}
-                    appendToDate={this.appendToDate} />;
+                    appendToDate={this.appendToDate} 
+             />;
     }
   }
 
   render() {
-    const { trip } = this.state;
+    const { trip, calendar } = this.state;
     return (
       <div className="AK-page">
         {this.renderCalendar()}

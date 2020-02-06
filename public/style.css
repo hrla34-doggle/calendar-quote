@@ -1,11 +1,8 @@
 html, body {
   margin: 0;
   padding: 0;
+  transition: all 0.3s ease;
 }
-
-/* html {
-  overflow-y: scroll;
-} */
 
 .AK-page {
   width: 100%;
@@ -73,6 +70,10 @@ html, body {
 
 .AK-price {
   margin-left: 7%;
+}
+
+.AK-price-no-wrap {
+  width: 300px;
 }
 
 .AK-price-wrapper {
@@ -190,6 +191,17 @@ html, body {
 
 .AK-reviews:hover {
   cursor: pointer;
+}
+
+.AK-component-calendar {
+  visibility: hidden;
+  transition: visibility 1s;
+}
+
+.AK-component-calendar.AK-show {
+  visibility: visible;
+  /* transition: visibility 0.3s; */
+  transition: visibility 1s;
 }
 
 .AK-top-bar {
@@ -830,7 +842,7 @@ html, body {
 
 .AK-date-pricing {
   font-family: opensans;
-  font-size: 10px;
+  font-size: 12px;
   color: rgb(66, 66, 66);
   margin-top: 10%;
   margin-left: 10%;
@@ -901,16 +913,17 @@ html, body {
 }
 
 .AK-container-content-summary {
-  width: 80.9%;
+  width: 81.7%;
   align-self: center;
   height: auto;
   position: relative;
   border: 1px solid rgb(230, 230, 230);
   margin-bottom: auto;
-  margin-right: 0.7%;
+  margin-right: 0.1%;
   background-color: white;
   display: flex;
   flex-direction: row;
+  margin-left: 0.4%
 }
 
 .AK-container-start-end {
@@ -1010,12 +1023,11 @@ html, body {
   flex-direction: row;
   width: 50%;
   position: relative;
-  /* margin-right: auto; */
-  border: 1px solid red;
+  display: flex;
 }
 
 .AK-large-widget-msrp {
-  margin-left: 8%;
+  margin-left: 14%;
   color: rgb(160, 160, 160);
   align-self: flex-end;
   position: relative;
@@ -1032,7 +1044,7 @@ html, body {
   position: relative;
   align-self: flex-end;
   margin-top: auto;
-  margin-left: 5%;
+  margin-left: 10%;
   color: rgb(196, 8, 47);
   display: flex;
   flex-direction: row;
@@ -1141,7 +1153,7 @@ html, body {
 
 .AK-phone-number {
   font-family: Futura-Next;
-  opacity: 0.72;
+  opacity: 0.95;
 }
 
 .AK-pitch-text-notes {
@@ -1301,6 +1313,7 @@ html, body {
   background-color: white;
   justify-self: flex-end;
   margin-left: auto;
+  margin-right: 15px;
   width: 6.6%;
   display: flex;
   flex-direction: row;
@@ -1328,12 +1341,16 @@ html, body {
   overflow-y: auto;
   height: auto;
   margin-top: 6.7%;
-  padding-right: 0.9%;
+  /* padding-left: 0.6%; */
+}
+
+.AK-inner-container-scrollable-quote {
+  padding-left: 0.6%;
 }
 
 .AK-container-image-quote {
   position: relative;
-  width: 91%;
+  width: 92%;
   height: 150px;
   margin-top: 3.32%;
   margin-left: auto;
@@ -1341,6 +1358,7 @@ html, body {
   display: flex;
   flex-direction: row;
   box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
+
 }
 
 .AK-image-quote {
@@ -1379,7 +1397,7 @@ html, body {
 .AK-container-select-date {
   position: relative;
   height: 80px;
-  width: 91%;
+  width: 92%;
   margin-top: 26px;
 }
 
@@ -1396,7 +1414,13 @@ html, body {
   display: flex;
   flex-direction: row;
   height: 50px;
-  margin-top: 0;
+}
+
+.AK-container-selector-wrapper {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  display: flex;
 }
 
 .AK-selector-dropdown-select-date {
@@ -1435,7 +1459,7 @@ html, body {
   top: 50px;
   height: 300px;
   background-color: white;
-  overflow: scroll;
+  overflow-y: scroll;
   width: 93.8%;
   z-index: 60;
   border-left: 1px solid rgb(230, 230, 230);
@@ -1446,11 +1470,16 @@ html, body {
   box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
 }
 
+.AK-container-header-month-dropdown {
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
 .AK-header-month-dropdown {
   font-family: Futura-Heavy;
   font-size: 16px;
   color: rgb(99, 98, 98);
-  margin-bottom: 9px;
   margin-left: 20px;
 }
 
@@ -1458,16 +1487,15 @@ html, body {
   position: relative;
   display: flex;
   flex-direction: row;
-  margin-bottom: 12px;
   width: 99%;
-  height: 50px;
+  height: 48px;
+  padding-left: 5px;
 }
 
 .AK-container-dropdown-date-entry:hover {
-  background-color: grey;
-  opacity: 5%;
-  color: black;
-  
+  background-color: rgb(251, 251, 251);
+  border-left: 5px solid rgb(196, 1, 1);
+  padding-left: 0px;
 }
 
 .AK-button-dropdown-date-entry {
@@ -1475,7 +1503,7 @@ html, body {
   align-self: center;
   height: 18px;
   width: 18px;
-  margin-left: 23px;
+  margin-left: 18px;
 }
 
 .AK-text-dropdown-date-entry {
@@ -1496,9 +1524,83 @@ html, body {
 .AK-container-quote-form {
   position: relative;
   border: 1px solid rgb(230, 230, 230);
-  height: 1000px;
-  width: 90.8%;
-  margin-top: 20px;
+  height: 590px;
+  width: 91.8%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.AK-header-required {
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-items: flex-end;
+}
+
+.AK-text-required {
+  width: 60px;
+  background-color: rgb(242, 242, 242);
+  margin-left: auto;
+  font-family: opensans;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.AK-container-submit-form {
+  height: 71px;
+  width: 100%;
+  margin-bottom: 4px;
+  border: 1px solid rgb(230, 230, 230);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.AK-container-form-inputs {
+  display: flex;
+  flex-direction: column;
+  font-family: opensans;
+  font-size: 16px;
+  padding: 0 25px;
+}
+
+.AK-form-inputs-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.AK-form-labels.AK-shrink {
+  
+}
+
+.AK-input-form {
+  width: 347px;
+  height: 30px;
+  font-size: 16px;
+  font-family: opensans;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid rgb(1, 1, 196);
+  outline: none;
+}
+
+.AK-button-submit {
+  height: 51px;
+  margin-left: auto;
+  margin-right: 4%;
+}
+
+.AK-button-submit:hover {
+  cursor: pointer;
 }
 
 @font-face {

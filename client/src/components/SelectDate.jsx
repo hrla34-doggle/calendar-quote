@@ -6,6 +6,7 @@ export default class SelectDate extends React.Component {
 
     this.state = {
       list: false,
+      selected: '',
       JANUARY: [],
       FEBRUARY: [],
       MARCH: [],
@@ -69,19 +70,23 @@ export default class SelectDate extends React.Component {
     const { trip } = this.props;
 
     return (
-      <div onClick={() => this.renderList()} className="AK-container-dropdown-select-date">
-        <div className="AK-selector-dropdown-select-date">Select a date</div>
-        <img className="AK-button-dropdown-select-date" src={list ? "up-arrow.png" : "down-arrow.png"} alt="down-arrow" />
+      <div className="AK-container-dropdown-select-date">
+        <div className="AK-container-selector-wrapper" onClick={() => this.renderList()}>
+          <div className="AK-selector-dropdown-select-date">Select a date</div>
+          <img className="AK-button-dropdown-select-date" src={list ? "up-arrow.png" : "down-arrow.png"} alt="down-arrow" />
+        </div>
         {list ? <div className="AK-list-dropdown-select-date">
           <div className="AK-container-dropdown-date-entry">
             <img className="AK-button-dropdown-date-entry" src="checkbox_red_unselected.png" alt="checkbox_unselected" />
             <div className="AK-text-dropdown-date-entry">I don't know when I want to travel</div>
           </div>
           {Object.keys(this.state).map((key) => {
-            if (key !== 'list' && this.state[key].length !== 0) {
+            if (key !== 'list' && key !== 'selected' && this.state[key].length !== 0) {
               return (
                 <div className="AK-container-month-dropdown">
-                  <div className="AK-header-month-dropdown">{key} 2020 DEPARTURES</div>
+                  <div className="AK-container-header-month-dropdown">
+                    <div className="AK-header-month-dropdown">{key} 2020 DEPARTURES</div>
+                  </div>
                   {this.state[key].map((date, index) =>
                       <div className={ index !== this.state[key].length - 1 ? "AK-container-dropdown-date-entry AK-dropdown-border" : "AK-container-dropdown-date-entry"}>
                         <img className="AK-button-dropdown-date-entry" src="checkbox_red_unselected.png" alt="checkbox_unselected" />
