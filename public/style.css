@@ -18,7 +18,7 @@ html, body {
 
 
   background-color: white;
-  height: 246px;
+  /* height: 246px; */
   display: flex;
   width: 29.505%;
   flex-direction: column;
@@ -28,6 +28,7 @@ html, body {
 .AK-upper-box {
   display: flex;
   height: 78.7%;
+  padding-bottom: 4%;
 }
 
 .AK-lower-box {
@@ -39,7 +40,8 @@ html, body {
   justify-content: flex-start;
   align-items: center;
   color: rgb(76, 76, 76);
-  padding-left: 25px;
+  /* padding-left: 25px; */
+  padding: 4% 4% 4% 8%;
   border-top: 1px solid rgb(219, 218, 218);
 }
 

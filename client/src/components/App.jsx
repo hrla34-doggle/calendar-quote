@@ -42,7 +42,11 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    const { id } = this.props;
+    // const { id } = this.props;
+
+    let URL = window.location.href;
+    let array = URL.split('/');
+    let id = array[array.length - 1];
     this.getOneTrip(id);
   }
 
