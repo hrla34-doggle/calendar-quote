@@ -5,7 +5,7 @@ import ScrollPage from './ScrollPage';
 const Calendar = (props) => {
   const { trip, stringifyPrice, homeClickHandler, quoteClickHandler, formatStartDate, appendToDate } = props;
   return (
-    <div>
+    <div className="AK-container-calendar-page">
       <TopBar homeClickHandler={homeClickHandler} />
       <ScrollPage stringifyPrice={stringifyPrice} 
                   quoteClickHandler={quoteClickHandler} 

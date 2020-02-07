@@ -11,9 +11,12 @@ html, body {
 }
 
 .AK-container-main {
-  /* position: absolute;
-  top: 379px;
-  left: 966px; */
+  
+  position: absolute;
+  top: 650px;
+  left: 966px;
+
+
   background-color: white;
   height: 246px;
   display: flex;
@@ -193,15 +196,26 @@ html, body {
   cursor: pointer;
 }
 
-.AK-component-calendar {
+/* .AK-component-calendar {
   visibility: hidden;
   transition: visibility 1s;
 }
 
 .AK-component-calendar.AK-show {
   visibility: visible;
-  /* transition: visibility 0.3s; */
+  transition: visibility 0.3s;
   transition: visibility 1s;
+} */
+
+.AK-container-calendar-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 10;
+  /* overflow-y: auto; */
 }
 
 .AK-top-bar {
@@ -406,7 +420,6 @@ html, body {
   display: flex;
   flex-direction: row;
   position: relative;
-  /* width: 150px; */
   width: 12.6%;
 }
 
