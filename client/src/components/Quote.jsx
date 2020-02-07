@@ -2,7 +2,25 @@ import React from 'react';
 import SelectDate from './SelectDate';
 
 const Quote = (props) => {
-  const { exitQuoteHandler, trip, sortDates, formatStartDate, appendToDate, shrinkHandler, selected, selectPhone, clickAreaCode, areaCode, selectedCountry, selectCountry, onChangeHandler, textArea } = props;
+  const { exitQuoteHandler, 
+          trip, 
+          sortDates, 
+          formatStartDate, 
+          appendToDate, 
+          shrinkHandler, 
+          selected, 
+          selectPhone, 
+          clickAreaCode, 
+          areaCode, 
+          selectedCountry, 
+          selectCountry, 
+          onChangeHandler, 
+          textArea, 
+          isAgent, 
+          hasAgent, 
+          loyalty, 
+          subscribe,
+          toggleCheck } = props;
   return (
     <div>
       <div onClick={exitQuoteHandler} className="AK-opaque-bg-quote"></div>
@@ -94,9 +112,30 @@ const Quote = (props) => {
                        maxLength="400"></textarea>
               </div>
             </div>
+            <div className="AK-container-checked-options-quote">
+              <div className="AK-row-checked-options-quote">
+                <img onClick={toggleCheck} data-box="hasAgent" data-selected={hasAgent} className="AK-img-checked-options-quote" src={ hasAgent ? "https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_3_selected.png" : "https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_3_unselected.png"} alt="checkbox-3"></img>
+                <div className="AK-txt-checked-options-quote">Working with travel agent</div>
+                <img onClick={toggleCheck} data-box="isAgent" data-selected={isAgent} className="AK-img-checked-options-quote" src={ isAgent ? "https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_3_selected.png" : "https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_3_unselected.png"} alt="checkbox-3"></img>
+                <div className="AK-txt-checked-options-quote">A travel agent</div>
+              </div>
+              <div className="AK-row-checked-options-quote">
+                <img onClick={toggleCheck} data-box="loyalty" data-selected={loyalty} className="AK-img-checked-options-quote" src={ loyalty ? "https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_3_selected.png" : "https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_3_unselected.png"} alt="checkbox-3"></img>
+                <div className="AK-txt-checked-options-quote">I have traveled with Trafalgar before</div>
+              </div>
+              <div className="AK-row-checked-options-quote">
+                <img onClick={toggleCheck} data-box="subscribe" data-selected={subscribe} className="AK-img-checked-options-quote" src={ subscribe ? "https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_3_selected.png" : "https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_3_unselected.png"} alt="checkbox-3"></img>
+                <div className="AK-txt-checked-options-quote">Keep me updated on the latest Trafalgar news, deals and latest trips</div>
+              </div>
+            </div>
             <div className="AK-footer-quote">
               <div className="AK-text-footer-quote">
-
+                Your privacy is important to us. Your information will be used for the purpose of this request only and will not be used for any other purpose.
+                If you are a Californian resident and wish to find out more about the CCPA, please visit our CCPA Privacy Policy.
+              </div>
+              <div className="AK-container-links-footer-quote">
+                <u className="AK-link-footer-quote">Privacy Policy</u>
+                <u className="AK-link-footer-quote">Cookie Policy</u>
               </div>
             </div>
           </div>

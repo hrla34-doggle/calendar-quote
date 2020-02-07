@@ -27,7 +27,7 @@ export default class SelectDate extends React.Component {
   }
 
   sortDates() {
-    const { trip, formatStartDate, appendToDate } = this.props;
+    const { trip, formatStartDate } = this.props;
     const { dates } = trip;
     let dateClass = new Date();
     let currentMonth = dateClass.getMonth() + 1;
@@ -59,6 +59,14 @@ export default class SelectDate extends React.Component {
     });
   }
 
+  selectDate(event) {
+    let selected = event.target.dataset.date;
+    this.setState({
+      selected,
+      list: false,
+    });
+  }
+
   renderList() {
     const { list } = this.state;
 
@@ -66,18 +74,28 @@ export default class SelectDate extends React.Component {
   }
 
   render() {
-    const { list } = this.state;
-    const { trip } = this.props;
+    const { list, selected } = this.state;
 
     return (
       <div className="AK-container-dropdown-select-date">
-        <div className="AK-container-selector-wrapper" onClick={() => this.renderList()}>
-          <div className="AK-selector-dropdown-select-date">Select a date</div>
-          <img className="AK-button-dropdown-select-date" src={list ? "https://calendar-trips.s3-us-west-1.amazonaws.com/up-arrow.png" : "https://calendar-trips.s3-us-west-1.amazonaws.com/down-arrow.png"} alt="down-arrow" />
-        </div>
+        {selected.length !== 0 ?
+          <div className="AK-container-selector-wrapper" onClick={() => this.renderList()}>
+            <div className="AK-selector-dropdown-select-date">
+              <img className="AK-button-dropdown-date-entry2" src="https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_red_selected.png" alt="checkbox_unselected" />
+              <div className="AK-text-dropdown-date-entry">{selected === "I don't know when I want to travel" ? `${selected}` : `${selected} 2020`}</div>
+            </div>
+            <img className="AK-button-dropdown-select-date" src={list ? "https://calendar-trips.s3-us-west-1.amazonaws.com/up-arrow.png" : "https://calendar-trips.s3-us-west-1.amazonaws.com/down-arrow.png"} alt="down-arrow" />
+          </div> :
+          <div className="AK-container-selector-wrapper" onClick={() => this.renderList()}>
+            <div className="AK-selector-dropdown-select-date">
+              <span className="AK-placeholder-select-date">Select a date</span>
+            </div>
+            <img className="AK-button-dropdown-select-date" src={list ? "https://calendar-trips.s3-us-west-1.amazonaws.com/up-arrow.png" : "https://calendar-trips.s3-us-west-1.amazonaws.com/down-arrow.png"} alt="down-arrow" />
+          </div>
+        }
         {list ? <div className="AK-list-dropdown-select-date">
-          <div className="AK-container-dropdown-date-entry">
-            <img className="AK-button-dropdown-date-entry" src="https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_red_unselected.png" alt="checkbox_unselected" />
+          <div onClick={() => this.selectDate(event)} data-date="I don't know when I want to travel" className="AK-container-dropdown-date-entry">
+            <img className="AK-button-dropdown-date-entry" src={selected === "I don't know when I want to travel" ? "https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_red_selected.png" : "https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_red_unselected.png"} alt="checkbox_unselected" />
             <div className="AK-text-dropdown-date-entry">I don't know when I want to travel</div>
           </div>
           {Object.keys(this.state).map((key) => {
@@ -85,12 +103,12 @@ export default class SelectDate extends React.Component {
               return (
                 <div className="AK-container-month-dropdown">
                   <div className="AK-container-header-month-dropdown">
-                    <div className="AK-header-month-dropdown">{key} 2020 DEPARTURES</div>
-                  </div>
-                  {this.state[key].map((date, index) =>
-                      <div className={ index !== this.state[key].length - 1 ? "AK-container-dropdown-date-entry AK-dropdown-border" : "AK-container-dropdown-date-entry"}>
-                        <img className="AK-button-dropdown-date-entry" src="https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_red_unselected.png" alt="checkbox_unselected" />
-                        <div className="AK-text-dropdown-date-entry">{`${date} 2020`}</div>
+                  <div className="AK-header-month-dropdown">{key} 2020 DEPARTURES</div>
+                </div>
+                {this.state[key].map((date, index) =>
+                  <div onClick={() => this.selectDate(event)} data-date={date} className={ index !== this.state[key].length - 1 ? "AK-container-dropdown-date-entry AK-dropdown-border" : "AK-container-dropdown-date-entry"}>
+                    <img className="AK-button-dropdown-date-entry" src={selected === date ? "https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_red_selected.png" : "https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_red_unselected.png"} alt="checkbox_unselected" />
+                    <div className="AK-text-dropdown-date-entry">{`${date} 2020`}</div>
                   </div>)}
                 </div>
               );

@@ -1313,8 +1313,9 @@ html, body {
   background-color: white;
   justify-self: flex-end;
   margin-left: auto;
-  margin-right: 15px;
-  width: 6.6%;
+  /* margin-right: 15px; */
+  padding-right: 7px;
+  width: 7.5%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1341,7 +1342,6 @@ html, body {
   overflow-y: auto;
   height: auto;
   margin-top: 6.7%;
-  /* padding-left: 0.6%; */
 }
 
 .AK-inner-container-scrollable-quote {
@@ -1358,7 +1358,6 @@ html, body {
   display: flex;
   flex-direction: row;
   box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2), 0 6px 4px -4px rgba(0, 0, 0, 0.19);
-
 }
 
 .AK-image-quote {
@@ -1435,8 +1434,15 @@ html, body {
   font-size: 14px;
   letter-spacing: 0.4;
   color: rgb(66, 66, 66);
-  padding-left: 5%;
-  padding-top: 1.7%;
+  /* padding-left: 5%; */
+  /* padding-top: 1.7%; */
+  padding: auto 0 auto 60px;
+  display: flex;
+  align-items: center;
+}
+
+.AK-placeholder-select-date {
+  margin-left: 43px;
 }
 
 .AK-selector-dropdown-select-date:hover {
@@ -1504,6 +1510,16 @@ html, body {
   height: 18px;
   width: 18px;
   margin-left: 18px;
+  pointer-events: none;
+}
+
+.AK-button-dropdown-date-entry2 {
+  position: relative;
+  align-self: center;
+  height: 18px;
+  width: 18px;
+  margin-left: 23px;
+  pointer-events: none;
 }
 
 .AK-text-dropdown-date-entry {
@@ -1515,6 +1531,7 @@ html, body {
   font-size: 14px;
   letter-spacing: 1;
   align-self: center;
+  pointer-events: none;
 }
 
 .AK-dropdown-border {
@@ -1725,11 +1742,11 @@ html, body {
 }
 
 .AK-header-text-box {
-  margin-left: 18px;
+  margin-left: 22px;
 }
 
 .AK-textarea-text-box {
-  width: 95.5%;
+  width: 94%;
   align-self: center;
   margin: auto;
   height: 70px;
@@ -1746,13 +1763,56 @@ html, body {
 }
 
 .AK-footer-quote {
-  width: 100%;
   background-color: rgb(251, 251, 251);
   border-top: 1px solid rgb(230, 230, 230);
-  height: 133px;
+  height: 70px;
   position: relative;
   justify-content: flex-end;
   margin-top: auto;
+  font-family: opensans;
+  font-size: 12px;
+  padding: 20px 35px 40px 35px;
+  line-height: 30px;
+}
+
+.AK-container-checked-options-quote {
+  display: flex;
+  flex-direction: column;
+  font-family: opensans;
+  font-size: 16px;
+  padding: auto;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.AK-row-checked-options-quote {
+  display: flex;
+  margin-left: 46px;
+}
+
+.AK-img-checked-options-quote {
+  height: 20px;
+  margin-right: 17px;
+}
+
+.AK-img-checked-options-quote:hover {
+  cursor: pointer;
+}
+
+.AK-txt-checked-options-quote {
+  margin-right: 169px;
+}
+
+.AK-container-links-footer-quote {
+  display: flex;
+}
+
+.AK-link-footer-quote {
+  margin-right: 20px;
+}
+
+.AK-link-footer-quote:hover {
+  cursor: pointer;
 }
 
 .AK-container-submit-form {
@@ -1765,7 +1825,6 @@ html, body {
   justify-content: flex-end;
   align-items: center;
 }
-
 
 .AK-button-submit {
   height: 51px;

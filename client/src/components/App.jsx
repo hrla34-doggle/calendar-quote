@@ -20,6 +20,10 @@ export default class App extends React.Component {
       areaCode: false,
       selectedCountry: 886,
       textArea: '',
+      hasAgent: false,
+      isAgent: false,
+      loyalty: false,
+      subscribe: true,
     };
 
     this.calendarClickHandler = this.calendarClickHandler.bind(this);
@@ -34,6 +38,7 @@ export default class App extends React.Component {
     this.clickAreaCode = this.clickAreaCode.bind(this);
     this.selectCountry = this.selectCountry.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.toggleCheck = this.toggleCheck.bind(this);
   }
 
   componentDidMount() {
@@ -101,10 +106,24 @@ export default class App extends React.Component {
     });
   }
 
+  toggleCheck(event) {
+    let box = event.target.dataset.box;
+    let selected = event.target.dataset.selected;
+    if (selected === "false") {
+      selected = false;
+    } else {
+      selected = true;
+    }
+    this.setState({
+      [box]: !selected,
+    }, () => console.log(this.state));
+  }
+
   homeClickHandler() {
     this.setState({
       calendar: false,
     });
+    document.body.style.overflow = 'auto';
   }
 
   exitQuoteHandler() {
@@ -189,7 +208,7 @@ export default class App extends React.Component {
   }
 
   renderQuote() {
-    const { quote, trip, selected, areaCode, selectedCountry, textArea } = this.state;
+    const { quote, trip, selected, areaCode, selectedCountry, textArea, isAgent, hasAgent, loyalty, subscribe } = this.state;
     if (quote) {
       return <Quote exitQuoteHandler={() => this.exitQuoteHandler()} 
                     trip={trip}
@@ -204,6 +223,11 @@ export default class App extends React.Component {
                     selectCountry={() => this.selectCountry(event)}
                     onChangeHandler={() => this.onChangeHandler(event)}
                     textArea={textArea}
+                    isAgent={isAgent}
+                    hasAgent={hasAgent}
+                    loyalty={loyalty}
+                    subscribe={subscribe}
+                    toggleCheck={() => this.toggleCheck(event)}
              />;
     }
   }
