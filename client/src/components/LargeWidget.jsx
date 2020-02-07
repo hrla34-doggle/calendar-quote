@@ -21,7 +21,7 @@ const LargeWidget = (props) => {
         {discounted ?
           <div className="AK-large-widget-savings">
             <div className="AK-large-widget-container-img">
-              <img src="red-tag.png" alt="tag" className="AK-large-widget-price-tag" />
+              <img src="https://calendar-trips.s3-us-west-1.amazonaws.com/red-tag.png" alt="tag" className="AK-large-widget-price-tag" />
             </div>
             <div>
               <div className="AK-large-widget-savings-text">SAVE</div>
@@ -43,7 +43,7 @@ const LargeWidget = (props) => {
         <div className="AK-container-pitch-notes">
           <div className="AK-pitch-text-notes">Please read our <u>trip notes</u> before booking</div>
           <div className="AK-container-call-us">
-            <img className="AK-phone-art" src="phone_art.png" alt="phone_art"></img>
+            <img className="AK-phone-art" src="https://calendar-trips.s3-us-west-1.amazonaws.com/phone_art.png" alt="phone_art"></img>
             <div className="AK-pitch-text-notes">Call us on <span className="AK-phone-number">866 513 1995</span> or speak to your travel agent</div>
           </div>
           <div className="AK-pitch-text-notes">Travel to Europe often requires an overnight flight. Please arrange your flights to arrive on or before day 1.</div>

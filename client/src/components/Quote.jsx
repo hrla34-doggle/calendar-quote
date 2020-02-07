@@ -12,12 +12,12 @@ const Quote = (props) => {
             <div>Easy Quote</div>
           </div>
           <div onClick={exitQuoteHandler} className="AK-container-exit-quote">
-            <img className="AK-button-img-exit-quote" src="button-X.png" alt="button-X" />
+            <img className="AK-button-img-exit-quote" src="https://calendar-trips.s3-us-west-1.amazonaws.com/button-X.png" alt="button-X" />
           </div>
         </div>
         <div className="AK-container-scrollable-quote">
           <div className="AK-container-image-quote">
-            <img className="AK-image-quote" src="sample-img2-quote.jpg" alt="sample-image-quote" />
+            <img className="AK-image-quote" src="https://calendar-trips.s3-us-west-1.amazonaws.com/sample-img2-quote.jpg" alt="sample-image-quote" />
             <div className="AK-container-text-image-quote">
               <div className="AK-header-image-quote">{trip.title.toUpperCase()}</div>
               <div className="AK-text-image-quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
@@ -57,26 +57,31 @@ const Quote = (props) => {
                   <div id="AK-input4" className={selected === "AK-input4" ? "AK-phone-number-wrapper-row AK-input-form-selected2" : "AK-phone-number-wrapper-row"}>
                     <div className="AK-container-area-code-selector">
                       <div onClick={clickAreaCode} className="AK-area-code-dropdown-selector">
-                        <img className="AK-image-country" src={`flag${selectedCountry}.png`} alt="flag"></img>
+                        <img className="AK-image-country" src={`https://calendar-trips.s3-us-west-1.amazonaws.com/flag${selectedCountry}.png`} alt="flag"></img>
                         <div className="AK-number-country">{selectedCountry}</div>
-                        <img className="AK-button-down" src="down_button.png" alt="down_button"></img>
+                        <img className="AK-button-down" src="https://calendar-trips.s3-us-west-1.amazonaws.com/down_button.png" alt="down_button"></img>
                       </div>
                       {areaCode ?
                         <div className="AK-container-dropdown-country">
                           <div onClick={selectCountry} data-country="1" className="AK-container-option-country">
-                            <img className="AK-image-country" src="flag1.png" alt="US_flag"></img>
+                            <img className="AK-image-country" src="https://calendar-trips.s3-us-west-1.amazonaws.com/flag1.png" alt="US_flag"></img>
                             <div className="AK-number-country">1</div>
                             <div className="AK-text-country">United States</div>
                           </div>
-                          <div onClick={selectCountry} data-country="866" className="AK-container-option-country">
-                            <img className="AK-image-country" src="flag866.png" alt="Taiwan_flag"></img>
-                            <div className="AK-number-country">866</div>
+                          <div onClick={selectCountry} data-country="82" className="AK-container-option-country">
+                            <img className="AK-image-country" src="https://calendar-trips.s3-us-west-1.amazonaws.com/flag82.png" alt="Best_Korea_flag"></img>
+                            <div className="AK-number-country">82</div>
+                            <div className="AK-text-country">Korea Republic of</div>
+                          </div>
+                          <div onClick={selectCountry} data-country="886" className="AK-container-option-country">
+                            <img className="AK-image-country" src="https://calendar-trips.s3-us-west-1.amazonaws.com/flag886.png" alt="Taiwan_flag"></img>
+                            <div className="AK-number-country">886</div>
                             <div className="AK-text-country">Taiwan</div>
                           </div>
                         </div> : null
                       }
                     </div>
-                    <input data-id="AK-input4" onClick={selectPhone} onKeyPress={selectPhone} className="AK-input-form-2" type="tel"></input>
+                    <input data-id="AK-input4" onClick={selectPhone} onKeyPress={selectPhone} className="AK-input-form-2" type="number"></input>
                   </div>
                 </div>
               </div>
@@ -87,12 +92,16 @@ const Quote = (props) => {
                                     number of travelers, etc. Please provide your airport gateway if you'd like
                                     airfare included in your quote."
                        maxLength="400"></textarea>
+              </div>
+            </div>
+            <div className="AK-footer-quote">
+              <div className="AK-text-footer-quote">
 
               </div>
             </div>
           </div>
           <div className="AK-container-submit-form">
-            <img className="AK-button-submit" src="button_red_submit.png" alt="button_submit"></img>
+            <img className="AK-button-submit" src="https://calendar-trips.s3-us-west-1.amazonaws.com/button_red_submit.png" alt="button_submit"></img>
           </div>
         </div>
       </div>

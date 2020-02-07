@@ -27,7 +27,7 @@ const Widget = (props) => {
         {discounted ?
         <div className="AK-savings">
           <div className="AK-container-img">
-            <img src="red-tag.png" alt="tag" className="AK-price-tag" />
+            <img src="https://calendar-trips.s3-us-west-1.amazonaws.com/red-tag.png" alt="tag" className="AK-price-tag" />
           </div>
           <div>
             <div className="AK-savings-text">Save</div>

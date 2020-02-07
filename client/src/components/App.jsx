@@ -18,7 +18,7 @@ export default class App extends React.Component {
       quote: false,
       selected: null,
       areaCode: false,
-      selectedCountry: 866,
+      selectedCountry: 886,
       textArea: '',
     };
 

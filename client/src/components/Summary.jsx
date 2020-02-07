@@ -25,7 +25,7 @@ export default class Summary extends React.Component {
           <div className="AK-container-start-end">
             <div className="AK-header-start-end">{title}</div>
             <div className="AK-container-inner-start-end">
-              <img className="AK-icon-start-end" src="start-end-icon.png" alt="start-end-icon" />
+              <img className="AK-icon-start-end" src="https://calendar-trips.s3-us-west-1.amazonaws.com/start-end-icon.png" alt="start-end-icon" />
               <div className="AK-container-text-start-end">
                 <div className="AK-text1-start-end">START</div>
                 <div className="AK-text2-start-end">

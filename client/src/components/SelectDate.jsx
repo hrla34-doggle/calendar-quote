@@ -73,11 +73,11 @@ export default class SelectDate extends React.Component {
       <div className="AK-container-dropdown-select-date">
         <div className="AK-container-selector-wrapper" onClick={() => this.renderList()}>
           <div className="AK-selector-dropdown-select-date">Select a date</div>
-          <img className="AK-button-dropdown-select-date" src={list ? "up-arrow.png" : "down-arrow.png"} alt="down-arrow" />
+          <img className="AK-button-dropdown-select-date" src={list ? "https://calendar-trips.s3-us-west-1.amazonaws.com/up-arrow.png" : "https://calendar-trips.s3-us-west-1.amazonaws.com/down-arrow.png"} alt="down-arrow" />
         </div>
         {list ? <div className="AK-list-dropdown-select-date">
           <div className="AK-container-dropdown-date-entry">
-            <img className="AK-button-dropdown-date-entry" src="checkbox_red_unselected.png" alt="checkbox_unselected" />
+            <img className="AK-button-dropdown-date-entry" src="https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_red_unselected.png" alt="checkbox_unselected" />
             <div className="AK-text-dropdown-date-entry">I don't know when I want to travel</div>
           </div>
           {Object.keys(this.state).map((key) => {
@@ -89,7 +89,7 @@ export default class SelectDate extends React.Component {
                   </div>
                   {this.state[key].map((date, index) =>
                       <div className={ index !== this.state[key].length - 1 ? "AK-container-dropdown-date-entry AK-dropdown-border" : "AK-container-dropdown-date-entry"}>
-                        <img className="AK-button-dropdown-date-entry" src="checkbox_red_unselected.png" alt="checkbox_unselected" />
+                        <img className="AK-button-dropdown-date-entry" src="https://calendar-trips.s3-us-west-1.amazonaws.com/checkbox_red_unselected.png" alt="checkbox_unselected" />
                         <div className="AK-text-dropdown-date-entry">{`${date} 2020`}</div>
                   </div>)}
                 </div>
