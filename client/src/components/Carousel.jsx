@@ -33,6 +33,8 @@ export default class Carousel extends React.Component {
       OCTOBER: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
       NOVEMBER: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
       DECEMBER: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+      highlightedMonth1: [],
+      highlightedMonth2: [],
     };
 
     this.getDates = this.getDates.bind(this);
@@ -41,6 +43,7 @@ export default class Carousel extends React.Component {
     this.getNextMonths = this.getNextMonths.bind(this);
     this.getPreviousMonths = this.getPreviousMonths.bind(this);
     this.getDatesForMonth = this.getDatesForMonth.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   componentDidMount() {
@@ -182,6 +185,31 @@ export default class Carousel extends React.Component {
     return render.map((x) => <div className="AK-date-blank" />);
   }
 
+  clickHandler(event) {
+    console.log(event);
+    const { trip, firstMonth, secondMonth, months } = this.state;
+    const { days } = trip;
+    let date = parseInt(event.currentTarget.dataset.index) + 1;
+    let month = parseInt(event.currentTarget.dataset.nummonth) + 1;
+    let highlightedMonth1 = [];
+    let highlightedMonth2 = [];
+
+    for (let i = 0; i < days - 1; i++) {
+      if (month === firstMonth) {
+        if (date + i > this.state[months[month]].length) {
+          highlightedMonth2.push(date + i);
+        } else {
+          highlightedMonth1.push(date + i);
+        }
+      }
+    }
+
+    this.setState({
+      highlightedMonth1,
+      highlightedMonth2,
+    }, () => console.log(this.state));
+  }
+
   render() {
     const { trip, dayHeaders, firstMonth, secondMonth, months, first, leftButtonHidden, rightButtonHidden } = this.state;
     const { stringifyPrice, renderSummary } = this.props;
@@ -200,6 +228,7 @@ export default class Carousel extends React.Component {
           stringifyPrice={stringifyPrice}
           leadingBlanks={first[firstMonth]}
           renderSummary={renderSummary}
+          clickHandler={() => this.clickHandler(event)}
         />
         <Month month={months[secondMonth]}
           numMonth={secondMonth}
@@ -212,6 +241,7 @@ export default class Carousel extends React.Component {
           stringifyPrice={stringifyPrice}
           leadingBlanks={first[firstMonth]}
           renderSummary={renderSummary}
+          clickHandler={() => this.clickHandler(event)}
         />
         <RightButton hidden={rightButtonHidden} clickHandler={() => this.getNextMonths()} />
       </div>
