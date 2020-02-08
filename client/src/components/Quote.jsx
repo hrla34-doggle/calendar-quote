@@ -22,7 +22,7 @@ const Quote = (props) => {
           subscribe,
           toggleCheck } = props;
   return (
-    <div>
+    <div id="quote" className="AK-quote-invisible">
       <div onClick={exitQuoteHandler} className="AK-opaque-bg-quote"></div>
       <div className="AK-component-container-quote">
         <div className="AK-container-header-quote">

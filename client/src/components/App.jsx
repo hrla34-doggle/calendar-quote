@@ -39,6 +39,10 @@ export default class App extends React.Component {
     this.selectCountry = this.selectCountry.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.toggleCheck = this.toggleCheck.bind(this);
+    this.calendarFadeIn = this.calendarFadeIn.bind(this);
+    this.fadeInAndRenderCalendar = this.fadeInAndRenderCalendar.bind(this);
+    this.quoteFadeIn = this.quoteFadeIn.bind(this);
+    this.fadeInAndRenderQuote = this.fadeInAndRenderQuote.bind(this);
   }
 
   componentDidMount() {
@@ -204,12 +208,29 @@ export default class App extends React.Component {
     });
   }
 
+  calendarFadeIn() {
+    setTimeout(() => document.getElementById('calendar').className="AK-container-calendar-page AK-fade-in", 5);
+  }
+
+  quoteFadeIn() {
+    setTimeout(() => document.getElementById('quote').className="AK-quote-invisible AK-quote-visible", 5);
+  }
+
+  fadeInAndRenderCalendar() {
+    this.calendarClickHandler();
+    this.calendarFadeIn();
+  }
+
+  fadeInAndRenderQuote() {
+    this.quoteClickHandler();
+    this.quoteFadeIn();
+  }
+
   renderCalendar() {
     const { calendar, trip } = this.state;
 
     if (calendar) {
-      return <Calendar className={!calendar ? "AK-show" : "AK-component-calendar AK-show"}
-                       stringifyPrice={this.stringifyPrice} 
+      return <Calendar stringifyPrice={this.stringifyPrice} 
                        trip={trip}
                        homeClickHandler={() => this.homeClickHandler()}
                        quoteClickHandler={() => this.quoteClickHandler()}
@@ -252,10 +273,11 @@ export default class App extends React.Component {
         {this.renderQuote()}
         <div className="AK-container-main">
           <div className="AK-upper-box">
-            <Widget clickHandler={() => this.calendarClickHandler()} 
-                    trip={trip} 
+            <Widget trip={trip} 
                     stringifyPrice={this.stringifyPrice} 
-                    quoteClickHandler={() => this.quoteClickHandler()}
+                    // quoteClickHandler={() => this.quoteClickHandler()}
+                    fadeInAndRenderCalendar={() => this.fadeInAndRenderCalendar()}
+                    fadeInAndRenderQuote={() => this.fadeInAndRenderQuote()}
             />
           </div>
           <div className="AK-lower-box">Don't miss out - save your place today</div>
