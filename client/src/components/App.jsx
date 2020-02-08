@@ -46,15 +46,13 @@ export default class App extends React.Component {
 
     let URL = window.location.href;
     let array = URL.split('/');
-    let id = array[array.length - 1];
+    let id = array[array.length - 2];
     this.getOneTrip(id);
   }
 
   getOneTrip(id) {
     axios
-      .get(`http://localhost:3002/api/calendar/${id}`)
-      // .get(`http://localhost:3002/api/calendar/3`)
-      // .get(`/api/calendar/5`)
+      .get(`/api/calendar/${id}`)
       .then((response) => {
         this.setState({
           trip: response.data,
