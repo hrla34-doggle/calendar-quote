@@ -38,6 +38,7 @@ const Widget = (props) => {
         </div>
       </div>
       <div className="AK-container-reviews">
+        <img className="AK-stars-reviews" src="https://calendar-trips.s3-us-west-1.amazonaws.com/reviews_stars.png" alt="reviews"></img>
         {reviews === 1 ? <span className="AK-reviews">{reviews + " review"}</span> : <span className="AK-reviews">{reviews + " reviews"}</span>}
       </div>
       <div className="AK-container-buttons">

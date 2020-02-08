@@ -179,10 +179,15 @@ html, body {
 .AK-container-reviews {
   font-size: 14px;
   font-family: opensans, sans-serif;
-  margin: 3% 0px 4.2% 8%;
+  margin: 3% 0px 4.2% 7%;
   color: rgb(76, 76, 76);
   font-weight: 100;
   width: auto;
+  display: flex;
+}
+
+.AK-stars-reviews {
+  height: 20px;
 }
 
 .AK-reviews {
@@ -190,6 +195,7 @@ html, body {
   border-bottom-color: rgb(225, 13, 57);
   border-bottom-style: dotted;
   border-bottom-width: 1px;
+  margin-left: 3%;
 }
 
 .AK-reviews:hover {
