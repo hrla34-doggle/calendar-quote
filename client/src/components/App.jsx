@@ -47,7 +47,7 @@ export default class App extends React.Component {
     let URL = window.location.href;
     let array = URL.split('/');
     let id = array[array.length - 2];
-    this.getOneTrip(id);
+    this.getOneTrip(1);
   }
 
   getOneTrip(id) {

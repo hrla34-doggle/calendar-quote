@@ -4,9 +4,6 @@ export default class Month extends React.Component {
   constructor(props) {
     super(props);
 
-    const { trip } = props;
-    const { days } = trip;
-
     this.state = {
       // numDays: days,
       // highlightedMonth1: [],
@@ -44,9 +41,8 @@ export default class Month extends React.Component {
   // }
 
   render() {
-    const { trip, renderTrailingBlanks, renderLeadingBlanks, dates, days, stringifyPrice, month, dayHeaders, renderSummary, numMonth, clickHandler } = this.props;
+    const { trip, renderTrailingBlanks, renderLeadingBlanks, dates, days, stringifyPrice, month, dayHeaders, numMonth, handleSummaryandSelect, highlightedDate, highlightedDates } = this.props;
     const { price, discounted } = trip;
-    const { highlightedBottomTop, highlightedLeft, highlightedRight } = this.state;
 
     return (
       <div className="AK-container-month">
@@ -61,22 +57,32 @@ export default class Month extends React.Component {
             {renderLeadingBlanks()}
             {days().map((day, index) => {
               if (dates.indexOf(index + 1) !== -1) {
-                return (<div className={"AK-container-date-departure"} 
-                data-index={index} 
-                data-nummonth={numMonth} 
-                onClick={clickHandler} 
-                onClick={renderSummary}>
+                return (<div className={highlightedDate[0] === numMonth && highlightedDate[1] === (index + 1) ? "AK-container-date-departure AK-container-date-departure-selected" : "AK-container-date-departure"}
+                  data-index={index}
+                  data-nummonth={numMonth}
+                  onClick={handleSummaryandSelect}>
                   <div className="AK-text-date">{day}</div>
                   <div className={discounted ? "AK-date-pricing-discounted" : "AK-date-pricing"}>{stringifyPrice(price)}</div>
                 </div>
                 );
               }
+              // { highlightedDates ?
+              //   highlightedDates.forEach((date) => {
+              //     if (date[0] === month && date[1] === index + 1) {
+              //       return (
+              //         <div className="AK-container-date" key={index}>
+              //           <div className="AK-text-date">{day}</div>
+              //         </div>
+              //       );
+              //     }
+              //   }) :
+              //    (
               return (
                 <div className="AK-container-date" key={index}>
-                    <div className="AK-text-date">{day}</div>
+                  <div className="AK-text-date">{day}</div>
                 </div>
               );
-            })}
+              })}
             {renderTrailingBlanks()}
           </div>
         </div>

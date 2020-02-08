@@ -33,8 +33,8 @@ export default class Carousel extends React.Component {
       OCTOBER: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
       NOVEMBER: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
       DECEMBER: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-      highlightedMonth1: [],
-      highlightedMonth2: [],
+      highlightedDate: [null, null],
+      highlightedDates: [],
     };
 
     this.getDates = this.getDates.bind(this);
@@ -44,6 +44,7 @@ export default class Carousel extends React.Component {
     this.getPreviousMonths = this.getPreviousMonths.bind(this);
     this.getDatesForMonth = this.getDatesForMonth.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
+    this.handleSummaryandSelect = this.handleSummaryandSelect.bind(this);
   }
 
   componentDidMount() {
@@ -186,33 +187,42 @@ export default class Carousel extends React.Component {
   }
 
   clickHandler(event) {
-    console.log(event);
-    const { trip, firstMonth, secondMonth, months } = this.state;
+    const { trip, months, secondMonth } = this.state;
     const { days } = trip;
-    let date = parseInt(event.currentTarget.dataset.index) + 1;
-    let month = parseInt(event.currentTarget.dataset.nummonth) + 1;
-    let highlightedMonth1 = [];
-    let highlightedMonth2 = [];
+    let date = parseInt(event.target.dataset.index) + 1;
+    let month = parseInt(event.target.dataset.nummonth);
+    var highlightedDates = [];
 
-    for (let i = 0; i < days - 1; i++) {
-      if (month === firstMonth) {
-        if (date + i > this.state[months[month]].length) {
-          highlightedMonth2.push(date + i);
-        } else {
-          highlightedMonth1.push(date + i);
+    for (let i = 1; i < days; i++) {
+      if (date + i > this.state[months[month]].length) {
+        highlightedDates.push([month + 1, date + i - this.state[months[month]].length]);
+
+        if (month + 1 > secondMonth) {
+          var first = secondMonth;
+          var second = secondMonth + 1;
         }
+      } else {
+        highlightedDates.push([month, date + i]);
       }
     }
 
     this.setState({
-      highlightedMonth1,
-      highlightedMonth2,
-    }, () => console.log(this.state));
+      highlightedDate: [month, date],
+      highlightedDates,
+      // firstMonth: first,
+      // secondMonth: second,
+    });
+  }
+
+  handleSummaryandSelect(event) {
+    const { renderSummary } = this.props;
+    this.clickHandler(event);
+    renderSummary(event);
   }
 
   render() {
-    const { trip, dayHeaders, firstMonth, secondMonth, months, first, leftButtonHidden, rightButtonHidden } = this.state;
-    const { stringifyPrice, renderSummary } = this.props;
+    const { trip, dayHeaders, firstMonth, secondMonth, months, first, leftButtonHidden, rightButtonHidden, highlightedDate, highlightedDates } = this.state;
+    const { stringifyPrice } = this.props;
 
     return (
       <div className="AK-container-carousel">
@@ -227,8 +237,9 @@ export default class Carousel extends React.Component {
           trip={trip}
           stringifyPrice={stringifyPrice}
           leadingBlanks={first[firstMonth]}
-          renderSummary={renderSummary}
-          clickHandler={() => this.clickHandler(event)}
+          handleSummaryandSelect={() => this.handleSummaryandSelect(event)}
+          highlightedDate={highlightedDate}
+          highlightedDates={highlightedDates}
         />
         <Month month={months[secondMonth]}
           numMonth={secondMonth}
@@ -240,8 +251,9 @@ export default class Carousel extends React.Component {
           trip={trip}
           stringifyPrice={stringifyPrice}
           leadingBlanks={first[firstMonth]}
-          renderSummary={renderSummary}
-          clickHandler={() => this.clickHandler(event)}
+          handleSummaryandSelect={() => this.handleSummaryandSelect(event)}
+          highlightedDate={highlightedDate}
+          highlightedDates={highlightedDates}
         />
         <RightButton hidden={rightButtonHidden} clickHandler={() => this.getNextMonths()} />
       </div>
