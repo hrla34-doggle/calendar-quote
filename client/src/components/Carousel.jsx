@@ -211,7 +211,7 @@ export default class Carousel extends React.Component {
       highlightedDates,
       // firstMonth: first,
       // secondMonth: second,
-    });
+    }, () => console.log(this.state));
   }
 
   handleSummaryandSelect(event) {

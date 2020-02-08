@@ -5,40 +5,8 @@ export default class Month extends React.Component {
     super(props);
 
     this.state = {
-      // numDays: days,
-      // highlightedMonth1: [],
-      // highlightedMonth2: [],
     };
-
-    // this.clickHandler = this.clickHandler.bind(this);
   }
-
-  // clickHandler(event) {
-  //   const { numDays } = this.state;
-  //   let date = parseInt(event.currentTarget.dataset.index) + 1;
-  //   let month = parseInt(event.currentTarget.dataset.nummonth) + 1;
-  //   let highlightedMonth1 = [];
-  //   let highlightedMonth2 = [];
-
-  //   for (let i = 1; i < numDays; i++) {
-  //     let remainder = (counter + i) % 7;
-  //     if (remainder === 0) {
-  //       highlightedRight.push(i + idx);
-  //     } else if (remainder === 1) {
-  //       highlightedLeft.push(i + idx);
-  //     } else if (i === numDays - 1) {
-  //       highlightedRight.push(i + idx);
-  //     } else {
-  //       highlightedBottomTop.push(i + idx);
-  //     }
-  //   }
-
-  //   this.setState({
-  //     highlightedBottomTop,
-  //     highlightedLeft,
-  //     highlightedRight,
-  //   });
-  // }
 
   render() {
     const { trip, renderTrailingBlanks, renderLeadingBlanks, dates, days, stringifyPrice, month, dayHeaders, numMonth, handleSummaryandSelect, highlightedDate, highlightedDates } = this.props;
@@ -66,23 +34,17 @@ export default class Month extends React.Component {
                 </div>
                 );
               }
-              // { highlightedDates ?
-              //   highlightedDates.forEach((date) => {
-              //     if (date[0] === month && date[1] === index + 1) {
-              //       return (
-              //         <div className="AK-container-date" key={index}>
-              //           <div className="AK-text-date">{day}</div>
-              //         </div>
-              //       );
-              //     }
-              //   }) :
-              //    (
-              return (
-                <div className="AK-container-date" key={index}>
-                  <div className="AK-text-date">{day}</div>
-                </div>
+              var highlighted = false;
+              highlightedDates.forEach((date) => {
+                if (date[0] === numMonth && date[1] === index + 1) {
+                  highlighted = true;
+                }
+              });
+              return (<div className={highlighted ? "AK-container-date AK-container-date-highlighted" : "AK-container-date"} key={index}>
+                <div className="AK-text-date">{day}</div>
+              </div>
               );
-              })}
+            })}
             {renderTrailingBlanks()}
           </div>
         </div>
