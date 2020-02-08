@@ -196,22 +196,32 @@ export default class Carousel extends React.Component {
     for (let i = 1; i < days; i++) {
       if (date + i > this.state[months[month]].length) {
         highlightedDates.push([month + 1, date + i - this.state[months[month]].length]);
-
-        if (month + 1 > secondMonth) {
-          var first = secondMonth;
-          var second = secondMonth + 1;
-        }
       } else {
         highlightedDates.push([month, date + i]);
       }
     }
 
-    this.setState({
-      highlightedDate: [month, date],
-      highlightedDates,
-      // firstMonth: first,
-      // secondMonth: second,
-    }, () => console.log(this.state));
+    var goToNextMonth = false;
+    highlightedDates.forEach((date) => {
+      if (date[0] > secondMonth) {
+        goToNextMonth = true;
+      }
+    });
+    if (goToNextMonth) {
+      var first = secondMonth;
+      var second = secondMonth + 1;
+      this.setState({
+        highlightedDate: [month, date],
+        highlightedDates,
+        firstMonth: first,
+        secondMonth: second,
+      }, () => console.log(this.state));
+    } else {
+      this.setState({
+        highlightedDate: [month, date],
+        highlightedDates,
+      }, () => console.log(this.state));
+    }
   }
 
   handleSummaryandSelect(event) {
