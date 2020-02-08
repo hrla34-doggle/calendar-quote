@@ -91,44 +91,6 @@ export default class ScrollPage extends React.Component {
     }
   }
 
-  // clickHandler(event) {
-  //   const { trip, months, secondMonth } = this.state;
-  //   const { days } = trip;
-  //   let date = parseInt(event.target.dataset.index) + 1;
-  //   let month = parseInt(event.target.dataset.nummonth);
-  //   var highlightedDates = [];
-
-  //   for (let i = 1; i < days; i++) {
-  //     if (date + i > this.state[months[month]].length) {
-  //       highlightedDates.push([month + 1, date + i - this.state[months[month]].length]);
-  //     } else {
-  //       highlightedDates.push([month, date + i]);
-  //     }
-  //   }
-
-  //   var goToNextMonth = false;
-  //   highlightedDates.forEach((date) => {
-  //     if (date[0] > secondMonth) {
-  //       goToNextMonth = true;
-  //     }
-  //   });
-  //   if (goToNextMonth) {
-  //     var first = secondMonth;
-  //     var second = secondMonth + 1;
-  //     this.setState({
-  //       highlightedDate: [month, date],
-  //       highlightedDates,
-  //       firstMonth: first,
-  //       secondMonth: second,
-  //     }, () => console.log(this.state));
-  //   } else {
-  //     this.setState({
-  //       highlightedDate: [month, date],
-  //       highlightedDates,
-  //     }, () => console.log(this.state));
-  //   }
-  // }
-
   renderSummary(event) {
     let date = parseInt(event.target.dataset.index) + 1;
     let monthNum = parseInt(event.target.dataset.nummonth);
@@ -140,6 +102,8 @@ export default class ScrollPage extends React.Component {
       day,
       monthNum,
       date,
+      checkedDate: date,
+      checkedMonth: monthNum,
     }, () => {
       this.setState({
         clicked: true,
