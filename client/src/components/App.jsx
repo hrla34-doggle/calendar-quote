@@ -178,9 +178,17 @@ export default class App extends React.Component {
   }
 
   clickAreaCode() {
-    this.setState({
-      areaCode: true,
-    }, () => this.renderQuote());
+    const { areaCode } = this.state;
+
+    if(!areaCode) {
+      this.setState({
+        areaCode: true,
+      });
+    } else{
+      this.setState({
+        areaCode: false,
+      }, () => this.renderQuote());
+    }
   }
 
   selectCountry(event) {
@@ -200,7 +208,7 @@ export default class App extends React.Component {
     const { calendar, trip } = this.state;
 
     if (calendar) {
-      return <Calendar className={!calendar ? "AK-component-calendar" : "AK-component-calendar AK-show"}
+      return <Calendar className={!calendar ? "AK-show" : "AK-component-calendar AK-show"}
                        stringifyPrice={this.stringifyPrice} 
                        trip={trip}
                        homeClickHandler={() => this.homeClickHandler()}

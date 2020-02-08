@@ -15,12 +15,12 @@ export default class ScrollPage extends React.Component {
       summaryVisible: false,
       clicked: false,
       day: null,
-      monthNum: null,
-      date: null,
+      monthNum: null, // see below
+      date: null, // see below
       carousel: true,
       list: false,
-      checkedDate: null,
-      checkedMonth: null,
+      checkedDate: null, // redundant state but i don't want to change it right now
+      checkedMonth: null, // redundant state but i don't want to change it right now
     };
 
     this.renderSummary = this.renderSummary.bind(this);
