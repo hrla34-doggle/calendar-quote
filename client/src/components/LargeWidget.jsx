@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LargeWidget = (props) => {
-  const { trip, stringifyPrice, quoteClickHandler } = props;
+  const { trip, stringifyPrice, fadeInAndRenderQuote } = props;
   const { discounted, price, msrp } = trip;
 
   return (
@@ -33,7 +33,7 @@ const LargeWidget = (props) => {
       </div>
       <div className="AK-container-buttons">
         <button type="button" className="AK-large-widget-button1">BOOK NOW</button>
-        <button onClick={quoteClickHandler} type="button" className="AK-large-widget-button2">EASY QUOTE</button>
+        <button onClick={fadeInAndRenderQuote} type="button" className="AK-large-widget-button2">EASY QUOTE</button>
       </div>
       <div className="AK-container-pitch">
         <div className="AK-container-pitch-text">

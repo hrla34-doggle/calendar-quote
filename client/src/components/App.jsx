@@ -233,9 +233,9 @@ export default class App extends React.Component {
       return <Calendar stringifyPrice={this.stringifyPrice} 
                        trip={trip}
                        homeClickHandler={() => this.homeClickHandler()}
-                       quoteClickHandler={() => this.quoteClickHandler()}
                        formatStartDate={this.formatStartDate}
                        appendToDate={this.appendToDate}
+                       fadeInAndRenderQuote={this.fadeInAndRenderQuote}
              />;
     }
   }

@@ -3,15 +3,16 @@ import TopBar from './TopBar';
 import ScrollPage from './ScrollPage';
 
 const Calendar = (props) => {
-  const { trip, stringifyPrice, homeClickHandler, quoteClickHandler, formatStartDate, appendToDate } = props;
+  const { trip, stringifyPrice, homeClickHandler, formatStartDate, appendToDate, fadeInAndRenderQuote } = props;
   return (
     <div id="calendar" className="AK-container-calendar-page">
       <TopBar homeClickHandler={homeClickHandler} />
       <ScrollPage stringifyPrice={stringifyPrice} 
-                  quoteClickHandler={quoteClickHandler} 
                   trip={trip}
                   formatStartDate={formatStartDate}
-                  appendToDate={appendToDate} />
+                  appendToDate={appendToDate}
+                  fadeInAndRenderQuote={fadeInAndRenderQuote}
+                  />
     </div>
   );
 };

@@ -10,7 +10,7 @@ export default class Summary extends React.Component {
   }
 
   render() {
-    const { trip, monthNum, date, getEndingDate, formatStartDate, stringifyPrice, quoteClickHandler } = this.props;
+    const { trip, monthNum, date, getEndingDate, formatStartDate, stringifyPrice, fadeInAndRenderQuote } = this.props;
     const { title, city } = trip;
 
     return (
@@ -38,7 +38,7 @@ export default class Summary extends React.Component {
             </div>
           </div>
           <div className="AK-container-payment">
-            <LargeWidget trip={trip} stringifyPrice={stringifyPrice} quoteClickHandler={quoteClickHandler} />
+            <LargeWidget trip={trip} stringifyPrice={stringifyPrice} fadeInAndRenderQuote={fadeInAndRenderQuote}/>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Widget = (props) => {
-  const { trip, stringifyPrice, quoteClickHandler, fadeInAndRenderCalendar, fadeInAndRenderQuote } = props;
+  const { trip, stringifyPrice, fadeInAndRenderCalendar, fadeInAndRenderQuote } = props;
   const { code, price, msrp, reviews, discounted } = trip;
 
   if (price) {
