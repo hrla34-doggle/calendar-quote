@@ -7,7 +7,7 @@ html, body {
 .AK-page {
   width: 100%;
   position: absolute;
-  z-index: 20;
+  z-index: 4;
 }
 
 .AK-container-main {
