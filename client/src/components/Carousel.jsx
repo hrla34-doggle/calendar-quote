@@ -45,6 +45,10 @@ export default class Carousel extends React.Component {
     this.getDatesForMonth = this.getDatesForMonth.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
     this.handleSummaryandSelect = this.handleSummaryandSelect.bind(this);
+    this.slideLeft = this.slideLeft.bind(this);
+    this.slideLeftAndGetNextMonths = this.slideLeftAndGetNextMonths.bind(this);
+    this.slideRight = this.slideRight.bind(this);
+    this.slideRightAndGetPreviousMonths = this.slideRightAndGetPreviousMonths.bind(this);
   }
 
   componentDidMount() {
@@ -230,14 +234,63 @@ export default class Carousel extends React.Component {
     renderSummary(event);
   }
 
+  slideLeft() {
+    document.getElementById('month1').className='AK-container-month1 slide-left-out-1';
+    document.getElementById('month2').className='AK-container-month2 slide-left-out-2';
+    setTimeout(() => {
+      document.getElementById('month1').className='AK-container-month-no-transition';
+      document.getElementById('month2').className='AK-container-month-no-transition';
+    }, 500);
+    // setTimeout(() => {
+    //   document.getElementById('month1').className='slide-left-in-1 AK-container-month1-translated';
+    //   document.getElementById('month2').className='slide-left-in-2 AK-container-month2-translated';
+    // }, 501);
+    setTimeout(() => {
+      document.getElementById('month1').className='AK-container-month1';
+      document.getElementById('month2').className='AK-container-month2';
+    }, 1010);
+  }
+
+  slideRight() {
+    document.getElementById('month1').className='AK-container-month1 slide-right-out-1';
+    document.getElementById('month2').className='AK-container-month2 slide-right-out-2';
+    setTimeout(() => {
+      document.getElementById('month1').className='AK-container-month-no-transition';
+      document.getElementById('month2').className='AK-container-month-no-transition';
+    }, 500);
+    // setTimeout(() => {
+    //   document.getElementById('month1').className='slide-left-in-1 AK-container-month1-translated';
+    //   document.getElementById('month2').className='slide-left-in-2 AK-container-month2-translated';
+    // }, 501);
+    setTimeout(() => {
+      document.getElementById('month1').className='AK-container-month1';
+      document.getElementById('month2').className='AK-container-month2';
+    }, 1010);
+  }
+
+  slideLeftAndGetNextMonths() {
+    this.slideLeft();
+    setTimeout(() => {
+      this.getNextMonths();
+    }, 500);
+  }
+
+
+  slideRightAndGetPreviousMonths() {
+    this.slideRight();
+    setTimeout(() => {
+      this.getPreviousMonths();
+    }, 500);
+  }
+
   render() {
     const { trip, dayHeaders, firstMonth, secondMonth, months, first, leftButtonHidden, rightButtonHidden, highlightedDate, highlightedDates } = this.state;
     const { stringifyPrice } = this.props;
 
     return (
       <div className="AK-container-carousel">
-        <LeftButton hidden={leftButtonHidden} clickHandler={() => this.getPreviousMonths()} />
-        <Month month={months[firstMonth]}
+        <LeftButton hidden={leftButtonHidden} clickHandler={() => this.slideRightAndGetPreviousMonths()} />
+        <Month tag="month1" month={months[firstMonth]}
           numMonth={firstMonth}
           renderLeadingBlanks={() => this.returnLeadingEmptyDates(first[firstMonth])}
           renderTrailingBlanks={() => this.returnTrailingEmptyDates(first[firstMonth], this.getDates(firstMonth).length)}
@@ -251,7 +304,7 @@ export default class Carousel extends React.Component {
           highlightedDate={highlightedDate}
           highlightedDates={highlightedDates}
         />
-        <Month month={months[secondMonth]}
+        <Month tag="month2" month={months[secondMonth]}
           numMonth={secondMonth}
           renderLeadingBlanks={() => this.returnLeadingEmptyDates(first[secondMonth])}
           renderTrailingBlanks={() => this.returnTrailingEmptyDates(first[secondMonth], this.getDates(secondMonth).length)}
@@ -265,7 +318,7 @@ export default class Carousel extends React.Component {
           highlightedDate={highlightedDate}
           highlightedDates={highlightedDates}
         />
-        <RightButton hidden={rightButtonHidden} clickHandler={() => this.getNextMonths()} />
+        <RightButton hidden={rightButtonHidden} clickHandler={() => this.slideLeftAndGetNextMonths()} />
       </div>
     );
   }

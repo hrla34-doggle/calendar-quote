@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Month = (props) => {
-  const { trip, renderTrailingBlanks, renderLeadingBlanks, dates, days, stringifyPrice, month, dayHeaders, numMonth, handleSummaryandSelect, highlightedDate, highlightedDates } = props;
+  const { trip, renderTrailingBlanks, renderLeadingBlanks, dates, days, stringifyPrice, month, dayHeaders, numMonth, handleSummaryandSelect, highlightedDate, highlightedDates, tag } = props;
   const { price, discounted } = trip;
 
   return (
-    <div className="AK-container-month">
+    <div id={tag} className="AK-container-month1">
       <div className="AK-container-header-month">
         <span className="AK-text-month">{month} 2020</span>
       </div>
