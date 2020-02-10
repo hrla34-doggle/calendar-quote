@@ -43,11 +43,11 @@ export default class App extends React.Component {
     this.fadeInAndRenderCalendar = this.fadeInAndRenderCalendar.bind(this);
     this.quoteFadeIn = this.quoteFadeIn.bind(this);
     this.fadeInAndRenderQuote = this.fadeInAndRenderQuote.bind(this);
+    this.calendarFadeOut = this.calendarFadeOut.bind(this);
+    this.quoteFadeOut = this.quoteFadeOut.bind(this);
   }
 
   componentDidMount() {
-    // const { id } = this.props;
-
     let URL = window.location.href;
     let array = URL.split('/');
     let id = array[array.length - 1];
@@ -128,16 +128,22 @@ export default class App extends React.Component {
   }
 
   homeClickHandler() {
-    this.setState({
-      calendar: false,
-    });
+    this.calendarFadeOut();
+    setTimeout(() => {
+      this.setState({
+        calendar: false,
+      });
+    }, 1000);
     document.body.style.overflow = 'auto';
   }
 
   exitQuoteHandler() {
-    this.setState({
-      quote: false,
-    });
+    this.quoteFadeOut();
+    setTimeout(() => {
+      this.setState({
+        quote: false,
+      });
+    }, 1000);
     document.body.style.overflow = 'auto';
   }
 
@@ -184,11 +190,11 @@ export default class App extends React.Component {
   clickAreaCode() {
     const { areaCode } = this.state;
 
-    if(!areaCode) {
+    if (!areaCode) {
       this.setState({
         areaCode: true,
       });
-    } else{
+    } else {
       this.setState({
         areaCode: false,
       }, () => this.renderQuote());
@@ -216,6 +222,14 @@ export default class App extends React.Component {
     setTimeout(() => document.getElementById('quote').className="AK-quote-invisible AK-quote-visible", 5);
   }
 
+  calendarFadeOut() {
+    document.getElementById('calendar').className="AK-container-calendar-page AK-fade-out";
+  }
+
+  quoteFadeOut() {
+    document.getElementById('quote').className="AK-quote-invisible";
+  }
+
   fadeInAndRenderCalendar() {
     this.calendarClickHandler();
     this.calendarFadeIn();
@@ -232,10 +246,10 @@ export default class App extends React.Component {
     if (calendar) {
       return <Calendar stringifyPrice={this.stringifyPrice} 
                        trip={trip}
-                       homeClickHandler={() => this.homeClickHandler()}
                        formatStartDate={this.formatStartDate}
                        appendToDate={this.appendToDate}
                        fadeInAndRenderQuote={this.fadeInAndRenderQuote}
+                       homeClickHandler={this.homeClickHandler}
              />;
     }
   }
@@ -243,8 +257,7 @@ export default class App extends React.Component {
   renderQuote() {
     const { quote, trip, selected, areaCode, selectedCountry, textArea, isAgent, hasAgent, loyalty, subscribe } = this.state;
     if (quote) {
-      return <Quote exitQuoteHandler={() => this.exitQuoteHandler()} 
-                    trip={trip}
+      return <Quote trip={trip}
                     formatStartDate={this.formatStartDate}
                     appendToDate={this.appendToDate}
                     shrinkHandler={() => this.shrinkHandler(event)}
@@ -261,6 +274,7 @@ export default class App extends React.Component {
                     loyalty={loyalty}
                     subscribe={subscribe}
                     toggleCheck={() => this.toggleCheck(event)}
+                    exitQuoteHandler={this.exitQuoteHandler}
              />;
     }
   }

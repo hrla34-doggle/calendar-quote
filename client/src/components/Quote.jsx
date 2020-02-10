@@ -2,8 +2,7 @@ import React from 'react';
 import SelectDate from './SelectDate';
 
 const Quote = (props) => {
-  const { exitQuoteHandler, 
-          trip, 
+  const { trip, 
           sortDates, 
           formatStartDate, 
           appendToDate, 
@@ -20,7 +19,8 @@ const Quote = (props) => {
           hasAgent, 
           loyalty, 
           subscribe,
-          toggleCheck } = props;
+          toggleCheck,
+          exitQuoteHandler } = props;
   return (
     <div id="quote" className="AK-quote-invisible">
       <div onClick={exitQuoteHandler} className="AK-opaque-bg-quote"></div>
