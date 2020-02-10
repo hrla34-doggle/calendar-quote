@@ -768,32 +768,60 @@ html, body {
  -ms-transition: all .5s ease-out;
 }
 
-.AK-container-month1-translated {
+.AK-container-month1-translated-right {
   display: flex;
   flex-direction: column;
   width: 39.7%;
   margin-right: 2.4%;
   margin-top: 0.27%;
-  left: 1000px;
+  left: 2000px;
   /* transition: all 1s linear; */
   -webkit-transition: all 0.5s ease-out;
- -moz-transition: all 0.5s ease-out;
- -o-transition: all 0.5s ease-out;
- -ms-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
 }
 
-.AK-container-month2-translated {
+.AK-container-month2-translated-right {
   display: flex;
   flex-direction: column;
   width: 39.7%;
   margin-right: 2.4%;
   margin-top: 0.27%;
-  left: 500px;
+  left: 2000px;
   /* transition: all 1s linear; */
   -webkit-transition: all .5s ease-out;
- -moz-transition: all .5s ease-out;
- -o-transition: all .5s ease-out;
- -ms-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+  -ms-transition: all .5s ease-out;
+}
+
+.AK-container-month1-translated-left {
+  display: flex;
+  flex-direction: column;
+  width: 39.7%;
+  margin-right: 2.4%;
+  margin-top: 0.27%;
+  left: -2000px;
+  /* transition: all 1s linear; */
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+}
+
+.AK-container-month2-translated-left {
+  display: flex;
+  flex-direction: column;
+  width: 39.7%;
+  margin-right: 2.4%;
+  margin-top: 0.27%;
+  left: -2000px;
+  /* transition: all 1s linear; */
+  -webkit-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+  -ms-transition: all .5s ease-out;
 }
 
 .AK-container-month-no-transition {
@@ -869,10 +897,10 @@ html, body {
   animation: slide 2s forwards;
   animation-delay: 1s; */
 
-  -webkit-transform: translate(-1500px,0);
-  -moz-transform: translate(-1500px,0);
-  -o-transform: translate(-1500px,0);
-  -ms-transform: translate(-1500px,0);
+  -webkit-transform: translate(-2000px,0);
+  -moz-transform: translate(-2000px,0);
+  -o-transform: translate(-2000px,0);
+  -ms-transform: translate(-2000px,0);
 }
 
 .slide-left-in-2 {
@@ -884,10 +912,40 @@ html, body {
   animation: slide 2s forwards;
   animation-delay: 1s; */
 
-  -webkit-transform: translate(-1000px,0);
-  -moz-transform: translate(-1000px,0);
-  -o-transform: translate(-1000px,0);
-  -ms-transform: translate(-1000px,0);
+  -webkit-transform: translate(-2000px,0);
+  -moz-transform: translate(-2000px,0);
+  -o-transform: translate(-2000px,0);
+  -ms-transform: translate(-2000px,0);
+}
+
+.slide-right-in-1 {
+  position: relative;
+  /* left: 1500px; */
+  /* left: -500px; */
+  /* -webkit-animation: slide 2s forwards;
+  -webkit-animation-delay: 1s;
+  animation: slide 2s forwards;
+  animation-delay: 1s; */
+
+  -webkit-transform: translate(2000px,0);
+  -moz-transform: translate(2000px,0);
+  -o-transform: translate(2000px,0);
+  -ms-transform: translate(2000px,0);
+}
+
+.slide-right-in-2 {
+  position: relative;
+  /* left: 1000px; */
+  /* left: 500px; */
+  /* -webkit-animation: slide 2s forwards;
+  -webkit-animation-delay: 1s;
+  animation: slide 2s forwards;
+  animation-delay: 1s; */
+
+  -webkit-transform: translate(2000px,0);
+  -moz-transform: translate(2000px,0);
+  -o-transform: translate(2000px,0);
+  -ms-transform: translate(2000px,0);
 }
 
 .AK-container-header-month {

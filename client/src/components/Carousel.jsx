@@ -241,14 +241,26 @@ export default class Carousel extends React.Component {
       document.getElementById('month1').className='AK-container-month-no-transition';
       document.getElementById('month2').className='AK-container-month-no-transition';
     }, 500);
+    setTimeout(() => {
+      document.getElementById('month1').className='slide-left-in-1 AK-container-month1-translated-right';
+      document.getElementById('month2').className='slide-left-in-2 AK-container-month2-translated-right';
+    }, 500);
     // setTimeout(() => {
-    //   document.getElementById('month1').className='slide-left-in-1 AK-container-month1-translated';
-    //   document.getElementById('month2').className='slide-left-in-2 AK-container-month2-translated';
-    // }, 501);
+    //   // document.getElementById('month1').className='slide-left-in-1 AK-container-month1-translated-right';
+    //   document.getElementById('month2').className='slide-left-in-2 AK-container-month2-translated-right';
+    // }, 850);
+    setTimeout(() => {
+      document.getElementById('month1').className='AK-container-month-no-transition';
+      document.getElementById('month2').className='AK-container-month-no-transition';
+    }, 1000);
+    // setTimeout(() => {
+    //   // document.getElementById('month1').className='AK-container-month-no-transition';
+    //   document.getElementById('month2').className='AK-container-month-no-transition';
+    // }, 1610);
     setTimeout(() => {
       document.getElementById('month1').className='AK-container-month1';
       document.getElementById('month2').className='AK-container-month2';
-    }, 1010);
+    }, 1020);
   }
 
   slideRight() {
@@ -258,14 +270,18 @@ export default class Carousel extends React.Component {
       document.getElementById('month1').className='AK-container-month-no-transition';
       document.getElementById('month2').className='AK-container-month-no-transition';
     }, 500);
-    // setTimeout(() => {
-    //   document.getElementById('month1').className='slide-left-in-1 AK-container-month1-translated';
-    //   document.getElementById('month2').className='slide-left-in-2 AK-container-month2-translated';
-    // }, 501);
+    setTimeout(() => {
+      document.getElementById('month1').className='slide-right-in-1 AK-container-month1-translated-left';
+      document.getElementById('month2').className='slide-right-in-2 AK-container-month2-translated-left';
+    }, 500);
+    setTimeout(() => {
+      document.getElementById('month1').className='AK-container-month-no-transition';
+      document.getElementById('month2').className='AK-container-month-no-transition';
+    }, 1000);
     setTimeout(() => {
       document.getElementById('month1').className='AK-container-month1';
       document.getElementById('month2').className='AK-container-month2';
-    }, 1010);
+    }, 1020);
   }
 
   slideLeftAndGetNextMonths() {
