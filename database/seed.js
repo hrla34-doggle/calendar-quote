@@ -184,7 +184,7 @@ for (let i = 0; i < 100; i++) {
   obj.title = titles[i];
   obj.city = cities[i];
   obj.msrp = (Math.random() * (2500 - 1500) + 1500).toFixed(2);
-  obj.price = (obj.msrp * (Math.random() * (1.1 - 0.6) + 0.6).toFixed(1)).toFixed(2);
+  obj.price = (obj.msrp * (Math.floor((Math.random() * (1.1 - 0.6) + 0.6) * 10) / 10).toFixed(1)).toFixed(2);
   obj.discounted = obj.msrp !== obj.price;
   obj.days = days;
   obj.dates = createDates(days);
@@ -193,6 +193,7 @@ for (let i = 0; i < 100; i++) {
   trips.push(obj);
 }
 
+model.Trip.collection.drop();
 // insert trips into database
 model.Trip.create(trips)
   .then(() => {
