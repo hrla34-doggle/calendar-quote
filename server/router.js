@@ -8,7 +8,10 @@ const controllers = require('./controllers.js');
 router
   .route('/calendar/:id')
   .get(controllers.get)
-  .post(controllers.post);
+  .post(controllers.post)
+  .put(controllers.put)
+  .delete(controllers.delete);
+
 
 // original code below: post request doesn't work since creating a new quote will direct user to a different site
 // instead, created a post request in the above route
