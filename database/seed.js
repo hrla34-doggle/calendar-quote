@@ -4,6 +4,7 @@
 const mongoose = require('mongoose');
 const db = require('./');
 const model = require('./model.js');
+const faker = require('faker');
 
 const adjectives = [
   'Ancient',
@@ -162,27 +163,26 @@ const createDates = (tripLength) => {
   return dates;
 };
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 1000; i++) {
   // creates codes array
   let code = '';
   code += `${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}`;
   codes.push(code);
 
+  let city = faker.address.city();
   // creates titles array
   let title = '';
   title += `${adjectives[Math.floor(Math.random() * 14)]} ${
     nouns[Math.floor(Math.random() * 9)]} ${
-    prepositions[Math.floor(Math.random() * 2)]} ${
-    split[i][0]}`;
-  titles.push(title);
-
+    prepositions[Math.floor(Math.random() * 2)]} ${city}`;
+  // titles.push(title);
   // creates trips array
   let days = Math.floor(Math.random() * (15 - 5)) + 5;
   const obj = {};
   obj.id = i + 1;
-  obj.code = codes[i];
-  obj.title = titles[i];
-  obj.city = cities[i];
+  obj.code = code;
+  obj.title = title;
+  obj.city = city;
   obj.msrp = (Math.random() * (2500 - 1500) + 1500).toFixed(2);
   obj.price = (obj.msrp * (Math.floor((Math.random() * (1.1 - 0.6) + 0.6) * 10) / 10).toFixed(1)).toFixed(2);
   obj.discounted = obj.msrp !== obj.price;
