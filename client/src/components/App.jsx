@@ -56,7 +56,7 @@ export default class App extends React.Component {
 
   getOneTrip(id) {
     axios
-      .get(`/api/calendar/${id}`)
+      .get(`/api/calendar/100`)
       .then((response) => {
         this.setState({
           trip: response.data,
@@ -280,6 +280,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.trip);
     const { trip } = this.state;
     return (
       <div className="AK-page">
