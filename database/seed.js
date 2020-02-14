@@ -1,10 +1,8 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
-/* eslint-disable no-plusplus */
 const mongoose = require('mongoose');
 const db = require('./');
 const model = require('./model.js');
 const faker = require('faker');
+var fs = require('fs');
 
 const adjectives = [
   'Ancient',
@@ -40,114 +38,8 @@ const prepositions = [
   'in',
 ];
 
-const cities = [
-  'London, United Kingdom',
-  'Paris, France',
-  'New York, United States',
-  'Tokyo, Japan',
-  'Barcelona, Spain',
-  'Moscow, Russia',
-  'Chicago, United States',
-  'Singapore, Singapore',
-  'Dubai, United Arab Emirates',
-  'San Francisco, United States',
-  'Madrid, Spain',
-  'Amsterdam, Netherlands',
-  'Los Angeles, United States',
-  'Rome, Italy',
-  'Boston, United States',
-  'San Jose, United States',
-  'Toronto, Canada',
-  'Washington DC, United States',
-  'Zurich, Switzerland',
-  'Hong Kong, Hong Kong',
-  'Beijing, China',
-  'Berlin, Germany',
-  'Sydney, Australia',
-  'Las Vegas, United States',
-  'Frankfurt, Germany',
-  'Miami, United States',
-  'San Diego, United States',
-  'Seoul, South Korea',
-  'Prague, Czech Republic',
-  'Munich, Germany',
-  'Houston, United States',
-  'Milan, Italy',
-  'Dublin, Ireland',
-  'Seattle, United States',
-  'Dallas, United States',
-  'Istanbul, Turkey',
-  'Vancouver, Canada',
-  'Melbourne, Australia',
-  'Abu Dhabi, United Arab Emirates',
-  'Vienna, Austria',
-  'Calgary, Canada',
-  'Brussels, Belgium',
-  'Denver, United States',
-  'Doha, Qatar',
-  'Oslo, Norway',
-  'Orlando, United States',
-  'Austin, United States',
-  'Stockholm, Sweden',
-  'Montreal, Canada',
-  'Philadelphia, United States',
-  'Brisbane, Australia',
-  'Atlanta, United States',
-  'Copenhagen, Denmark',
-  'Saint Petersburg, Russia',
-  'Perth, Australia',
-  'Minneapolis, United States',
-  'Lisbon, Portugal',
-  'Venice, Italy',
-  'Portland, United States',
-  'Hamburg, Germany',
-  'Tel Aviv, Israel',
-  'Lyon, France',
-  'Florence, Italy',
-  'Stuttgart, Germany',
-  'Luxembourg, Luxembourg',
-  'Edmonton, Canada',
-  'Osaka, Japan',
-  'Auckland, New Zealand',
-  'Ottawa, Canada',
-  'Budapest, Hungary',
-  'Helsinki, Finland',
-  'Athens, Greece',
-  'Cologne, Germany',
-  'Bangkok, Thailand',
-  'Charlotte, United States',
-  'Phoenix, United States',
-  'New Orleans, United States',
-  'Baltimore, United States',
-  'Valencia, Spain',
-  'Manchester, United Kingdom',
-  'Nashville, United States',
-  'Salt Lake City, United States',
-  'Dusseldorf, Germany',
-  'Sao Paulo, Brazil',
-  'Rio de Janeiro, Brazil',
-  'Raleigh, United States',
-  'Warsaw, Poland',
-  'Marseille, France',
-  'San Antonio, United States',
-  'Birmingham, United Kingdom',
-  'Columbus, United States',
-  'Shanghai, China',
-  'St. Louis, United States',
-  'Detroit, United States',
-  'Sacramento, United States',
-  'Milwaukee, United States',
-  'Kansas City, United States',
-  'Tampa, United States',
-  'Nuremberg, Germany',
-  'Bristol, United Kingdom',
-];
-
 const codeOptions = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-const codes = [];
-const titles = [];
 const trips = [];
-const split = cities.map((city) => city.split(', '));
 
 // creates an array of departure dates with random length of days in between > length of the trip
 const createDates = (tripLength) => {
@@ -163,43 +55,57 @@ const createDates = (tripLength) => {
   return dates;
 };
 
-for (let i = 0; i < 1000; i++) {
-  // creates codes array
-  let code = '';
-  code += `${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}`;
-  codes.push(code);
+// create a stream, name the file and write the headers for the CSV file. Include the encoding ‘utf-8’.
+const writeUsers = fs.createWriteStream('users.csv');
+writeUsers.write('id,code,title,city,msrp,price,discounted,days,dates,rating,reviews\n', 'utf8');
+const start = Date.now();
 
-  let city = faker.address.city();
-  // creates titles array
-  let title = '';
-  title += `${adjectives[Math.floor(Math.random() * 14)]} ${
-    nouns[Math.floor(Math.random() * 9)]} ${
-    prepositions[Math.floor(Math.random() * 2)]} ${city}`;
-  // titles.push(title);
-  // creates trips array
-  let days = Math.floor(Math.random() * (15 - 5)) + 5;
-  const obj = {};
-  obj.id = i + 1;
-  obj.code = code;
-  obj.title = title;
-  obj.city = city;
-  obj.msrp = (Math.random() * (2500 - 1500) + 1500).toFixed(2);
-  obj.price = (obj.msrp * (Math.floor((Math.random() * (1.1 - 0.6) + 0.6) * 10) / 10).toFixed(1)).toFixed(2);
-  obj.discounted = obj.msrp !== obj.price;
-  obj.days = days;
-  obj.dates = createDates(days);
-  obj.rating = (Math.random() * (5.01 - 3.5) + 3.5).toFixed(2);
-  obj.reviews = Math.floor(Math.random() * 400);
-  trips.push(obj);
+function writeTenMillionUsers(writer, encoding, callback) {
+  let i = 10000000;
+  let id = 0;
+  function write() {
+    let ok = true;
+    do {
+      i -= 1;
+      id += 1;
+      let code = '';
+      code += `${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}`;
+      let title = '';
+      const city = faker.address.city();
+      title += `${adjectives[Math.floor(Math.random() * 14)]} ${
+        nouns[Math.floor(Math.random() * 9)]} ${
+        prepositions[Math.floor(Math.random() * 2)]} ${city}`;
+      const msrp = (Math.random() * (2500 - 1500) + 1500).toFixed(2);
+      const price = (msrp * (Math.floor((Math.random() * (1.1 - 0.6) + 0.6) * 10) / 10).toFixed(1)).toFixed(2);
+      const discounted = msrp !== price;
+      const days = Math.floor(Math.random() * (15 - 5)) + 5;
+      const datesArr = createDates(days);
+      // separate each date with '|'
+      const dates = datesArr.join('|');
+      const rating = (Math.random() * (5.01 - 3.5) + 3.5).toFixed(2);
+      const reviews = Math.floor(Math.random() * 400);
+      const data = `${id},${code},${title},${city},${msrp},${price},${discounted},${days},${dates},${rating},${reviews}\n`;
+      if (i === 0) {
+        writer.write(data, encoding, callback);
+      } else {
+      // see if we should continue, or wait
+      // don't pass the callback, because we're not done yet.
+        ok = writer.write(data, encoding);
+      }
+    } while (i > 0 && ok);
+    if (i > 0) {
+    // had to stop early!
+    // write some more once it drains
+      writer.once('drain', write);
+    }
+  }
+  write();
 }
+// Then invoke the function with a callback telling the write to end.
+writeTenMillionUsers(writeUsers, 'utf-8', () => {
+  writeUsers.end();
+  console.log('end:', (Date.now() - start) / 60000);
+});
 
-model.Trip.collection.drop();
-// insert trips into database
-model.Trip.create(trips)
-  .then(() => {
-    console.log('seeded data');
-    mongoose.connection.close();
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+/* What this does is pause the write process when the buffer is full and once the drain event if fired, 
+it continues until all the records have been written. */
