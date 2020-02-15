@@ -2,6 +2,7 @@ const model = require('../database/model.js');
 
 const controllers = {
   get: (req, res) => {
+    // to make sure to get the data within requested timeframe, type in db.trips.createIndex({ id: 1 }) in mongo shell
     const { id } = req.params;
     const keyArr = ['id', 'code', 'title', 'city', 'msrp', 'price', 'discounted', 'days', 'dates', 'rating', 'reviews'];
     model.Trip.findOne({ id })
