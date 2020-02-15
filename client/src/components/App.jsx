@@ -56,7 +56,7 @@ export default class App extends React.Component {
 
   getOneTrip(id) {
     axios
-      .get(`/api/calendar/100`)
+      .get(`/api/calendar/1`)
       .then((response) => {
         this.setState({
           trip: response.data,

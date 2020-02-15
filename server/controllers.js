@@ -3,9 +3,26 @@ const model = require('../database/model.js');
 const controllers = {
   get: (req, res) => {
     const { id } = req.params;
+    const keyArr = ['id', 'code', 'title', 'city', 'msrp', 'price', 'discounted', 'days', 'dates', 'rating', 'reviews'];
     model.Trip.findOne({ id })
       .then((trip) => {
-        res.status(200).json(trip);
+        const datesArr = trip.dates.split('|');
+        const tripCopy = {};
+        // ignore schema, we want value as an array in the 'dates' property
+        for (var key in trip) {
+          if (keyArr.includes(key)) {
+            tripCopy[key] = trip[key];
+          }
+        }
+        const cityArr = tripCopy.city.split('|').join(',');
+        const datesArrFormatted = [];
+        datesArr.forEach((date) => {
+          const event = new Date(date);
+          datesArrFormatted.push(event);
+        });
+        tripCopy.dates = datesArrFormatted;
+        tripCopy.city = cityArr;
+        res.status(200).send(tripCopy);
       })
       .catch((err) => {
         res.status(400).send(err);

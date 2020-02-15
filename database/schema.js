@@ -9,7 +9,7 @@ const tripSchema = new mongoose.Schema({
   price: Number,
   discounted: Boolean,
   days: Number,
-  dates: [Date],
+  dates: String,
   rating: Number,
   reviews: Number,
 });

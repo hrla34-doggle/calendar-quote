@@ -7,7 +7,7 @@
     "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
     "write": "node database/seed.js",
-    "seed": "mongoimport --db calendar-quote --collection trips --type csv --headerline --file database/users.csv",
+    "seed": "mongoimport --db calendar-quote --collection trips --type csv --headerline --file users.csv",
     "test": "NODE_ENV=test jest --forceExit"
   },
   "repository": {

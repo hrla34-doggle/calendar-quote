@@ -71,10 +71,10 @@ function writeTenMillionUsers(writer, encoding, callback) {
       let code = '';
       code += `${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}`;
       let title = '';
-      const city = faker.address.city();
+      const city = `${faker.address.city()}|${faker.address.country()}`;
       title += `${adjectives[Math.floor(Math.random() * 14)]} ${
         nouns[Math.floor(Math.random() * 9)]} ${
-        prepositions[Math.floor(Math.random() * 2)]} ${city}`;
+        prepositions[Math.floor(Math.random() * 2)]} ${city.split('|')[0]}`;
       const msrp = (Math.random() * (2500 - 1500) + 1500).toFixed(2);
       const price = (msrp * (Math.floor((Math.random() * (1.1 - 0.6) + 0.6) * 10) / 10).toFixed(1)).toFixed(2);
       const discounted = msrp !== price;
