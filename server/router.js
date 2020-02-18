@@ -3,14 +3,15 @@
 const router = require('express').Router();
 const model = require('../database/model.js');
 const db = require('../database/index.js');
-const controllers = require('./controllers.js');
+// const controllers = require('./controllers.js'); // for mongoDB
+const controllers = require('./controllers-pg.js'); // for PostgreSQL
 
 router
   .route('/calendar/:id')
   .get(controllers.get)
-  .post(controllers.post)
-  .put(controllers.put)
-  .delete(controllers.delete);
+  // .post(controllers.post)
+  // .put(controllers.put)
+  // .delete(controllers.delete);
 
 
 // original code below: post request doesn't work since creating a new quote will direct user to a different site

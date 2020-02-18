@@ -71,7 +71,11 @@ function writeTenMillionUsers(writer, encoding, callback) {
       let code = '';
       code += `${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}${codeOptions[Math.floor(Math.random() * 26)]}`;
       let title = '';
-      const city = `${faker.address.city()}|${faker.address.country()}`;
+      let country = faker.address.country();
+      if (country.includes(',')) {
+        country = country.split(',')[0];
+      }
+      const city = `${faker.address.city()}|${country}`;
       title += `${adjectives[Math.floor(Math.random() * 14)]} ${
         nouns[Math.floor(Math.random() * 9)]} ${
         prepositions[Math.floor(Math.random() * 2)]} ${city.split('|')[0]}`;
