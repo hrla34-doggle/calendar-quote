@@ -9,7 +9,7 @@
 
 // module.exports = client;
 
-const Sequelize = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 
 // Option 1: Passing parameters separately
 // const sequelize = new Sequelize('calendarpg', 'postgres', '', {
@@ -31,53 +31,57 @@ sequelize
     console.error('Unable to connect to the database:', err);
   });
 
-const Trips = sequelize.define('trips', {
+const Trips = sequelize.define('Trips', {
   // attributes
   id: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
     primaryKey: true
   },
   code: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   title: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   city: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   msrp: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   price: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   discounted: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   days: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   dates: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   rating: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   reviews: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   }
+  }, {
+    tableName: 'trips',
+    timestamps: false // opt out of timestamps
+
 });
 
 module.exports = Trips;

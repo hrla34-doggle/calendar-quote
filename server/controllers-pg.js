@@ -4,26 +4,17 @@ const Trips = require('../database/index-pg.js');
 const controllers = {
   get: (req, res) => {
     const { id } = req.params;
-    // client.query(`SELECT * FROM trips WHERE id='${id}';`, (err, result) => {
-    //   if (result) {
-    //     result = result.rows[0];
-    //     result.city = result.city.split('|').join(',');
-    //     result.dates = result.dates.split('|');
-    //     const datesArrFormatted = [];
-    //     result.dates.forEach((date) => {
-    //       const event = new Date(date);
-    //       datesArrFormatted.push(event);
-    //     });
-    //     result.dates = datesArrFormatted;
-    //     res.status(200).send(result);
-    //   } else {
-    //     res.status(400).send(err);
-    //   }
-    // });
-    Trips.findOne({ where: { id: '10' } })
+    Trips.findOne({ where: { id } })
       .then((trip) => {
-        console.log(trip)
-        res.status(200).json(trip);
+        trip.city = trip.city.split('|').join(', ');
+        trip.dates = trip.dates.split('|');
+        const datesArrFormatted = [];
+        trip.dates.forEach((date) => {
+          const event = new Date(date);
+          datesArrFormatted.push(event);
+        });
+        trip.dates = datesArrFormatted;
+        res.status(200).send(trip);
       })
       .catch((err) => {
         res.status(400).send(err);

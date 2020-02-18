@@ -12,7 +12,7 @@ const controllers = {
             copy[key] = trip[key];
           }
         }
-        copy.city = copy.city.split('|');
+        copy.city = copy.city.split('|').join(', ');
         copy.dates = copy.dates.split('|');
         const datesArrFormatted = [];
         copy.dates.forEach((date) => {
