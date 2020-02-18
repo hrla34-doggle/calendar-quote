@@ -9,9 +9,9 @@ const controllers = require('./controllers-pg.js'); // for PostgreSQL
 router
   .route('/calendar/:id')
   .get(controllers.get)
-  // .post(controllers.post)
-  // .put(controllers.put)
-  // .delete(controllers.delete);
+  .post(controllers.post)
+  .put(controllers.put)
+  .delete(controllers.delete);
 
 
 // original code below: post request doesn't work since creating a new quote will direct user to a different site

@@ -21,7 +21,7 @@ const controllers = {
       });
   },
   post: (req, res) => {
-    model.Trip.create(req.body)
+    Trips.create(req.body)
       .then(() => {
         res.status(201).send('posted');
       })
@@ -31,7 +31,7 @@ const controllers = {
   },
   put: (req, res) => {
     const { id } = req.params;
-    model.Trip.updateOne({ id }, req.body)
+    Trips.update(req.body, { where: { id } })
       .then(() => {
         res.status(202).send('updated');
       })
@@ -41,7 +41,7 @@ const controllers = {
   },
   delete: (req, res) => {
     const { id } = req.params;
-    model.Trip.deleteMany({ id })
+    Trips.destroy({ where: { id } })
       .then(() => {
         res.status(203).send('deleted');
       })
