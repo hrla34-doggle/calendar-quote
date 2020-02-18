@@ -3,8 +3,8 @@
 const router = require('express').Router();
 const model = require('../database/model.js');
 const db = require('../database/index.js');
-// const controllers = require('./controllers.js'); // for MongoDB
-const controllers = require('./controllers-pg.js'); // for PostgreSQL
+const controllers = require('./controllers.js'); // for MongoDB
+// const controllers = require('./controllers-pg.js'); // for PostgreSQL
 
 router
   .route('/calendar/:id')

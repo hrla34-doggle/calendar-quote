@@ -3,9 +3,24 @@ const model = require('../database/model.js');
 const controllers = {
   get: (req, res) => {
     const { id } = req.params;
+    const keys = ['id', 'code', 'title', 'city', 'msrp', 'price', 'discounted', 'days', 'dates', 'rating', 'reviews'];
     model.Trip.findOne({ id })
       .then((trip) => {
-        res.status(200).json(trip);
+        let copy = {};
+        for (var key in trip) {
+          if (keys.includes(key)) {
+            copy[key] = trip[key];
+          }
+        }
+        copy.city = copy.city.split('|');
+        copy.dates = copy.dates.split('|');
+        const datesArrFormatted = [];
+        copy.dates.forEach((date) => {
+          const event = new Date(date);
+          datesArrFormatted.push(event);
+        });
+        copy.dates = datesArrFormatted;
+        res.status(200).send(copy);
       })
       .catch((err) => {
         res.status(400).send(err);
