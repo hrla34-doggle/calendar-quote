@@ -1,27 +1,27 @@
 // const client = require('../database/index-pg.js');
-const Trips = require('../database/index-pg.js');
+const models = require('../database/models-pg.js');
 
 const controllers = {
   get: (req, res) => {
     const { id } = req.params;
-    Trips.findOne({ where: { id } })
-      .then((trip) => {
-        trip.city = trip.city.split('|').join(', ');
-        trip.dates = trip.dates.split('|');
-        const datesArrFormatted = [];
-        trip.dates.forEach((date) => {
-          const event = new Date(date);
-          datesArrFormatted.push(event);
-        });
-        trip.dates = datesArrFormatted;
-        res.status(200).send(trip);
-      })
-      .catch((err) => {
-        res.status(400).send(err);
+    models.get(id)
+    .then((trip) => {
+      trip.city = trip.city.split('|').join(', ');
+      trip.dates = trip.dates.split('|');
+      const datesArrFormatted = [];
+      trip.dates.forEach((date) => {
+        const event = new Date(date);
+        datesArrFormatted.push(event);
       });
+      trip.dates = datesArrFormatted;
+      res.status(200).send(trip);
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
   },
   post: (req, res) => {
-    Trips.create(req.body)
+    models.post(req.body)
       .then(() => {
         res.status(201).send('posted');
       })
@@ -31,7 +31,7 @@ const controllers = {
   },
   put: (req, res) => {
     const { id } = req.params;
-    Trips.update(req.body, { where: { id } })
+    models.put(req.body, { where: { id } })
       .then(() => {
         res.status(202).send('updated');
       })
@@ -41,7 +41,7 @@ const controllers = {
   },
   delete: (req, res) => {
     const { id } = req.params;
-    Trips.destroy({ where: { id } })
+    models.delete(id)
       .then(() => {
         res.status(203).send('deleted');
       })

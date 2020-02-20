@@ -1,10 +1,10 @@
-const model = require('../database/model.js');
+const models = require('../database/models.js');
 
 const controllers = {
   get: (req, res) => {
     const { id } = req.params;
     const keys = ['id', 'code', 'title', 'city', 'msrp', 'price', 'discounted', 'days', 'dates', 'rating', 'reviews'];
-    model.Trip.findOne({ id })
+    return models.get(id)
       .then((trip) => {
         let copy = {};
         for (var key in trip) {
@@ -27,7 +27,8 @@ const controllers = {
       });
   },
   post: (req, res) => {
-    model.Trip.create(req.body)
+    const newTrip = req.body;
+    models.post(newTrip)
       .then(() => {
         res.status(201).send('posted');
       })
@@ -36,8 +37,7 @@ const controllers = {
       });
   },
   put: (req, res) => {
-    const { id } = req.params;
-    model.Trip.updateOne({ id }, req.body)
+    models.put(req.params, req.body)
       .then(() => {
         res.status(202).send('updated');
       })
@@ -47,7 +47,7 @@ const controllers = {
   },
   delete: (req, res) => {
     const { id } = req.params;
-    model.Trip.deleteMany({ id })
+    models.delete(id)
       .then(() => {
         res.status(203).send('deleted');
       })

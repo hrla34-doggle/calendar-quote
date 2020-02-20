@@ -7,7 +7,7 @@
     "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
     "seed": "node database/seed.js",
-    "test": "jest --watchAll"
+    "test": "jest --detectOpenHandles"
   },
   "repository": {
     "type": "git",

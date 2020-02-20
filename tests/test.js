@@ -1,61 +1,140 @@
 /* eslint-disable no-undef */
 // const supertest = require('supertest');
-const app = require('../server/index.js');
-
+const app = require('../server');
 const request = require('supertest');
+const models = require('../database/models-pg.js');
+// const models = require('../database/models.js');
+const controllers = require('../server/controllers.js');
+
 
 // const id = '5e34acea2c7aaf680dce7675';
-test('It adds two numbers', () => {
-  expect(1 + 1).toBe(2);
-});
-
-describe('Sample Test', () => {
-  it('should test that true === true', () => {
-    expect(true).toBe(true);
-  });
-});
 
 describe('GET /', () => {
-  test('It should respond with get request', async () => {
+  test('It should respond with get request', async (done) => {
     const response = await request(app).get('/api/calendar/100');
     expect(response.statusCode).toBe(200);
-    expect(response.body.id).toBe('100');
+    expect(response.body.id).toBe(100);
+    // expect(response.body.id).toBe('100'); // testing with postgreSQL
+    done();
   });
 });
 
-// describe('Get Endpoints', () => {
-//   it('should get a trip', async () => {
-//     const res = await request(app)
-//       .get('/api/calendar/100')
-//     expect(res.statusCode).toEqual(200)
-//   })
-// })
+describe('POST /', () => {
+  test('It should respond with post request', async (done) => {
+    const trip = {
+      id: 10000001, // id: '10000001' -> testing with postgreSQL
+      code: 'ABCD',
+      title: 'Beautiful wonders in Los Angeles',
+      city: 'Los Angeles|United States',
+      msrp: 2246.35,
+      price: 1797.08,
+      discounted: true,
+      days: 12,
+      dates: '2020-01-01T08:00:00.000Z',
+      rating: 4.31,
+      reviews: 58
+    };
+    const response = await request(app).post('/api/calendar/10000001', trip);
+    expect(response.statusCode).toBe(201);
+    done();
+  });
+});
 
-// describe('Test Endpoints', () => {
-//   test('should get 1 trip from database', async (done) => {
-//     const res = await request
-//       .get(`/api/calendar/${id}`);
+describe('PUT /', () => {
+  test('It should respond with put request', async (done) => {
+    const trip = {
+      code: 'EFGH',
+      city: 'Las Vegas, United States',
+    };
+    const response = await request(app).put('/api/calendar/10000001', trip);
+    expect(response.statusCode).toBe(202);
+    done();
+  });
+});
 
-//     expect(res.statusCode).toEqual(200);
-//     done();
-//   });
+describe('DELETE /', () => {
+  test('It should respond with delete request', async (done) => {
+    const response = await request(app).delete('/api/calendar/10000001');
+    expect(response.statusCode).toBe(203);
+    done();
+  });
+});
 
-//   test('should post 1 user to database', async (done) => {
-//     const res = await request
-//       .post('/api/quote')
-//       .send({
-//         firstName: 'Andy',
-//         lastName: 'Kuo',
-//         email: 'test@gmail.com',
-//         phone: '235-587-2283',
-//         comment: 'this is a test comment',
-//         hasAgent: false,
-//         isAgent: false,
-//         loyalty: true,
-//         subscribe: true,
-//       });
+describe('QUERY FIND ONE', () => {
+  test('It should retrieve one record within 50ms', async (done) => {
+    const start = Date.now();
+    const response = await request(app).get('/api/calendar/10000000');
+    expect(response.statusCode).toBe(200);
+    console.log(`*************** got in ${Date.now() - start} ms ***************`);
+    expect(Date.now() - start).toBeLessThan(50);
+  
+    // testing with postgreSQL:
+    // models.get('9999988').then(() => console.log(`*************** got in ${Date.now() - start} ms ***************`));
+    // console.log(`*************** got in ${Date.now() - start} ms ***************`);
+    done();
+  });
+});
 
-//     expect(res.statusCode).toEqual(201);
-//     done();
-//   });
-// });
+describe('QUERY POST ONE', () => {
+  test('It should post one new record within 50ms', async (done) => {
+    const start = Date.now();
+    const trip = {
+      id: 10000001, // id: '10000001' -> testing with postgreSQL
+      code: 'ABCD',
+      title: 'Beautiful wonders in Los Angeles',
+      city: 'Los Angeles, United States',
+      msrp: 2246.35,
+      price: 1797.08,
+      discounted: true,
+      days: 12,
+      dates: '2020-01-01T08:00:00.000Z',
+      rating: 4.31,
+      reviews: 58
+    };
+    const response = await request(app).post('/api/calendar/10000001', trip);
+    expect(response.statusCode).toBe(201);
+    console.log(`*************** got in ${Date.now() - start} ms ***************`);
+    expect(Date.now() - start).toBeLessThan(50);
+    // models.post(trip).then(() => {
+    //   console.log(`*************** posted in ${Date.now() - start} ms ***************`);
+    //   expect(Date.now() - start).toBeLessThan(50);
+    // });
+    done();
+  });
+});
+
+describe('QUERY UPDATE ONE', () => {
+  test('It should post one new record within 50ms', async (done) => {
+    const start = Date.now();
+    const trip = {
+      code: 'EFGH',
+      city: 'Las Vegas, United States'
+    };
+    const response = await request(app).put('/api/calendar/10000001', trip);
+    expect(response.statusCode).toBe(202);
+    console.log(`*************** updated in ${Date.now() - start} ms ***************`);
+    expect(Date.now() - start).toBeLessThan(50);
+    // testing with postgreSQL:
+    // models.put('10000001', trip).then(() => {
+    //   console.log(`*************** updated in ${Date.now() - start} ms ***************`);
+    //   expect(Date.now() - start).toBeLessThan(50);
+    // });
+    done();
+  });
+});
+
+describe('QUERY DELETE ONE', () => {
+  test('It should delete one new record within 50ms', async (done) => {
+    const start = Date.now();
+    const response = await request(app).delete('/api/calendar/10000001');
+    expect(response.statusCode).toBe(203);
+    console.log(`*************** deleted in ${Date.now() - start} ms ***************`);
+    expect(Date.now() - start).toBeLessThan(50);
+    // testing with postgreSQL:
+    // models.delete('10000001').then(() => {
+    //   console.log(`*************** deleted in ${Date.now() - start} ms ***************`);
+    //   expect(Date.now() - start).toBeLessThan(50);
+    // });
+    done();
+  });
+});
