@@ -13,6 +13,6 @@ const models = {
   delete: (id) => {
     return Trip.deleteMany({ id });
   }
-}
+};
 
 module.exports = models;
