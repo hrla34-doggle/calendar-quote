@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Front-End-Capstone-hrla34/calendar-quote#readme",
   "dependencies": {
+    "artillery": "^1.6.0-29",
     "axios": "0.19.2",
     "body-parser": "1.19.0",
     "classnames": "^2.2.6",
@@ -33,6 +34,7 @@
     "mongodb": "^3.5.3",
     "mongoose": "5.8.9",
     "morgan": "1.9.1",
+    "newrelic": "^6.4.1",
     "nodemon": "2.0.2",
     "pg": "^7.18.1",
     "puppeteer": "^2.1.0",
