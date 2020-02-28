@@ -9,7 +9,7 @@
 
 // module.exports = client;
 
-const Sequelize = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 
 // Option 1: Passing parameters separately
 // const sequelize = new Sequelize('calendarpg', 'postgres', '', {
@@ -19,6 +19,17 @@ const Sequelize = require('sequelize');
 
 // Option 2: Passing a connection URI
 const sequelize = new Sequelize('postgres://postgres:@localhost:5432/calendarpg');
+
+// if run with EC2 instance
+// const sequelize = new Sequelize('calendarpg', 'postgres', '', {
+//   host:'ec2.......amazonaws.com',
+//   port: 5432,
+//   dialect: 'postgres',
+//   dialectOptions: {
+//     ssl: true
+//   }
+// });
+
 
 // You can use the .authenticate() function to test if the connection is OK:
 
@@ -31,53 +42,57 @@ sequelize
     console.error('Unable to connect to the database:', err);
   });
 
-const Trips = sequelize.define('trips', {
+const Trips = sequelize.define('Trips', {
   // attributes
   id: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
     primaryKey: true
   },
   code: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   title: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   city: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   msrp: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   price: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   discounted: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   days: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   dates: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   rating: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   },
   reviews: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   }
+  }, {
+    tableName: 'trips',
+    timestamps: false // opt out of timestamps
+
 });
 
 module.exports = Trips;

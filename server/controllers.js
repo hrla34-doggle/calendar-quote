@@ -1,36 +1,35 @@
-const model = require('../database/model.js');
+const models = require('../database/models.js');
 
 const controllers = {
   get: (req, res) => {
     // to make sure to get the data within requested timeframe, type in db.trips.createIndex({ id: 1 }) in mongo shell
     const { id } = req.params;
-    const keyArr = ['id', 'code', 'title', 'city', 'msrp', 'price', 'discounted', 'days', 'dates', 'rating', 'reviews'];
-    model.Trip.findOne({ id })
+    const keys = ['id', 'code', 'title', 'city', 'msrp', 'price', 'discounted', 'days', 'dates', 'rating', 'reviews'];
+    return models.get(id)
       .then((trip) => {
-        const datesArr = trip.dates.split('|');
-        const tripCopy = {};
-        // ignore schema, we want value as an array in the 'dates' property
+        let copy = {};
         for (var key in trip) {
-          if (keyArr.includes(key)) {
-            tripCopy[key] = trip[key];
+          if (keys.includes(key)) {
+            copy[key] = trip[key];
           }
         }
-        const cityArr = tripCopy.city.split('|').join(',');
+        copy.city = copy.city.split('|').join(', ');
+        copy.dates = copy.dates.split('|');
         const datesArrFormatted = [];
-        datesArr.forEach((date) => {
+        copy.dates.forEach((date) => {
           const event = new Date(date);
           datesArrFormatted.push(event);
         });
-        tripCopy.dates = datesArrFormatted;
-        tripCopy.city = cityArr;
-        res.status(200).send(tripCopy);
+        copy.dates = datesArrFormatted;
+        res.status(200).send(copy);
       })
       .catch((err) => {
         res.status(400).send(err);
       });
   },
   post: (req, res) => {
-    model.Trip.create(req.body)
+    const newTrip = req.body;
+    models.post(newTrip)
       .then(() => {
         res.status(201).send('posted');
       })
@@ -39,8 +38,7 @@ const controllers = {
       });
   },
   put: (req, res) => {
-    const { id } = req.params;
-    model.Trip.updateOne({ id }, req.body)
+    models.put(req.params, req.body)
       .then(() => {
         res.status(202).send('updated');
       })
@@ -50,7 +48,7 @@ const controllers = {
   },
   delete: (req, res) => {
     const { id } = req.params;
-    model.Trip.deleteMany({ id })
+    models.delete(id)
       .then(() => {
         res.status(203).send('deleted');
       })

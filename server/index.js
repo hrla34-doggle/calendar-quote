@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -16,10 +17,10 @@ app.use(cors());
 
 app.use('/api', router);
 
+app.use(express.static(path.join(__dirname, '../public')));
+
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, () => console.log(`listening on port ${port}`));
 }
-
-app.use(express.static(path.join(__dirname, '../public')));
 
 module.exports = app;

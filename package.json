@@ -23,10 +23,12 @@
   },
   "homepage": "https://github.com/Front-End-Capstone-hrla34/calendar-quote#readme",
   "dependencies": {
+    "artillery": "^1.6.0-29",
     "axios": "0.19.2",
     "body-parser": "1.19.0",
     "classnames": "^2.2.6",
     "cors": "2.8.5",
+    "cross-env": "^7.0.0",
     "csv-write-stream": "^2.0.0",
     "csv-writer": "^1.6.0",
     "express": "4.17.1",
@@ -35,6 +37,7 @@
     "mongodb": "^3.5.3",
     "mongoose": "5.8.9",
     "morgan": "1.9.1",
+    "newrelic": "^6.4.1",
     "nodemon": "2.0.2",
     "pg": "^7.18.1",
     "pg-hstore": "^2.3.3",
@@ -44,6 +47,7 @@
     "react-dom": "16.12.0",
     "react-transition-group": "^4.3.0",
     "sequelize": "^5.21.4",
+    "sequelize-cli": "^5.5.1",
     "supertest": "^4.0.2"
   },
   "devDependencies": {
